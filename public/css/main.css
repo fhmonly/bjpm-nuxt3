@@ -1,0 +1,80 @@
+/* ======================================================== */
+/** Style untuk komponen utama dari web                     */
+/** css variabel, body, dan #root berada di file app.vue    */
+/* ======================================================== */
+/** Nav and of canvas 
+=========================================================== */
+nav li>a.router-link-active,
+    .nav-offcanvas li>a.router-link-active{
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+nav li>a {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 6px;
+}
+
+nav li>a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--main-color);
+    transition: width 0.3s ease-in-out;
+}
+
+nav li>a.router-link-active::after {
+    width: 100%;
+}
+
+.nav-offcanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 250ms ease-in 0ms, visibility 0ms 250ms;
+    min-height: 100vh;
+    max-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
+    max-width: 100vw;
+}
+
+.nav-offcanvas.active {
+    transition: opacity 250ms ease-in 100ms, visibility 0ms 100ms;
+    opacity: 1;
+    visibility: visible;
+    z-index: 9999;
+}
+
+.nav-offcanvas ul li:first-child:after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 200px;
+    background-color: var(--main-color);
+    margin: 1rem 0;
+}
+
+.nav-offcanvas ul li:last-child::before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 200px;
+    background-color: var(--main-color);
+    margin: 1rem 0;
+}
+/* =================================================================== */
+/** Footer  */
+/* =================================================================== */
+footer >div>div>h3+* {
+    padding-left: 8px;
+}
