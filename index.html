@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. Bina Jaya Perkasa Mandiri</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="./assets/img/logo/logo-bjpm.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body class="bg-white">
+    <div id="root">
+        <div id="whatsapp-button">
+            <button id="wa-button" class="bg-main text-white py-5 px-7 rounded-full shadow-lg pulse-hover">
+                <i class="bi bi-whatsapp" style="font-size: 25px;"></i>
+            </button>
+
+            <div id="wa-menu" style="display: none;">
+
+                <button class="menu-button font-semibold text-xs"
+                    onclick="location.href='https://wa.me/6289509512660?text=Hello%20CS'">Hubungi
+                    Customer Service</button>
+                <button class="menu-button font-semibold text-xs"
+                    onclick="location.href='https://wa.me/6289509512660?text=Hello%20Owner'">Hubungi
+                    Marketing</button>
+
+
+            </div>
+        </div>
+
+        <script>
+            const waButton = document.getElementById('wa-button');
+            const waMenu = document.getElementById('wa-menu');
+
+            waButton.onclick = function () {
+                waMenu.style.display = (waMenu.style.display === 'none' || waMenu.style.display === '') ?
+                    'flex' :
+                    'none';
+            };
+        </script>
+
+        <style>
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.1);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            .pulse-hover:hover {
+                animation: pulse 0.6s infinite;
+            }
+
+            #whatsapp-button {
+                position: fixed;
+                right: 15px;
+                bottom: 25px;
+                z-index: 50;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #wa-menu {
+                display: none;
+
+                flex-direction: column;
+                margin-top: 5px;
+            }
+
+            .menu-button {
+                background-color: white;
+                border: 1px solid #438D3D;
+                color: #438D3D;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                margin: 5px 0;
+
+            }
+        </style>
+        <header class="sticky top-0 z-50 px-8 bg-body">
+            <nav class="flex items-center justify-between font-poppin">
+                <div class="logo flex">
+                    <a href="./index.html"><img src="./assets/img/logo/logo-bjpm.png" alt="Logo BJPM"
+                            class="w-[70px] aspect-square"></a>
+                    <div class="block ms-2 my-auto">
+                        <p class="text-sm text-main">PT. BINA JAYA PERKASA MANDIRI</p>
+                        <p class="text-xs text-nav-capt"> Supplier, Industries, Scaffolding, Beton Lift
+                            Steel
+                            Construction,
+                            Stone Crusher </p>
+                    </div>
+                </div>
+                <ul
+                    class="hidden sm:flex items-center grow justify-between  gap-6 text-logo flex-wrap max-h-[40px] h-[40px] overflow-hidden max-w-[50%]">
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about">Tentang</a>
+                    </li>
+                    <li>
+                        <a href="#service">Layanan</a>
+                    </li>
+                    <li>
+                        <a href="./product.html">Produk</a>
+                    </li>
+                    <li>
+                        <a href="#project">Proyek</a>
+                    </li>
+                    <li>
+                        <a href="#article">Artikel</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Kontak</a>
+                    </li>
+
+                </ul>
+                <button type="button" class="hamburger text-grey1 lg:hidden">
+                    <i class="bi bi-list text-[32px]"></i>
+                </button>
+            </nav>
+            <div class="nav-offcanvas bg-body">
+                <div class="py-6">
+                    <button type="button" class="fixed top-0 right-0 mt-2 close-btn me-4">
+                        <i class="bi bi-x text-[32px]"></i>
+                    </button>
+                    <ul class="flex flex-col items-center justify-center w-full h-full gap-2">
+                        <li class="flex flex-col items-center text-center text-main">
+                            <img src="./assets/img/logo/logo-bjpm.png" alt="" class="w-[70px] aspect-square mb-3">
+                            <p class="mobile-tagline">PT. BINA JAYA MANDIRI
+                                INDONESIA
+                            </p>
+                        </li>
+                        <li>
+                            <a href="#home">Home</a>
+                        </li>
+                        <li>
+                            <a href="#about">Tentang</a>
+                        </li>
+                        <li>
+                            <a href="#service">Layanan</a>
+                        </li>
+                        <li>
+                            <a href="./product.html">Produk</a>
+                        </li>
+                        <li>
+                            <a href="#project">Proyek</a>
+                        </li>
+                        <li>
+                            <a href="#article">Artikel</a>
+                        </li>
+                        <li>
+                            <a href="#contact">Kontak</a>
+                        </li>
+
+                        <li class="text-main">
+                            <p class="text-center">Media Sosial</p>
+                            <div class="flex gap-x-3 mt-1 social-media-wrapper text-[24px] justify-center">
+                                <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+                                <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section id="home" class="relative flex flex-col items-center h-[87vh]">
+            <swiper-container speed="500" autoplay-delay="4000" class="z-0 w-full h-full">
+                <swiper-slide>
+                    <img src="./assets/img/hero/1.jpg" alt="">
+                </swiper-slide>
+                <swiper-slide>
+                    <img src="./assets/img/hero/2.jpg" alt="">
+                </swiper-slide>
+                <swiper-slide>
+                    <img src="./assets/img/hero/3.jpg" alt="">
+                </swiper-slide>
+                <swiper-slide>
+                    <img src="./assets/img/hero/4.jpg" alt="">
+                </swiper-slide>
+                <swiper-slide>
+                    <img src="./assets/img/hero/5.jpg" alt="">
+                </swiper-slide>
+            </swiper-container>
+            <div class="absolute top-0 bottom-0 left-0 right-0 z-10 hero-caption">
+                <div class="caption-wrapper flex bg-[#438D3DB2] text-white h-full items-center justify-between p-10">
+                    <div class="caption-detail grow max-w-[728px] ">
+                        <h1 class="font-bold text-[30px]">BJPM Scaffolding</h1>
+                        <p class="text-[14px] my-3 mb-6">
+                            <i>
+                                “Supplier, Industries, Scaffolding, Beton Lift, Concrete Bucket, Belt Conveyor,
+                                Steel
+                                Construction, Asphal Sprayer,
+                                Stone Crusher “
+                            </i>
+                        </p>
+                        <a href="#contact" class="flex items-center " style="text-decoration: none;">
+                            <span class="p-3 py-1 text-black bg-white text-[10px]">Kontak</span>
+                            <span class="bg-black h-full aspect-square w-[24px] flex">
+                                <i class="bi bi-arrow-right-short text-[15px] m-auto"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="flex-col hidden gap-4 sm:flex caption-testimony">
+                        <div class="p-5 text-black bg-white branch-amount">
+                            <p class="text-[28px]">5</p>
+                            <p>Cabang</p>
+                        </div>
+                        <div class="p-5 text-black bg-white customer-amount">
+                            <p class="text-[28px]">12k</p>
+                            <p>Pelanggan</p>
+                        </div>
+                        <div class="p-5 text-black bg-white product-amount">
+                            <p class="text-[28px]">15k</p>
+                            <p>Product</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="absolute bottom-0 progress-bar w-[20%] min-w-[100px] bg-grey1 mx-auto h-[10px] mb-2 z-10 p-[2px]">
+                <div class="h-full progress bg-main"></div>
+            </div>
+        </section>
+        <section id="about" class="flex flex-col items-center justify-between py-5 px-10 my-10 md:flex-row">
+            <div class="max-w-[700px] text-[13px] pe-4 md:order-1 order-2" data-aos="fade-right">
+                <h1 class="title-about">Kepuasan pelanggan adalah
+                    tujuan kami</h1>
+                <p class="text-about font-normal">
+                    PT. Bina Jaya Perkasa Mandiri, didirikan pada 15 Juli 1993 di Jakarta, bergerak di bidang supplier
+                    scaffolding dan
+                    contractor. Kami berkomitmen memberikan layanan cepat, tepat, akurat, serta terpercaya. Dengan
+                    pengalaman luas, kami
+                    mendukung berbagai proyek seperti gedung, perumahan, perkantoran, renovasi, dan sarana pendidikan,
+                    turut berkontribusi
+                    dalam pembangunan di Indonesia.
+                </p>
+                <p class="text-about font-normal">
+                    Produk kami diproduksi oleh tenaga ahli dengan standar nasional, memastikan kualitas dan
+                    keseragaman. Mengutamakan
+                    keselamatan dan ketepatan, kami menggunakan peralatan berstandar tinggi untuk menjamin mutu setiap
+                    barang. Dengan
+                    layanan dan produk berkualitas, PT. Bina Jaya Perkasa Mandiri siap mendukung pembangunan Indonesia
+                    yang berkelanjutan.
+                </p>
+                <a href="./about.html" style="text-decoration: none;"
+                    class="p-2 text-white bg-main border-2 border-main hover:text-main hover:bg-white hover:border-2 hover:border-main">Selengkapnya</a>
+            </div>
+            <img src="./assets/img/About.png" alt="" class="max-w-[400px] w-[100%] py-4 ps-4 md:order-2 order-1 img-abt"
+                data-aos="slide-up">
+        </section>
+        <section id="service" class="flex flex-col mx-auto bg-gray2 px-10">
+            <h1 class="text-[32px] text-center text-main font-bold pt-4 px-4 pb-4" data-aos="fade-up">Layanan</h1>
+            <div class="justify-between block gap-4 mb-4 md:flex">
+                <div class="mt-5 service-card md:mt-0 " data-aos="zoom-in">
+                    <div class="h-full">
+                        <img src="./assets/img/service/Sccafolding.jpg" alt="" class="object-cover w-full h-full">
+                    </div>
+                    <div>
+                        <p class="text-[30px] mb-4 text-center leading-7">Scaffolding</p>
+                        <button class="bg-main text-[13px] p-2 border-2 border-white">Selengkapnya</button>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="zoom-in">
+                    <div class="h-full">
+                        <img src="./assets/img/service/Rent.jpg" alt="" class="object-cover w-full h-full">
+                    </div>
+                    <div>
+                        <p class="text-[30px] mb-4 text-center leading-7">Rent</p>
+                        <button class="bg-main text-[13px] p-3 border-2 border-white">Selengkapnya</button>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="zoom-in">
+                    <div class="h-full">
+                        <img src="./assets/img/service/SteelConst.jpeg" alt="" class="object-cover w-full h-full">
+                    </div>
+                    <div>
+                        <p class="text-[30px] mb-4 text-center leading-7">Steel <br> Constructor</p>
+                        <button class="bg-main text-[13px] p-2 border-2 border-white">Selengkapnya</button>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="zoom-in">
+
+                    <div class="h-full">
+                        <img src="./assets/img/service/Supplier.jpg" alt="" class="object-cover w-full h-full">
+                    </div>
+                    <div>
+                        <p class="text-[30px] mb-4 text-center leading-7">Supplier</p>
+                        <button class="bg-main text-[13px] p-2 border-2 border-white">Selengkapnya</button>
+                    </div>
+                </div>
+            </div>
+            <a href="./service.html" style="text-decoration: none;"
+                class="mx-auto text-white bg-main border-2 border-white hover:text-main hover:bg-white hover:border-2 hover:border-main p-3 text-[13px]  md:mb-0 mb-5 mt-4">
+                Selanjutnya
+            </a>
+        </section>
+        <section id="project" class="flex flex-col p-10">
+            <h1 class="text-[32px] text-center text-white font-bold p-4 mb-6">Proyek </h1>
+            <div class="justify-between block mb-4 md:flex project-card-container">
+                <div class="project-card" data-aos="zoom-in">
+                    <img src="./assets/img/project/1.jpg" alt="" class="object-cover w-full h-full">
+                </div>
+                <div class="project-card" data-aos="zoom-in">
+                    <img src="./assets/img/project/2.jpg" alt="" class="object-cover w-full h-full">
+                </div>
+                <div class="project-card" data-aos="zoom-in">
+                    <img src="./assets/img/project/3.jpg" alt="" class="object-cover w-full h-full">
+                </div>
+            </div>
+            <a href="./project.html" style="text-decoration: none;"
+                class="bg-main mx-auto text-white bg-main border-2 border-white hover:text-main hover:bg-white hover:border-2 hover:border-main p-3 mt-4 text-[13px]">Selengkapnya</a>
+        </section>
+        <section id="article" class="p-10 text-white bg-main">
+            <h1 class="text-[32px] mb-4 font-bold">Artikel</h1>
+            <div class="flex flex-wrap justify-between gap-3">
+                <div class="article-card" data-aos="zoom-in">
+                    <img src="./assets/img/Blank.jpg" alt="">
+                    <p class="flex flex-wrap bg-white">
+                        <span class="text-sm text-gray-500 mb-0">
+                            Selasa, 12 Oktober 2023
+                        </span>
+                        <span class="text-normal font-bold">Penyedia Layanan Terbaik</span>
+                        <button class="ms-auto">
+                            Baca Lebih <i class="bi bi-arrow-right"></i>
+                        </button>
+
+                    </p>
+                </div>
+                <div class="article-card" data-aos="zoom-in">
+                    <img src="./assets/img/Blank.jpg" alt="">
+                    <p class="flex flex-wrap bg-white">
+                        <span class="text-sm text-gray-500 mb-0">
+                            Selasa, 12 Oktober 2023
+                        </span>
+                        <span class="text-normal font-bold">Penyedia Layanan Terbaik</span>
+                        <button class="ms-auto">
+                            Baca Lebih <i class="bi bi-arrow-right"></i>
+                        </button>
+
+                    </p>
+                </div>
+                <div class="article-card" data-aos="zoom-in">
+                    <img src="./assets/img/Blank.jpg" alt="">
+                    <p class="flex flex-wrap bg-white">
+                        <span class="text-sm text-gray-500 mb-0">
+                            Selasa, 12 Oktober 2023
+                        </span>
+                        <span class="text-normal font-bold">Penyedia Layanan Terbaik</span>
+                        <button class="ms-auto">
+                            Baca Lebih <i class="bi bi-arrow-right "></i>
+                        </button>
+
+                    </p>
+                </div>
+                <div class="article-card" data-aos="zoom-in">
+                    <img src="./assets/img/Blank.jpg" alt="">
+                    <p class="flex flex-wrap bg-white">
+                        <span class="text-sm text-gray-500 mb-0">
+                            Selasa, 12 Oktober 2023
+                        </span>
+                        <span class="text-normal font-bold">Penyedia Layanan Terbaik</span>
+                        <button class="ms-auto">
+                            Baca Lebih <i class="bi bi-arrow-right"></i>
+                        </button>
+
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="video" class="flex p-10">
+            <div class="aspect-[1.59/1] md:w-[100%] w-full md:max-w-[1200px] md:max-h-[450px] relative m-auto"
+                data-aos="zoom-in">
+                <iframe id="demo-video" class="w-full h-full opacity-0"
+                    src="https://www.youtube.com/embed/co9VMK17oSs?enablejsapi=1&si=IkSLYARZ3IC_2RlJ"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="absolute top-0 bottom-0 left-0 right-0 thumbnail" target="#demo-video">
+                    <img src="./assets/img/Video Background.jpg" alt="Thumbnail video"
+                        class="object-cover w-full h-full">
+                    <div class="absolute top-0 bottom-0 left-0 right-0 backdrop-brightness-75">
+                        <a id="play-video" class="video-play-button" href="javascript:void(0)">
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer id="contact" class="p-10  bg-main">
+        <h1 class="text-main text-[20px] font-bold mb-4">Hubungi Kami</h1>
+        <div class="grid md:flex md:flex-wrap justify-between column-gap-0 gap-5 text-[13px] contact-container">
+            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-1 order-2">
+                <h3 class="mb-2 text-white hover:text-black">Email</h3>
+                <a class="text-white font-normal hover:text-black" href="mailto:ptbptjm@gmail.com">ptbptjm@gmail.com</a>
+            </div>
+            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-2 order-3">
+                <h3 class="mb-2 text-white hover:text-black">Whatsapp</h3>
+                <a class="text-white font-normal hover:text-black" href="tel:6289509512660">+62-895-0951-2660</a>
+            </div>
+            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-3 order-4">
+                <h3 class="mb-2 text-white hover:text-black">Sosial Media</h3>
+                <div class="flex flex-col">
+                    <a class="text-white font-normal hover:text-black" href="">Facebook</a>
+                    <a class="text-white font-normal hover:text-black" href="">Instagram</a>
+                </div>
+            </div>
+            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-3 order-4">
+                <h3 class="mb-2 text-white hover:text-black">Pintasan</h3>
+                <div class="flex flex-col">
+                    <a href="./index.html" class="text-white font-normal hover:text-black mb-1" href="">Home</a>
+                    <a href="./about.html" class="text-white font-normal hover:text-black mb-1" href="">Tentang</a>
+                    <a href="./service.html" class="text-white font-normal hover:text-black mb-1" href="">Layanan</a>
+                    <a href="./project.html" class="text-white font-normal hover:text-black mb-1" href="">Produk</a>
+                    <a href="./project.html" class="text-white font-normal hover:text-black mb-1" href="">Proyek</a>
+                    <a href="./article.html" class="text-white font-normal hover:text-black mb-1" href="">Artikel</a>
+                    <a href="./contact.html" class="text-white font-normal hover:text-black mb-1" href="">Kontak</a>
+                </div>
+            </div>
+            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-4 order-5">
+                <h3 class="mb-2 text-white hover:text-black">Kantor Utama</h3>
+                <div class="flex flex-col">
+                    <a class="text-white font-normal hover:text-black" href="">JI. Gunung Sari 5 H Surabaya 60242</a>
+                    <a class="text-white font-normal hover:text-black" href="">Telp. (031) 5682517, 5682533</a>
+                    <a class="text-white font-normal hover:text-black" href="">Fax. (031) 5674991</a>
+                </div>
+            </div>
+            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-5 order-1">
+                <img src="./assets/img/logo/logo-white.png" alt="" class=" aspect-square w-[100px]">
+            </div>
+            <div class="w-[60%] md:order-6 order-7">
+                <h3 class="mb-2 text-white hover:text-black">Temukan Kami</h3>
+                <div class="flex flex-wrap gap-4">
+                    <img src="./assets/img/logo/c1.png" alt="" class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]">
+                    <img src="./assets/img/logo/c2.png" alt="" class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]">
+                </div>
+            </div>
+            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-7 order-6 ">
+                <h3 class="text-white hover:text-black">Bengkel</h3>
+                <div class="flex flex-col">
+                    <a class="text-white font-normal hover:text-black" href="">Jl. Raya Jetis Kupang KM. 08 Ds. Parengan
+                        Kec. Jetis
+                        Mojokerto</a>
+                    <a class="text-white font-normal hover:text-black" href="">Telp. (0321) 362986</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        main: "#438D3D",
+                        grey1: "#bfbfbf",
+                        grey2: "#f7f7f7",
+                        body: "#ffffff"
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
