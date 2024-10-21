@@ -1,15 +1,23 @@
 <script setup>
-const { staticData } = useStatic();
+const config = useRuntimeConfig();
+const { status, data, error, refresh } = await useFetch(
+  `${config.public.apiPublic}/api/settings`,
+  {
+    pick: ["data"],
+    key: "res-static-data",
+    server: true,
+  }
+);
 useHead({
-  title: staticData?.value?.data?.default_meta_title,
+  title: data.value?.data?.default_meta_title,
   meta: [
     {
       name: "description",
-      content: staticData?.value?.data?.default_meta_description,
+      content: data.value?.data?.default_meta_description,
     },
     {
       name: "keywords",
-      content: staticData?.value?.data?.default_meta_keywords,
+      content: data.value?.data?.default_meta_keywords,
     },
   ],
   link: [

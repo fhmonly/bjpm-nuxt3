@@ -21,7 +21,7 @@ function offCanvasItemClick() {
     navOffcanvas.classList.remove("active");
   }
 }
-const { staticData } = useStatic();
+const staticData = useStatic();
 </script>
 <template>
   <header class="sticky top-0 z-50 px-2 tablet:px-8 bg-body">
@@ -44,7 +44,7 @@ const { staticData } = useStatic();
         </div>
       </div>
       <ul
-        class="hidden lg:flex items-center grow justify-between mx-3 text-greybf flex-wrap overflow-hidden max-w-[50%] gap-3 me-7"
+        class="hidden lg:flex items-center grow justify-between mx-3 text-black flex-wrap overflow-hidden max-w-[50%] gap-3 me-7"
       >
         <AppNavItem href="/">Home</AppNavItem>
         <AppNavItem href="/about">Tentang</AppNavItem>

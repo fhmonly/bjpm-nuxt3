@@ -1,8 +1,4 @@
 <script setup>
-// useSeoMeta({
-//   titleTemplate: "",
-//   title: "BJPM",
-// });
 useHead({
   script: [
     {
@@ -24,10 +20,7 @@ onMounted(() => {});
         data-aos="fade-right"
       >
         <h1 class="mb-5 text-3xl font-bold title-about text-main">
-          {{
-            staticData?.data?.about_title ||
-            "Kepuasan pelanggan adalah tujuan kami"
-          }}
+          Kepuasan pelanggan adalah tujuan kami
         </h1>
         <p class="mb-2">
           PT. Bina Jaya Perkasa Mandiri, didirikan pada 15 Juli 1993 di Jakarta,

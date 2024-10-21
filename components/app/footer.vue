@@ -8,16 +8,17 @@
         <h3 class="mb-2 font-bold text-white">Email</h3>
         <NuxtLink
           class="font-normal text-white"
-          :href="`mailto:${staticData?.data?.email}`"
-          >{{ staticData?.data?.email }}</NuxtLink
+          :href="`mailto:${staticData?.email}`"
+          >{{ staticData?.email }}</NuxtLink
         >
       </div>
       <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-2 order-3">
         <h3 class="mb-2 font-bold text-white">Whatsapp</h3>
         <NuxtLink
           class="font-normal text-white"
-          :href="`https://api.whatsapp.com/send?phone=${staticData?.data?.contact_wa}`"
-          >+{{ staticData?.data?.contact_wa }}</NuxtLink
+          :href="`https://api.whatsapp.com/send?phone=${staticData?.contact_wa}`"
+          target="_blank"
+          >+{{ staticData?.contact_wa }}</NuxtLink
         >
       </div>
       <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-3 order-4">
@@ -25,37 +26,37 @@
         <div class="flex flex-col">
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.data?.url_facebook"
+            :href="staticData?.url_facebook"
             target="_blank"
             >Facebook</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.data?.url_instagram"
+            :href="staticData?.url_instagram"
             target="_blank"
             >Instagram</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.data?.url_youtube"
+            :href="staticData?.url_youtube"
             target="_blank"
             >Youtube</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.data?.url_tiktok"
+            :href="staticData?.url_tiktok"
             target="_blank"
             >Tiktok</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.data?.url_shopee"
+            :href="staticData?.url_shopee"
             target="_blank"
             >Shopee</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.data?.url_tokopedia"
+            :href="staticData?.url_tokopedia"
             target="_blank"
             >Tokopedia</NuxtLink
           >
@@ -90,13 +91,13 @@
         <div class="flex flex-col">
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.data?.contact_maps"
-            >{{ staticData?.data?.contact_address }}</NuxtLink
+            :href="staticData?.contact_maps"
+            >{{ staticData?.contact_address }}</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="`tel:${staticData?.data?.contact_phone}`"
-            >Telp. +{{ staticData?.data?.contact_phone }}</NuxtLink
+            :href="`tel:${staticData?.contact_phone}`"
+            >Telp. +{{ staticData?.contact_phone }}</NuxtLink
           >
         </div>
       </div>
@@ -112,41 +113,41 @@
       <div class="md:w-[60%] w-full md:order-6 order-7">
         <h3 class="mb-2 font-bold text-white">Partner</h3>
         <NuxtLink
-          :to="staticData?.data?.partner_link_1"
+          :to="staticData?.partner_link_1"
           class="flex flex-wrap justify-center w-full gap-4 md:justify-start"
         >
           <img
-            :src="staticData?.data?.partner_logo_1"
+            :src="staticData?.partner_logo_1"
             alt=""
             class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
           />
         </NuxtLink>
         <NuxtLink
-          :to="staticData?.data?.partner_link_2"
+          :to="staticData?.partner_link_2"
           class="flex flex-wrap justify-center w-full gap-4 md:justify-start"
         >
           <img
-            :src="staticData?.data?.partner_logo_2"
+            :src="staticData?.partner_logo_2"
             alt=""
             class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
           />
         </NuxtLink>
         <NuxtLink
-          :to="staticData?.data?.partner_link_3"
+          :to="staticData?.partner_link_3"
           class="flex flex-wrap justify-center w-full gap-4 md:justify-start"
         >
           <img
-            :src="staticData?.data?.partner_logo_3"
+            :src="staticData?.partner_logo_3"
             alt=""
             class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
           />
         </NuxtLink>
         <NuxtLink
-          :to="staticData?.data?.partner_link_4"
+          :to="staticData?.partner_link_4"
           class="flex flex-wrap justify-center w-full gap-4 md:justify-start"
         >
           <img
-            :src="staticData?.data?.partner_logo_4"
+            :src="staticData?.partner_logo_4"
             alt=""
             class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
           />
@@ -167,5 +168,5 @@
   </footer>
 </template>
 <script setup>
-const { staticData } = useStatic();
+const staticData = useStatic();
 </script>

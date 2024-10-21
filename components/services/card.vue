@@ -8,10 +8,10 @@
       :alt="title"
       class="md:w-1/2 grow object-cover w-full max-h-[300px] aspect-[1.5/1]"
     />
-    <div class="bg-main shadow-md p-6 md:w-1/2 grow flex items-center">
+    <div class="flex items-center p-6 shadow-md bg-main md:w-1/2 grow">
       <div class="text-content">
-        <h2 class="text-xl font-bold mb-4 text-white">{{ title }}</h2>
-        <p class="text-sm leading-5 text-white text-justify">
+        <h2 class="mb-4 text-xl font-bold text-white">{{ title }}</h2>
+        <p class="text-sm leading-5 text-justify text-white">
           {{ description }}
         </p>
       </div>
