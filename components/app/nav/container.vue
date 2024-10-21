@@ -21,6 +21,7 @@ function offCanvasItemClick() {
     navOffcanvas.classList.remove("active");
   }
 }
+const { staticData } = useStatic();
 </script>
 <template>
   <header class="sticky top-0 z-50 px-2 tablet:px-8 bg-body">
@@ -34,10 +35,11 @@ function offCanvasItemClick() {
           />
         </NuxtLink>
         <div class="block mx-2 me-4 max-w-[300px]">
-          <p class="text-sm text-main">PT. BINA JAYA PERKASA MANDIRI</p>
+          <p class="text-sm text-main">
+            {{ staticData?.data?.contact_company_name }}
+          </p>
           <p class="hidden text-xs text-nav-capt sm:block">
-            Supplier, Industries, Scaffolding, Beton Lift Steel Construction,
-            Stone Crusher
+            {{ staticData?.data?.contact_taglines }}
           </p>
         </div>
       </div>
@@ -96,10 +98,10 @@ function offCanvasItemClick() {
             <div
               class="flex gap-x-3 mt-1 social-media-wrapper text-[24px] justify-center"
             >
-              <a href="https://facebook.com" target="_blank">
+              <a :href="staticData?.data?.url_facebook" target="_blank">
                 <IconBiFacebook width="32px" height="32px" />
               </a>
-              <a href="https://instagram.com" target="_blank">
+              <a :href="staticData?.data?.url_instagram" target="_blank">
                 <IconBiInstagram width="32px" height="32px" />
               </a>
             </div>
