@@ -1,6 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/img/logo/logo-bjpm.png' },
+      ],
+    }
+  },
   devtools: { enabled: true },
   runtimeConfig: {
     googleCaptchaKeyPrivate: '6LfHAmYqAAAAAOeVH7pCYT0RCo6Zxjq4AvHLngZ7',
