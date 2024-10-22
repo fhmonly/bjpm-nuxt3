@@ -60,6 +60,7 @@ const {
   refresh,
 } = await useFetch(`${config.public.apiPublic}/api/projects`, {
   pick: ["data"],
+  key: "api-projects",
 });
 </script>
 <style scoped>

@@ -16,7 +16,7 @@ const { status, data, error, refresh } = await useFetch(
   <section id="about">
     <div
       class="title"
-      :style="`background-image: url('${config.public.apiPublic}/images/static${data?.data?.about_hero_image}')`"
+      :style="`background-image: url('${config.public.apiPublic}/images/static/${data?.data?.about_hero_image}')`"
     >
       <div class="bg-[#ffffffb3] px-10 py-10">
         <h1
@@ -80,7 +80,7 @@ const { status, data, error, refresh } = await useFetch(
         >
           <img
             alt="gambar sejarah bjpm"
-            :src="`${config.public.apiPublic}/images/static${data?.data?.about_history_image}`"
+            :src="`${config.public.apiPublic}/images/static/${data?.data?.about_history_image}`"
             data-aos="fade-up"
             data-aos-delay="600"
             class="object-cover w-full h-full"
@@ -91,7 +91,7 @@ const { status, data, error, refresh } = await useFetch(
             alt="gambar jangkauan bjpm"
             class="object-cover w-full h-full"
             height="400"
-            :src="`${config.public.apiPublic}/images/static${data?.data?.about_range_image}`"
+            :src="`${config.public.apiPublic}/images/static/${data?.data?.about_range_image}`"
             width="600"
             data-aos="fade-up"
             data-aos-delay="700"

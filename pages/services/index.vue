@@ -10,6 +10,7 @@ const {
   refresh,
 } = await useFetch(`${config.public.apiPublic}/api/services`, {
   pick: ["data"],
+  key: "services-data",
 });
 </script>
 <template>

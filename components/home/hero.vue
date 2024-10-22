@@ -7,35 +7,7 @@
     >
       <swiper-slide>
         <img
-          :src="'/img/hero/1.jpg'"
-          alt=""
-          class="object-cover w-full h-full"
-        />
-      </swiper-slide>
-      <swiper-slide>
-        <img
-          :src="'/img/hero/2.jpg'"
-          alt=""
-          class="object-cover w-full h-full"
-        />
-      </swiper-slide>
-      <swiper-slide>
-        <img
-          :src="'/img/hero/3.jpg'"
-          alt=""
-          class="object-cover w-full h-full"
-        />
-      </swiper-slide>
-      <swiper-slide>
-        <img
-          :src="'/img/hero/4.jpg'"
-          alt=""
-          class="object-cover w-full h-full"
-        />
-      </swiper-slide>
-      <swiper-slide>
-        <img
-          :src="'/img/hero/5.jpg'"
+          :src="`${config.public.apiPublic}/images/static/${staticData.data.contact_hero_image}`"
           alt=""
           class="object-cover w-full h-full"
         />
@@ -101,5 +73,16 @@ onMounted(() => {
     const [swiper, progress] = event.detail;
     progressBar.style.width = `${progress * 100}%`;
   });
+});
+const config = useRuntimeConfig();
+const {
+  data: staticData,
+  pending,
+  error,
+  refresh,
+} = useFetch(`${config.public.apiPublic}/api/settings`, {
+  pick: ["data"],
+  key: "res-static-data",
+  server: true,
 });
 </script>
