@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "nuxt": "^3.13.0",
+    "photoswipe": "^5.4.4",
+    "sweetalert2": "^11.14.4",
     "vue": "latest",
     "vue-router": "latest"
   },
