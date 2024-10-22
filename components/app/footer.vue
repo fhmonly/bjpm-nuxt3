@@ -168,5 +168,15 @@
   </footer>
 </template>
 <script setup>
-const staticData = useStatic();
+// const staticData = useStatic();
+const config = useRuntimeConfig();
+const { status, data, error, refresh } = await useFetch(
+  `${config.public.apiPublic}/api/settings`,
+  {
+    pick: ["data"],
+    key: "res-static-data",
+    server: true,
+  }
+);
+const staticData = ref(data.value.data);
 </script>
