@@ -41,7 +41,7 @@ const {
                 {{ product.description.name }}
               </p>
               <NuxtLink
-                :to="`${config.public.apiPublic}/api/products?id=${product.description.product_id}`"
+                :to="`/products/${product.description.product_id}`"
                 style="text-decoration: none"
                 class="absolute bottom-0 px-2 py-1 mb-2 text-sm text-white border-2 border-transparent product-btn bg-main hover:border-main hover:bg-transparent"
               >
