@@ -1,15 +1,15 @@
 <template>
-  <div
-    class="shadow-lg overflow-hidden"
-    data-aos="fade-up"
-    :data-aos-delay="delay"
-  >
-    <img :src="imageSrc" class="w-full h-40 object-cover" :alt="altText" />
+  <div class="overflow-hidden shadow-lg" data-aos="fade-up">
+    <img
+      :src="imageSrc"
+      class="object-cover w-full h-40"
+      alt="gambar artikel"
+    />
     <div class="p-6">
-      <p class="text-sm text-gray-500 mb-2">{{ date }}</p>
-      <h3 class="text-lg font-bold mb-4">{{ title }}</h3>
+      <p class="mb-2 text-sm text-gray-500">{{ date }}</p>
+      <h3 class="mb-4 text-lg font-bold">{{ title }}</h3>
       <NuxtLink
-        :href="link"
+        :href="`/articles/${articleId}`"
         class="mx-auto text-white bg-main border-2 border-white hover:text-main hover:bg-white hover:border-2 hover:border-main p-2 text-[10px] md:mb-0 mb-5 mt-4"
       >
         Selengkapnya
@@ -21,19 +21,8 @@
 <script setup>
 const props = defineProps({
   imageSrc: String,
-  altText: {
-    type: String,
-    default: "Article Image",
-  },
-  date: String,
   title: String,
   link: String,
-  delay: {
-    type: Number,
-    default: 0,
-  },
+  articleId: String,
 });
 </script>
-
-<style scoped>
-</style>

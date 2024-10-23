@@ -5,15 +5,20 @@
 /** Nav and of canvas 
 =========================================================== */
 nav li>a.router-link-active,
-    .nav-offcanvas li>a.router-link-active{
+    .nav-offcanvas li>a.router-link-active,
+nav li>a:hover,
+    .nav-offcanvas li>a:hover{
     color: var(--main-color);
     font-weight: bold;
+    opacity: 1;
+
 }
 
 nav li>a {
     position: relative;
     display: inline-block;
     padding-bottom: 6px;
+    opacity: .7;
 }
 
 nav li>a::after {
@@ -27,8 +32,10 @@ nav li>a::after {
     transition: width 0.3s ease-in-out;
 }
 
-nav li>a.router-link-active::after {
+nav li>a.router-link-active::after,
+nav li>a:hover::after {
     width: 100%;
+    opacity: 1;
 }
 
 .nav-offcanvas {
