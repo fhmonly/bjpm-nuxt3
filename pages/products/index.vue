@@ -14,8 +14,6 @@ const {
 </script>
 <template>
   <section id="product" class="flex flex-col px-10 py-2">
-    <p>{{ productCategoryUrl }}</p>
-    <p>{{ products.data }}</p>
     <h1 class="py-10 mb-2 text-3xl text-center text-white md:mb-5 md:py-20">
       Produk Kami
       <br />
