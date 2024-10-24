@@ -6,6 +6,7 @@
       :imageSrc="article.image"
       :title="article.description.title"
       :articleId="article.description.blog_id"
+      :createdAt="article.dates"
     />
   </div>
 </template>

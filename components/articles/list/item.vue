@@ -6,7 +6,9 @@
       alt="gambar artikel"
     />
     <div class="p-6">
-      <p class="mb-2 text-sm text-gray-500">{{ date }}</p>
+      <p class="mb-2 text-sm text-gray-500">
+        {{ $dayjs(createdAt).locale("id").fromNow() }}
+      </p>
       <h3 class="mb-4 text-lg font-bold">{{ title }}</h3>
       <NuxtLink
         :href="`/articles/${articleId}`"
@@ -24,5 +26,6 @@ const props = defineProps({
   title: String,
   link: String,
   articleId: String,
+  createdAt: String,
 });
 </script>

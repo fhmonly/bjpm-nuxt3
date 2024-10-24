@@ -16,5 +16,11 @@ export default defineNuxtConfig({
       apiPublic: "https://api-web.binajayaperkasamandiri.com"
     }
   },
-  modules: ['@nuxtjs/tailwindcss', 'nuxt-aos', '@nuxt/icon'],
+  modules: ['@nuxtjs/tailwindcss', 'nuxt-aos', '@nuxt/icon', 'dayjs-nuxt'],
+  dayjs: {
+    locales: ['en', 'id'],
+    plugins: ['relativeTime', 'utc', 'timezone'],
+    defaultLocale: 'id',
+    defaultTimezone: 'Asia/Jakarta',
+  }
 })

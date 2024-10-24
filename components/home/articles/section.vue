@@ -14,7 +14,9 @@
           class="object-cover grow aspect-[1.29/1]"
         />
         <div class="flex flex-col p-3 pt-5 text-sm bg-white text-main">
-          <p class="mb-1 text-greybf">{{ null }}</p>
+          <p class="mb-1 text-greybf">
+            {{ $dayjs(article.dates).locale("id").fromNow() }}
+          </p>
           <p class="mb-3 text-base font-bold truncate">
             {{ article.description.title }}
           </p>

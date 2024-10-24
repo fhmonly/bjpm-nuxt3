@@ -1,7 +1,7 @@
 <template>
   <section id="project" class="flex flex-col mb-5">
     <h1
-      class="text-[32px] text-center text-white font-bold p-4 sm:mb-6 sm:p-10"
+      class="text-[32px] text-center text-white font-bold p-4 sm:mb-6 sm:p-10 section-header"
     >
       Proyek
     </h1>
@@ -59,20 +59,27 @@ function showPopupGalery(images = []) {
       const swalHtml = Swal.getHtmlContainer();
       const imagesHtml = images.map((image, index) => {
         return `
-          <img src="${image.image}" alt="gambar ke-${index}" class="max-h-[200px] h-full w-auto max-w-[48%]"/>
+        <swiper-slide>
+          <div class="max-h-[85vh] max-w-[90%] object-cover m-auto h-full w-full landscape:aspect-[4/3] portrait:aspect-[9/16] flex">
+            <img src="${image.image}" alt="gambar ke-${index}" class="m-auto portrait:w-full landscape:h-full"/>
+          </div>
+        </swiper-slide>
         `;
       });
       swalHtml.innerHTML = `
-      <div class="flex flex-wrap items-center justify-center gap-3">
+      <swiper-container navigation="true" space-between="10">
         ${imagesHtml.join("")}
-      </div>
+      </swiper-container>
       `;
     },
+    showCloseButton: true,
+    width: "auto",
+    heightAuto: true,
   });
 }
 </script>
-<style>
-#project h1 {
+<style scoped>
+.section-header {
   background: linear-gradient(
       90deg,
       #438d3d 0%,
@@ -87,7 +94,7 @@ function showPopupGalery(images = []) {
   transition: all 0.5s ease-in-out;
 }
 
-#project h1:hover {
+.section-header:hover {
   background-position-y: 60%;
 }
 
