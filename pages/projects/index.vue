@@ -1,7 +1,7 @@
 <template>
   <section id="project" class="px-4">
     <h1
-      class="py-4 mb-5 text-3xl font-bold text-center text-white md:text-4xl sm:py-6 md:py-20"
+      class="py-4 mb-5 text-3xl font-bold text-center text-white md:text-4xl sm:py-6 md:py-20 section-header"
     >
       Proyek Kami
     </h1>
@@ -33,6 +33,13 @@
   </section>
 </template>
 <script setup>
+useHead({
+  script: [
+    {
+      src: "https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js",
+    },
+  ],
+});
 import Swal from "sweetalert2";
 function showPopupGalery(images = []) {
   Swal.fire({
@@ -41,15 +48,22 @@ function showPopupGalery(images = []) {
       const swalHtml = Swal.getHtmlContainer();
       const imagesHtml = images.map((image, index) => {
         return `
-          <img src="${image.image}" alt="gambar ke-${index}" class="max-h-[200px] h-full w-auto max-w-[48%]"/>
+        <swiper-slide>
+          <div class="max-h-[85vh] max-w-[90%] object-cover m-auto h-full w-full landscape:aspect-[4/3] portrait:aspect-[9/16] flex">
+            <img src="${image.image}" alt="gambar ke-${index}" class="m-auto portrait:w-full landscape:h-full"/>
+          </div>
+        </swiper-slide>
         `;
       });
       swalHtml.innerHTML = `
-      <div class="flex flex-wrap items-center justify-center gap-3">
+      <swiper-container navigation="true" space-between="10">
         ${imagesHtml.join("")}
-      </div>
+      </swiper-container>
       `;
     },
+    showCloseButton: true,
+    width: "auto",
+    heightAuto: true,
   });
 }
 const config = useRuntimeConfig();
@@ -64,6 +78,24 @@ const {
 });
 </script>
 <style scoped>
+.section-header {
+  background: linear-gradient(
+      90deg,
+      #438d3d 0%,
+      rgba(161, 198, 158, 0.7) 50%,
+      rgba(208, 227, 207, 0.5) 75%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    url(/img/project/Header.jpeg);
+  background-position-y: 20%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.5s ease-in-out;
+}
+
+.section-header:hover {
+  background-position-y: 60%;
+}
 .project-card .overlay {
   --duration: 500ms;
   content: "";
