@@ -1,390 +1,531 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PT. Bina Jaya Perkasa Mandiri</title>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="shortcut icon" href="./assets/img/logo/logo-bjpm.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/contact.css">
+      rel="shortcut icon"
+      href="./assets/img/logo/logo-bjpm.png"
+      type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/contact.css" />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-</head>
+  </head>
 
-<body class="bg-white">
+  <body class="bg-white">
     <div id="root">
-        <div id="whatsapp-button">
-            <button id="wa-button" class="bg-main text-white py-5 px-7 rounded-full shadow-lg pulse-hover">
-                <i class="bi bi-whatsapp" style="font-size: 25px;"></i>
+      <div id="whatsapp-button">
+        <button
+          id="wa-button"
+          class="bg-main text-white py-5 px-7 rounded-full shadow-lg pulse-hover">
+          <i class="bi bi-whatsapp" style="font-size: 25px"></i>
+        </button>
+
+        <div id="wa-menu" style="display: none">
+          <button
+            class="menu-button font-semibold text-xs"
+            onclick="location.href='https://wa.me/6289509512660?text=Hello%20CS'">
+            Hubungi Customer Service
+          </button>
+          <button
+            class="menu-button font-semibold text-xs"
+            onclick="location.href='https://wa.me/6289509512660?text=Hello%20Owner'">
+            Hubungi Marketing
+          </button>
+        </div>
+      </div>
+
+      <script>
+        const waButton = document.getElementById("wa-button");
+        const waMenu = document.getElementById("wa-menu");
+
+        waButton.onclick = function () {
+          waMenu.style.display =
+            waMenu.style.display === "none" || waMenu.style.display === ""
+              ? "flex"
+              : "none";
+        };
+      </script>
+
+      <style>
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+          }
+
+          50% {
+            transform: scale(1.1);
+          }
+
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        .pulse-hover:hover {
+          animation: pulse 0.6s infinite;
+        }
+
+        #whatsapp-button {
+          position: fixed;
+          right: 15px;
+          bottom: 25px;
+          z-index: 50;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #wa-menu {
+          display: none;
+
+          flex-direction: column;
+          margin-top: 5px;
+        }
+
+        .menu-button {
+          background-color: white;
+          border: 1px solid #438d3d;
+          color: #438d3d;
+          padding: 10px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+          margin: 5px 0;
+        }
+      </style>
+      <header class="sticky top-0 z-50 px-8 bg-body">
+        <nav class="flex items-center justify-between font-poppin">
+          <div class="logo flex">
+            <a href="./index.html"
+              ><img
+                src="./assets/img/logo/logo-bjpm.png"
+                alt="Logo BJPM"
+                class="w-[70px] aspect-square"
+            /></a>
+            <div class="block ms-2 my-auto">
+              <p class="text-sm text-main">PT. BINA JAYA PERKASA MANDIRI</p>
+              <p class="text-xs text-nav-capt">
+                Supplier, Industries, Scaffolding, Beton Lift Steel
+                Construction, Stone Crusher
+              </p>
+            </div>
+          </div>
+          <ul
+            class="hidden sm:flex items-center grow justify-between gap-6 text-logo flex-wrap max-h-[40px] h-[40px] overflow-hidden max-w-[50%]">
+            <li
+              class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
+              <a href="./index.html">Home</a>
+            </li>
+            <li
+              class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
+              <a href="./about.html">Tentang</a>
+            </li>
+            <li
+              class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
+              <a href="./service.html">Layanan</a>
+            </li>
+            <li
+              class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
+              <a href="./product.html">Produk</a>
+            </li>
+            <li
+              class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
+              <a href="./project.html">Proyek</a>
+            </li>
+            <li
+              class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
+              <a href="./article.html">Artikel</a>
+            </li>
+            <li
+              class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
+              <a href="./contact.html">Kontak</a>
+            </li>
+          </ul>
+          <button type="button" class="hamburger text-grey1 lg:hidden">
+            <i class="bi bi-list text-[32px]"></i>
+          </button>
+        </nav>
+        <div class="nav-offcanvas bg-body">
+          <div class="py-6">
+            <button
+              type="button"
+              class="fixed top-0 right-0 mt-2 close-btn me-4">
+              <i class="bi bi-x text-[32px]"></i>
             </button>
+            <ul
+              class="flex flex-col items-center justify-center w-full h-full gap-2">
+              <li class="flex flex-col items-center text-center text-main">
+                <img
+                  src="./assets/img/logo/logo-bjpm.png"
+                  alt=""
+                  class="w-[70px] aspect-square mb-3" />
+                <p class="mobile-tagline">PT. BINA JAYA MANDIRI INDONESIA</p>
+              </li>
+              <li>
+                <a href="./index.html">Home</a>
+              </li>
+              <li>
+                <a href="./about.html">Tentang</a>
+              </li>
+              <li>
+                <a href="./service.html">Layanan</a>
+              </li>
+              <li>
+                <a href="./product.html">Produk</a>
+              </li>
+              <li>
+                <a href="./project.html">Proyek</a>
+              </li>
+              <li>
+                <a href="./article.html">Artikel</a>
+              </li>
+              <li>
+                <a href="./contact.html">Kontak</a>
+              </li>
 
-            <div id="wa-menu" style="display: none;">
-
-                <button class="menu-button font-semibold text-xs"
-                    onclick="location.href='https://wa.me/6289509512660?text=Hello%20CS'">Hubungi
-                    Customer Service</button>
-                <button class="menu-button font-semibold text-xs"
-                    onclick="location.href='https://wa.me/6289509512660?text=Hello%20Owner'">Hubungi
-                    Marketing</button>
-            </div>
-        </div>
-
-        <script>
-            const waButton = document.getElementById('wa-button');
-            const waMenu = document.getElementById('wa-menu');
-
-            waButton.onclick = function () {
-                waMenu.style.display = (waMenu.style.display === 'none' || waMenu.style.display === '') ?
-                    'flex' :
-                    'none';
-            };
-        </script>
-
-        <style>
-            @keyframes pulse {
-                0% {
-                    transform: scale(1);
-                }
-
-                50% {
-                    transform: scale(1.1);
-                }
-
-                100% {
-                    transform: scale(1);
-                }
-            }
-
-            .pulse-hover:hover {
-                animation: pulse 0.6s infinite;
-            }
-
-            #whatsapp-button {
-                position: fixed;
-                right: 15px;
-                bottom: 25px;
-                z-index: 50;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            #wa-menu {
-                display: none;
-
-                flex-direction: column;
-                margin-top: 5px;
-            }
-
-            .menu-button {
-                background-color: white;
-                border: 1px solid #438D3D;
-                color: #438D3D;
-                padding: 10px;
-                border-radius: 5px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-                cursor: pointer;
-                margin: 5px 0;
-
-            }
-        </style>
-        <header class="sticky top-0 z-50 px-8 bg-body">
-            <nav class="flex items-center justify-between font-poppin">
-                <div class="logo flex">
-                    <a href="./index.html"><img src="./assets/img/logo/logo-bjpm.png" alt="Logo BJPM"
-                            class="w-[70px] aspect-square"></a>
-                    <div class="block ms-2 my-auto">
-                        <p class="text-sm text-main">PT. BINA JAYA PERKASA MANDIRI</p>
-                        <p class="text-xs text-nav-capt"> Supplier, Industries, Scaffolding, Beton Lift
-                            Steel
-                            Construction,
-                            Stone Crusher </p>
-                    </div>
+              <li class="text-main">
+                <p class="text-center">Media Sosial</p>
+                <div
+                  class="flex gap-x-3 mt-1 social-media-wrapper text-[24px] justify-center">
+                  <a href="https://facebook.com" target="_blank"
+                    ><i class="bi bi-facebook"></i
+                  ></a>
+                  <a href="https://instagram.com" target="_blank"
+                    ><i class="bi bi-instagram"></i
+                  ></a>
                 </div>
-                <ul
-                    class="hidden sm:flex items-center grow justify-between  gap-6 text-logo flex-wrap max-h-[40px] h-[40px] overflow-hidden max-w-[50%]">
-                    <li
-                        class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
-                        <a href="./index.html">Home</a>
-                    </li>
-                    <li
-                        class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
-                        <a href="./about.html">Tentang</a>
-                    </li>
-                    <li
-                        class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
-                        <a href="./service.html">Layanan</a>
-                    </li>
-                    <li
-                        class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
-                        <a href="./product.html">Produk</a>
-                    </li>
-                    <li
-                        class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
-                        <a href="./project.html">Proyek</a>
-                    </li>
-                    <li
-                        class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
-                        <a href="./article.html">Artikel</a>
-                    </li>
-                    <li
-                        class="hover:border-b-[3px] hover:transition-[width] after:duration-300 after:ease-in-out hover:font-bold hover:text-main hover:border-main">
-                        <a href="./contact.html">Kontak</a>
-                    </li>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <section
+        id="contact"
+        class="backdrop-brightness-75"
+        style="background-image: url('./assets/img/Video Background.jpg')">
+        <main class="py-8 bg-[#428D3D79]">
+          <div class="bg-cover bg-center flex items-center justify-center">
+            <div class="text-center text-white">
+              <h1
+                class="text-4xl font-bold my-4 border-b-4 pb-2 w-fit border-white"
+                data-aos="fade-up">
+                Kontak Kami
+              </h1>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8 px-10">
+            <div class="bg-white p-8 shadow-lg" data-aos="fade-up">
+              <div class="flex items-center mb-4">
+                <div>
+                  <img
+                    src="./assets/img/logo/logo-bjpm.png"
+                    class="pb-4 w-[100px]" />
+                  <p class="text-main font-bold">
+                    PT. BINA JAYA PERKASA MANDIRI
+                  </p>
+                  <p class="text-sm italic font-normal mt-2">
+                    “Supplier, Industries, Scaffolding, Beton Lift Steel
+                    Construction, Stone Crusher“
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-wrap justify-between mt-3">
+                <div class="text-gray-600 w-full md:w-1/2 pr-4">
+                  <p class="text-lg font-semibold text-main mb-3">
+                    Alamat Kantor
+                  </p>
+                  <p class="text-sm mb-3">
+                    <strong>Kantor Pusat</strong><br />
+                    <span class="text-xs font-normal"
+                      >Jl Gunung Sari No.5H RT 02/RW 07 Kel.Sawunggaling
+                      Kec.Wonokromo Surabaya</span
+                    >
+                    <br class="mb-2" />
+                    <strong class="text-xs font-semibold mt-[8px]"
+                      >Email</strong
+                    >
+                    <br /><span class="text-xs font-normal"
+                      >bjpmsby@gmail.com</span
+                    >
+                    <br class="mb-2" />
+                    <strong class="text-xs font-semibold mt-[8px]"
+                      >No Whatsapp</strong
+                    >
+                    <br /><span class="text-xs font-normal">+628123066391</span>
+                  </p>
+                  <hr class="border-main border-[1px] mb-3" />
+                  <p class="text-sm mb-3">
+                    <strong>Workshop</strong><br />
+                    <span class="text-xs font-normal"
+                      >Jl Raya Jetis Parengan Ds.Jetis Kec.Parengan
+                      Mojokerto</span
+                    >
+                    <br class="mb-2" />
+                    <strong class="text-xs font-semibold mt-[8px]"
+                      >Email</strong
+                    >
+                    <br /><span class="text-xs font-normal"
+                      >bjpmmjkt@gmail.com</span
+                    >
+                    <br class="mb-2" />
+                    <strong class="text-xs font-semibold mt-[8px]"
+                      >No Whatsapp</strong
+                    >
+                    <br /><span class="text-xs font-normal">+628123066391</span>
+                  </p>
+                </div>
+                <div class="text-gray-600 w-full md:w-1/2 md:pl-4 pl-0">
+                  <p class="text-sm mb-3 md:mt-10 mt-0">
+                    <strong>Kantor Cabang</strong><br />
+                    <span class="text-xs font-normal"
+                      >Jl Layur No.36 RT 06/07 Kel.Dadapsari Kec.Semarang Utara
+                      <br />
+                      Semarang</span
+                    >
+                    <br class="mb-2" />
+                    <strong class="text-xs font-semibold mt-[8px]">Email</strong
+                    ><br /><span class="text-xs font-normal"
+                      >bjpmsemarang36@gmail.com</span
+                    >
+                    <br class="mb-2" />
+                    <strong class="text-xs font-semibold mt-[8px]"
+                      >No Whatsapp</strong
+                    >
+                    <br /><span class="text-xs font-normal"
+                      >+6281391436231</span
+                    >
+                    <br class="mb-3" />
+                  </p>
+                  <hr class="border-main border-[1px] mb-3" />
+                  <p class="text-sm mb-3">
+                    <strong>Workshop</strong><br />
+                    <span class="text-xs font-normal"
+                      >Jl Raya Semarang - Kendal Ds.Sumberejo Kec.Kaliwungu
+                      Kab.Kendal (Sebelah Timur Terowongan Sumberejo)</span
+                    >
+                    <br class="mb-2" />
+                    <strong class="text-xs font-semibold mt-[8px]">Email</strong
+                    ><br /><span class="text-xs font-normal"
+                      >bjpmkdl@gmail.com</span
+                    >
+                    <br class="mb-2" />
+                    <strong class="text-xs font-semibold mt-[8px]"
+                      >No Whatsapp</strong
+                    >
+                    <br /><span class="text-xs font-normal"
+                      >+6281391436231</span
+                    >
+                    <br class="mb-3" />
+                  </p>
+                </div>
+              </div>
+            </div>
 
-                </ul>
-                <button type="button" class="hamburger text-grey1 lg:hidden">
-                    <i class="bi bi-list text-[32px]"></i>
+            <div class="bg-white p-8 shadow-lg" data-aos="fade-down">
+              <h2 class="text-xl text-main font-bold mb-4">Hubungi Kami</h2>
+              <p class="text-gray-600 mb-4"></p>
+              <form action="/your-submit-endpoint" method="POST">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <input
+                    class="border p-2"
+                    placeholder="Nama Awal"
+                    type="text"
+                    required />
+                  <input
+                    class="border p-2"
+                    placeholder="Nama Akhir"
+                    type="text"
+                    required />
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <input
+                    class="border p-2"
+                    placeholder="Email"
+                    type="email"
+                    required />
+                  <input
+                    class="border p-2"
+                    placeholder="No Telepon"
+                    type="tel"
+                    required />
+                </div>
+                <div class="mb-4">
+                  <textarea
+                    class="border p-2 w-full h-[300px]"
+                    placeholder="Kirim Pesan"
+                    required></textarea>
+                </div>
+                <div class="">
+                  <div
+                    class="g-recaptcha w-full"
+                    data-sitekey="YOUR_SITE_KEY"></div>
+                </div>
+
+                <button class="bg-main text-white px-4 py-2 mt-4" type="submit">
+                  Kirim
                 </button>
-            </nav>
-            <div class="nav-offcanvas bg-body">
-                <div class="py-6">
-                    <button type="button" class="fixed top-0 right-0 mt-2 close-btn me-4">
-                        <i class="bi bi-x text-[32px]"></i>
-                    </button>
-                    <ul class="flex flex-col items-center justify-center w-full h-full gap-2">
-                        <li class="flex flex-col items-center text-center text-main">
-                            <img src="./assets/img/logo/logo-bjpm.png" alt="" class="w-[70px] aspect-square mb-3">
-                            <p class="mobile-tagline">PT. BINA JAYA MANDIRI
-                                INDONESIA
-                            </p>
-                        </li>
-                        <li>
-                            <a href="./index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="./about.html">Tentang</a>
-                        </li>
-                        <li>
-                            <a href="./service.html">Layanan</a>
-                        </li>
-                        <li>
-                            <a href="./product.html">Produk</a>
-                        </li>
-                        <li>
-                            <a href="./project.html">Proyek</a>
-                        </li>
-                        <li>
-                            <a href="./article.html">Artikel</a>
-                        </li>
-                        <li>
-                            <a href="./contact.html">Kontak</a>
-                        </li>
-
-                        <li class="text-main">
-                            <p class="text-center">Media Sosial</p>
-                            <div class="flex gap-x-3 mt-1 social-media-wrapper text-[24px] justify-center">
-                                <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
-                                <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+              </form>
             </div>
-        </header>
-        <section id="contact" class="backdrop-brightness-75"
-            style="background-image: url('./assets/img/Video Background.jpg');">
-            <main class=" py-8 bg-[#428D3D79]">
-                <div class="bg-cover bg-center flex items-center justify-center">
-                    <div class="text-center text-white">
-                        <h1 class="text-4xl font-bold my-4 border-b-4 pb-2 w-fit border-white" data-aos="fade-up">
-                            Kontak Kami
-                        </h1>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8 px-10">
-                <div class="bg-white p-8 shadow-lg" data-aos="fade-up">
-    <div class="flex items-center mb-4">
-        <div>
-            <img src="./assets/img/logo/logo-bjpm.png" class="pb-4 w-[100px]">
-            <p class="text-main font-bold">
-                PT. BINA JAYA PERKASA MANDIRI
-            </p>
-            <p class="text-sm italic font-normal mt-2">
-                “Supplier, Industries, Scaffolding, Beton Lift Steel Construction, Stone Crusher“
-            </p>
-
-        </div>
+          </div>
+        </main>
+      </section>
     </div>
-    <!-- Flex container for Jawa Timur and Jawa Tengah -->
-    <div class="flex flex-wrap justify-between mt-6">
-        <!-- Jawa Timur Section -->
-        <div class="text-gray-600 w-full md:w-1/2 pr-4">
-            <p class="text-lg font-semibold text-main mb-3">Jawa Timur</p>
-            <p class="text-sm mb-3">
-                <strong>Kantor pusat</strong><br>
-                Jl Gunung Sari No.5H RT 02/RW 07 Kel.Sawunggaling Kec.Wonokromo Surabaya
-            </p>
-            <p class="text-sm mb-3">
-                <strong>Workshop</strong><br>
-                Jl Raya Jetis Parengan Ds.Jetis Kec.Parengan Mojokerto
-            </p>
-            <p class="text-sm mb-3">
-                <strong>No Whatsapp</strong> <br> +628123066391
-            </p>
-            <p class="text-sm mb-3">
-                <strong>Email</strong> <br> Surabaya - bjpmsby@gmail.com<br>
-                Mojokerto - bjpmmjkt@gmail.com
-            </p>
+    <footer id="contact" class="p-10 bg-main">
+      <h1 class="text-main text-[20px] font-bold mb-4">Hubungi Kami</h1>
+      <div
+        class="grid md:flex md:flex-wrap justify-between column-gap-0 gap-5 text-[13px] contact-container">
+        <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-1 order-2">
+          <h3 class="mb-2 text-white hover:text-black">Email</h3>
+          <a
+            class="text-white font-normal hover:text-black"
+            href="mailto:ptbptjm@gmail.com"
+            >ptbptjm@gmail.com</a
+          >
         </div>
-        <!-- Jawa Tengah Section -->
-        <div class="text-gray-600 w-full md:w-1/2 md:pl-4 pl-0">
-            <p class="text-lg font-semibold text-main mb-3">Jawa Tengah</p>
-            <p class="text-sm mb-3">
-                <strong>Kantor Cabang</strong><br>
-                Jl Layur No.36 RT 06/07 Kel.Dadapsari Kec.Semarang Utara Semarang
-            </p>
-            <p class="text-sm mb-3">
-                <strong>Workshop</strong><br>
-                Jl Raya Semarang - Kendal Ds.Sumberejo Kec.Kaliwungu Kab.Kendal<br>
-                (Sebelah Timur Terowongan Sumberejo)
-            </p>
-            <p class="text-sm mb-3">
-                <strong>No Whatsapp</strong> <br> +6281391436231
-            </p>
-            <p class="text-sm mb-3">
-                <strong>Email</strong> <br> Semarang - bjpmsemarang36@gmail.com<br>
-                Kendal - bjpmkdl@gmail.com
-            </p>
+        <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-2 order-3">
+          <h3 class="mb-2 text-white hover:text-black">Whatsapp</h3>
+          <a
+            class="text-white font-normal hover:text-black"
+            href="tel:6289509512660"
+            >+62-895-0951-2660</a
+          >
         </div>
-    </div>
-    <!-- Sosial Media Section -->
-    <!-- <div class="flex items-center mt-8">
-        <i class="fas fa-comments text-orange-500 text-3xl"></i>
-        <div>
-            <p class="text-gray-600 mb-4">Sosial Media</p>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/p/BJPM-Bina-Jaya-Perkasa-Mandiri-100070195721864/?locale=id_ID"
-                    target="_blank" class="social-icon">
-                    <i class="bi bi-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/pt.bjpm/" target="_blank" class="social-icon">
-                    <i class="bi bi-instagram"></i>
-                </a>
-            </div>
+        <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-3 order-4">
+          <h3 class="mb-2 text-white hover:text-black">Sosial Media</h3>
+          <div class="flex flex-col">
+            <a class="text-white font-normal hover:text-black" href=""
+              >Facebook</a
+            >
+            <a class="text-white font-normal hover:text-black" href=""
+              >Instagram</a
+            >
+          </div>
         </div>
-    </div> -->
-</div>
-
-                    <div class="bg-white p-8 shadow-lg" data-aos="fade-down">
-                        <h2 class="text-xl text-main font-bold mb-4">Hubungi Kami</h2>
-                        <p class="text-gray-600 mb-4"></p>
-                        <form action="/your-submit-endpoint" method="POST">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <input class="border p-2" placeholder="Nama Awal" type="text" required />
-                                <input class="border p-2" placeholder="Nama Akhir" type="text" required />
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <input class="border p-2" placeholder="Email" type="email" required />
-                                <input class="border p-2" placeholder="No Telepon" type="tel" required />
-                            </div>
-                            <div class="mb-4">
-                                <textarea class="border p-2 w-full h-[300px]"  placeholder="Kirim Pesan" required></textarea>
-                            </div>
-                            <div class="">
-                                <div class="g-recaptcha w-full" data-sitekey="YOUR_SITE_KEY"></div>
-                            </div>
-
-                            <button class="bg-main text-white px-4 py-2 mt-4" type="submit">
-                                Kirim
-                            </button>
-                        </form>
-                    </div>
-
-                </div>
-            </main>
-        </section>
-
-
-    </div>
-    <footer id="contact" class="p-10  bg-main">
-        <h1 class="text-main text-[20px] font-bold mb-4">Hubungi Kami</h1>
-        <div class="grid md:flex md:flex-wrap justify-between column-gap-0 gap-5 text-[13px] contact-container">
-            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-1 order-2">
-                <h3 class="mb-2 text-white hover:text-black">Email</h3>
-                <a class="text-white font-normal hover:text-black" href="mailto:ptbptjm@gmail.com">ptbptjm@gmail.com</a>
-            </div>
-            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-2 order-3">
-                <h3 class="mb-2 text-white hover:text-black">Whatsapp</h3>
-                <a class="text-white font-normal hover:text-black" href="tel:6289509512660">+62-895-0951-2660</a>
-            </div>
-            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-3 order-4">
-                <h3 class="mb-2 text-white hover:text-black">Sosial Media</h3>
-                <div class="flex flex-col">
-                    <a class="text-white font-normal hover:text-black" href="">Facebook</a>
-                    <a class="text-white font-normal hover:text-black" href="">Instagram</a>
-                </div>
-            </div>
-            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-3 order-4">
-                <h3 class="mb-2 text-white hover:text-black">Pintasan</h3>
-                <div class="flex flex-col ">
-                    <a href="./index.html" class="text-white font-normal hover:text-black mb-1" href="">Home</a>
-                    <a href="./about.html" class="text-white font-normal hover:text-black mb-1" href="">Tentang</a>
-                    <a href="./service.html" class="text-white font-normal hover:text-black mb-1" href="">Layanan</a>
-                    <a href="./project.html" class="text-white font-normal hover:text-black mb-1" href="">Produk</a>
-                    <a href="./project.html" class="text-white font-normal hover:text-black mb-1" href="">Proyek</a>
-                    <a href="./article.html" class="text-white font-normal hover:text-black mb-1" href="">Artikel</a>
-                    <a href="./contact.html" class="text-white font-normal hover:text-black mb-1" href="">Kontak</a>
-                </div>
-            </div>
-            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-4 order-5">
-                <h3 class="mb-2 text-white hover:text-black ">Kantor Utama</h3>
-                <div class="flex flex-col">
-                    <a class="text-white font-normal hover:text-black" href="">JI. Gunung Sari 5 H Surabaya 60242</a>
-                    <a class="text-white font-normal hover:text-black" href="">Telp. (031) 5682517, 5682533</a>
-                    <a class="text-white font-normal hover:text-black" href="">Fax. (031) 5674991</a>
-                </div>
-            </div>
-            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-5 order-1">
-                <img src="./assets/img/logo/logo-white.png" alt="" class=" aspect-square w-[100px]">
-            </div>
-            <div class="w-[60%] md:order-6 order-7">
-                <h3 class="mb-2 text-white hover:text-black">Temukan Kami</h3>
-                <div class="flex flex-wrap gap-4">
-                    <img src="./assets/img/logo/c1.png" alt="" class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]">
-                    <img src="./assets/img/logo/c2.png" alt="" class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]">
-                </div>
-            </div>
-            <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-7 order-6 ">
-                <h3 class="text-white hover:text-black">Bengkel</h3>
-                <div class="flex flex-col">
-                    <a class="text-white font-normal hover:text-black" href="">Jl. Raya Jetis Kupang KM. 08 Ds. Parengan
-                        Kec. Jetis
-                        Mojokerto</a>
-                    <a class="text-white font-normal hover:text-black" href="">Telp. (0321) 362986</a>
-                </div>
-            </div>
+        <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-3 order-4">
+          <h3 class="mb-2 text-white hover:text-black">Pintasan</h3>
+          <div class="flex flex-col">
+            <a
+              href="./index.html"
+              class="text-white font-normal hover:text-black mb-1"
+              href=""
+              >Home</a
+            >
+            <a
+              href="./about.html"
+              class="text-white font-normal hover:text-black mb-1"
+              href=""
+              >Tentang</a
+            >
+            <a
+              href="./service.html"
+              class="text-white font-normal hover:text-black mb-1"
+              href=""
+              >Layanan</a
+            >
+            <a
+              href="./project.html"
+              class="text-white font-normal hover:text-black mb-1"
+              href=""
+              >Produk</a
+            >
+            <a
+              href="./project.html"
+              class="text-white font-normal hover:text-black mb-1"
+              href=""
+              >Proyek</a
+            >
+            <a
+              href="./article.html"
+              class="text-white font-normal hover:text-black mb-1"
+              href=""
+              >Artikel</a
+            >
+            <a
+              href="./contact.html"
+              class="text-white font-normal hover:text-black mb-1"
+              href=""
+              >Kontak</a
+            >
+          </div>
         </div>
+        <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-4 order-5">
+          <h3 class="mb-2 text-white hover:text-black">Kantor Utama</h3>
+          <div class="flex flex-col">
+            <a class="text-white font-normal hover:text-black" href=""
+              >JI. Gunung Sari 5 H Surabaya 60242</a
+            >
+            <a class="text-white font-normal hover:text-black" href=""
+              >Telp. (031) 5682517, 5682533</a
+            >
+            <a class="text-white font-normal hover:text-black" href=""
+              >Fax. (031) 5674991</a
+            >
+          </div>
+        </div>
+        <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-5 order-1">
+          <img
+            src="./assets/img/logo/logo-white.png"
+            alt=""
+            class="aspect-square w-[100px]" />
+        </div>
+        <div class="w-[60%] md:order-6 order-7">
+          <h3 class="mb-2 text-white hover:text-black">Temukan Kami</h3>
+          <div class="flex flex-wrap gap-4">
+            <img
+              src="./assets/img/logo/c1.png"
+              alt=""
+              class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]" />
+            <img
+              src="./assets/img/logo/c2.png"
+              alt=""
+              class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]" />
+          </div>
+        </div>
+        <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-7 order-6">
+          <h3 class="text-white hover:text-black">Bengkel</h3>
+          <div class="flex flex-col">
+            <a class="text-white font-normal hover:text-black" href=""
+              >Jl. Raya Jetis Kupang KM. 08 Ds. Parengan Kec. Jetis Mojokerto</a
+            >
+            <a class="text-white font-normal hover:text-black" href=""
+              >Telp. (0321) 362986</a
+            >
+          </div>
+        </div>
+      </div>
     </footer>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+      AOS.init();
     </script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        main: "#438D3D",
-                        grey1: "#bfbfbf",
-                        grey2: "#f7f7f7",
-                        body: "#ffffff"
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              main: "#438D3D",
+              grey1: "#bfbfbf",
+              grey2: "#f7f7f7",
+              body: "#ffffff",
+            },
+          },
+        },
+      };
     </script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/project.js"></script>
-</body>
-
+  </body>
 </html>
