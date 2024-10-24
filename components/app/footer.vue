@@ -113,41 +113,21 @@
       <div class="md:w-[60%] w-full md:order-6 order-7">
         <h3 class="mb-2 font-bold text-white">Partner</h3>
         <NuxtLink
-          :to="staticData?.partner_link_1"
+          :to="'#'"
           class="flex flex-wrap justify-center w-full gap-4 md:justify-start"
         >
           <img
-            :src="staticData?.partner_logo_1"
+            :src="'/img/logo/c1.png'"
             alt=""
             class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
           />
         </NuxtLink>
         <NuxtLink
-          :to="staticData?.partner_link_2"
+          :to="'#'"
           class="flex flex-wrap justify-center w-full gap-4 md:justify-start"
         >
           <img
-            :src="staticData?.partner_logo_2"
-            alt=""
-            class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
-          />
-        </NuxtLink>
-        <NuxtLink
-          :to="staticData?.partner_link_3"
-          class="flex flex-wrap justify-center w-full gap-4 md:justify-start"
-        >
-          <img
-            :src="staticData?.partner_logo_3"
-            alt=""
-            class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
-          />
-        </NuxtLink>
-        <NuxtLink
-          :to="staticData?.partner_link_4"
-          class="flex flex-wrap justify-center w-full gap-4 md:justify-start"
-        >
-          <img
-            :src="staticData?.partner_logo_4"
+            :src="'/img/logo/c2.png'"
             alt=""
             class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
           />

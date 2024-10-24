@@ -1,6 +1,6 @@
 <script setup>
 useSeoMeta({
-  title: "Articles",
+  title: "Contact",
 });
 const config = useRuntimeConfig();
 const { status, data, error, refresh } = await useFetch(
@@ -61,26 +61,52 @@ onMounted(() => {
               </p>
             </div>
           </div>
-          <div class="flex items-center">
-            <i class="text-3xl text-orange-500 fas fa-comments"></i>
-            <div>
-              <p class="mb-4 text-gray-600">Sosial Media</p>
-              <div class="social-icons">
-                <a
-                  href="https://www.facebook.com/p/BJPM-Bina-Jaya-Perkasa-Mandiri-100070195721864/?locale=id_ID"
-                  target="_blank"
-                  class="social-icon"
-                >
-                  <i class="bi bi-facebook"></i>
-                </a>
-                <a
-                  href="https://www.instagram.com/pt.bjpm/"
-                  target="_blank"
-                  class="social-icon"
-                >
-                  <i class="bi bi-instagram"></i>
-                </a>
-              </div>
+          <div class="flex flex-wrap justify-between mt-6">
+            <!-- Jawa Timur Section -->
+            <div class="w-full pr-4 text-gray-600 md:w-1/2">
+              <p class="mb-3 text-lg font-semibold text-main">Jawa Timur</p>
+              <p class="mb-3 text-sm">
+                <strong>Kantor pusat</strong><br />
+                Jl Gunung Sari No.5H RT 02/RW 07 Kel.Sawunggaling Kec.Wonokromo
+                Surabaya
+              </p>
+              <p class="mb-3 text-sm">
+                <strong>Workshop</strong><br />
+                Jl Raya Jetis Parengan Ds.Jetis Kec.Parengan Mojokerto
+              </p>
+              <p class="mb-3 text-sm">
+                <strong>No Whatsapp</strong> <br />
+                +628123066391
+              </p>
+              <p class="mb-3 text-sm">
+                <strong>Email</strong> <br />
+                Surabaya - bjpmsby@gmail.com<br />
+                Mojokerto - bjpmmjkt@gmail.com
+              </p>
+            </div>
+            <!-- Jawa Tengah Section -->
+            <div class="w-full pl-0 text-gray-600 md:w-1/2 md:pl-4">
+              <p class="mb-3 text-lg font-semibold text-main">Jawa Tengah</p>
+              <p class="mb-3 text-sm">
+                <strong>Kantor Cabang</strong><br />
+                Jl Layur No.36 RT 06/07 Kel.Dadapsari Kec.Semarang Utara
+                Semarang
+              </p>
+              <p class="mb-3 text-sm">
+                <strong>Workshop</strong><br />
+                Jl Raya Semarang - Kendal Ds.Sumberejo Kec.Kaliwungu
+                Kab.Kendal<br />
+                (Sebelah Timur Terowongan Sumberejo)
+              </p>
+              <p class="mb-3 text-sm">
+                <strong>No Whatsapp</strong> <br />
+                +6281391436231
+              </p>
+              <p class="mb-3 text-sm">
+                <strong>Email</strong> <br />
+                Semarang - bjpmsemarang36@gmail.com<br />
+                Kendal - bjpmkdl@gmail.com
+              </p>
             </div>
           </div>
         </div>
