@@ -5,7 +5,7 @@
     >
       Proyek Kami
     </h1>
-    <div class="flex flex-wrap mb-5">
+    <div class="flex flex-wrap gap-4 mb-5 justify-evenly">
       <div
         class="aspect-[1/1.15] max-w-[270px] w-[22%] grow min-w-[250px] relative flex items-center justify-center overflow-hidden project-card"
         v-for="project in projects.data"
