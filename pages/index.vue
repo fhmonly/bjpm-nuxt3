@@ -51,7 +51,11 @@ const { status, data, error, refresh } = await useFetch(
     <HomeServicesSection />
     <HomeProjectsSection />
     <HomeArticlesSection />
-    <section id="video" class="flex p-5 sm:p-10">
+    <section
+      id="video"
+      class="flex p-5 sm:p-10"
+      v-show="data?.data?.home_video_profiles"
+    >
       <YoutubePlayer
         thumbnail="/img/Video Background.jpg"
         :url="data.data.home_video_profiles"
