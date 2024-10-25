@@ -13,10 +13,11 @@ const {
 });
 </script>
 <template>
-  <section id="product" class="flex flex-col px-10 py-2">
-    <h1 class="py-10 mb-2 text-3xl text-center text-white md:mb-5 md:py-20">
+  <section id="product" class="flex flex-col px-4 py-2 tablet:px-10">
+    <h1
+      class="py-4 mb-5 text-3xl font-bold text-center text-white md:text-4xl sm:py-6 md:py-20 section-header"
+    >
       Produk Kami
-      <br />
     </h1>
     <div class="block mb-10 md:flex justify">
       <div class="w-full mr-0 md:w-3/12 md:mr-10">
