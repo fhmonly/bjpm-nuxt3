@@ -1,16 +1,28 @@
 <script setup>
 const config = useRuntimeConfig();
 const productCategoryUrl = useProductCategory();
-productCategoryUrl.value = `${config.public.apiPublic}/api/products`;
+const route = useRoute();
+const currentPage = ref(+route.query.page || 1);
 const {
   data: products,
-  pending,
   error,
   refresh,
-} = await useFetch(() => productCategoryUrl.value, {
-  pick: ["data"],
-  key: "api-productCategory",
-});
+} = await useFetch(
+  () => productCategoryUrl.value || `${config.public.apiPublic}/api/products`,
+  {
+    pick: ["data"],
+    key: "api-productCategory",
+    watch: [currentPage],
+  }
+);
+const totalPages = ref(products?.value?.data?.infoPage?.total_page);
+
+watch(
+  () => route.query.page,
+  (newPage) => {
+    currentPage.value = +newPage || 1;
+  }
+);
 </script>
 <template>
   <section id="product" class="flex flex-col px-4 py-2 tablet:px-10">
@@ -24,8 +36,10 @@ const {
         <ProductsAsideContainer />
       </div>
 
-      <div class="w-full md:w-9/12">
-        <div class="flex flex-wrap justify-center gap-5 product-card-container">
+      <div class="flex flex-col w-full md:w-9/12">
+        <div
+          class="flex flex-wrap justify-center gap-5 mb-10 product-card-container"
+        >
           <div
             class="article-card aspect-[0.87/1] w-full sm:max-w-[48%] lg:max-w-[31%] flex flex-col"
             data-aos="zoom-in"
@@ -55,6 +69,34 @@ const {
               </NuxtLink>
             </div>
           </div>
+          <div class="flex flex-col items-center justify-center w-full py-8">
+            <IconBiXCircle width="44" height="44" class="mb-5 text-red-500" />
+            <p>Daftar product Kosong</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 mx-auto" v-show="totalPages >= 2">
+          <NuxtLink
+            :to="`?page=${currentPage <= 1 ? 1 : currentPage - 1}`"
+            class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+            :aria-disabled="currentPage <= 1"
+          >
+            Prev
+          </NuxtLink>
+
+          <p>
+            {{ currentPage }} /
+            {{ totalPages }}
+          </p>
+
+          <NuxtLink
+            :to="`?page=${
+              currentPage >= totalPages ? totalPages : currentPage + 1
+            }`"
+            class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+            :aria-disabled="currentPage >= totalPages"
+          >
+            Next
+          </NuxtLink>
         </div>
       </div>
     </div>
