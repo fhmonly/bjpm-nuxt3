@@ -33,7 +33,7 @@ const { status, data, error, refresh } = await useFetch(
         ></div>
       </div>
     </div>
-    <div class="px-10 pb-6 mx-auto text-xs">
+    <div class="px-10 pb-6 mx-auto text-xs leading-5">
       <div class="block my-6">
         <h2
           class="mb-6 text-2xl font-bold text-center text-main"
