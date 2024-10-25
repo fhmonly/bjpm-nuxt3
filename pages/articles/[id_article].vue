@@ -43,7 +43,10 @@ const {
       </div>
 
       <article class="text-sm font-normal prose text-justify max-w-none">
-        <div class="p-detail" v-html="article.data.description.content"></div>
+        <article
+          class="p-detail"
+          v-html="article.data.description.content"
+        ></article>
       </article>
 
       <div class="mt-8">
@@ -73,5 +76,9 @@ const {
   width: 16px;
   height: 16px;
   margin-left: 1px;
+}
+
+.p-detail * {
+  all: revert; /* buat semua element didalam tag dengan class p-detail menjadi style default dan tidak terpengaruh style dari komponen yang lebih tinggi */
 }
 </style>
