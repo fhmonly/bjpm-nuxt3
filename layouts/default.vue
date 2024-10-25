@@ -33,6 +33,6 @@ useHead({
   <div class="flex flex-col min-h-screen">
     <AppNavContainer />
     <slot />
-    <AppFooter class="mt-auto" />
+    <AppFooter class="mt-14" />
   </div>
 </template>
