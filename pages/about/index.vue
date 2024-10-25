@@ -28,7 +28,6 @@ const { status, data, error, refresh } = await useFetch(
         <div
           class="mb-8 text-sm font-normal text-justify"
           data-aos="fade-up"
-          data-aos-delay="100"
           v-html="data?.data?.about_section1_info"
         ></div>
       </div>
@@ -38,7 +37,6 @@ const { status, data, error, refresh } = await useFetch(
         <h2
           class="mb-6 text-2xl font-bold text-center text-main"
           data-aos="fade-up"
-          data-aos-delay="200"
         >
           Visi & Misi
         </h2>
@@ -46,7 +44,6 @@ const { status, data, error, refresh } = await useFetch(
           <div
             class="bg-main text-white p-6 w-[40%] grow min-w-[300px]"
             data-aos="fade-up"
-            data-aos-delay="300"
           >
             <h3 class="mb-2 text-xl font-bold">Visi</h3>
             <div
@@ -57,7 +54,6 @@ const { status, data, error, refresh } = await useFetch(
           <div
             class="bg-main text-white p-6 w-[40%] grow min-w-[300px]"
             data-aos="fade-up"
-            data-aos-delay="400"
           >
             <h3 class="mb-2 text-xl font-bold">Misi</h3>
             <div
@@ -72,7 +68,6 @@ const { status, data, error, refresh } = await useFetch(
         <div
           class="bg-main text-white p-6 h-auto md:order-2 order-2 w-[40%] grow min-w-[200px] custom-page"
           data-aos="fade-up"
-          data-aos-delay="500"
           v-html="data?.data?.about_history_content"
         ></div>
         <div
@@ -82,7 +77,6 @@ const { status, data, error, refresh } = await useFetch(
             alt="gambar sejarah bjpm"
             :src="`${config.public.apiPublic}/images/static/${data?.data?.about_history_image}`"
             data-aos="fade-up"
-            data-aos-delay="600"
             class="object-cover w-full h-full"
           />
         </div>
@@ -94,13 +88,11 @@ const { status, data, error, refresh } = await useFetch(
             :src="`${config.public.apiPublic}/images/static/${data?.data?.about_range_image}`"
             width="600"
             data-aos="fade-up"
-            data-aos-delay="700"
           />
         </div>
         <div
           class="bg-main text-white mt-0 p-6 md:order-3 order-4 w-[40%] grow min-w-[200px] custom-page"
           data-aos="fade-up"
-          data-aos-delay="800"
           v-html="data?.data?.about_range_content"
         ></div>
       </div>
