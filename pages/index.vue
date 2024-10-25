@@ -30,10 +30,7 @@ const { status, data, error, refresh } = await useFetch(
         <h1 class="mb-5 text-3xl font-bold title-about text-main">
           {{ data.data.home_section1_title }}
         </h1>
-        <div
-          v-html="data.data.home_section1_info"
-          class="flex flex-col gap-y-2"
-        ></div>
+        <div v-html="data.data.home_section1_info" class="no-tailwind"></div>
         <NuxtLink
           to="/about"
           class="block p-2 mt-5 text-white border-2 border-transparent bg-main hover:text-main hover:bg-white w-fit"

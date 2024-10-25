@@ -26,7 +26,7 @@ const { status, data, error, refresh } = await useFetch(
           {{ data?.data?.about_hero_title || "About" }}
         </h1>
         <div
-          class="mb-8 text-sm font-normal text-justify"
+          class="text-sm no-tailwind"
           data-aos="fade-up"
           v-html="data?.data?.about_section1_info"
         ></div>
@@ -47,7 +47,7 @@ const { status, data, error, refresh } = await useFetch(
           >
             <h3 class="mb-2 text-xl font-bold">Visi</h3>
             <div
-              class="text-about-page"
+              class="no-tailwind"
               v-html="data?.data?.about_vision_content"
             ></div>
           </div>
@@ -58,7 +58,7 @@ const { status, data, error, refresh } = await useFetch(
             <h3 class="mb-2 text-xl font-bold">Misi</h3>
             <div
               v-html="data?.data?.about_misi_content"
-              class="text-about-page mission-section"
+              class="no-tailwind"
             ></div>
           </div>
         </div>
@@ -66,7 +66,7 @@ const { status, data, error, refresh } = await useFetch(
 
       <div class="flex flex-wrap gap-6">
         <div
-          class="bg-main text-white p-6 h-auto md:order-2 order-2 w-[40%] grow min-w-[200px] custom-page"
+          class="bg-main text-white p-6 h-auto md:order-2 order-2 w-[40%] grow min-w-[200px] custom-page no-tailwind"
           data-aos="fade-up"
           v-html="data?.data?.about_history_content"
         ></div>
@@ -91,7 +91,7 @@ const { status, data, error, refresh } = await useFetch(
           />
         </div>
         <div
-          class="bg-main text-white mt-0 p-6 md:order-3 order-4 w-[40%] grow min-w-[200px] custom-page"
+          class="bg-main text-white mt-0 p-6 md:order-3 order-4 w-[40%] grow min-w-[200px] custom-page no-tailwind"
           data-aos="fade-up"
           v-html="data?.data?.about_range_content"
         ></div>

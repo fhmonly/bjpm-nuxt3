@@ -37,7 +37,7 @@ const {
           {{ detailProduct.data.data.description.name }}
         </h3>
         <article
-          class="mt-2 text-gray-600"
+          class="mt-2 text-gray-600 no-tailwind"
           v-html="detailProduct.data.data.description.desc"
         ></article>
         <div>

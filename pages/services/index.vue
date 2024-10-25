@@ -70,7 +70,7 @@ const {
                 {{ service.name }}
               </h2>
               <div
-                class="text-sm leading-5 text-justify text-white"
+                class="text-sm text-justify text-white no-tailwind"
                 v-html="service.contents"
               ></div>
             </div>

@@ -36,4 +36,8 @@ body > div#__nuxt {
 :root {
   --main-color: #438d3d;
 }
+
+.no-tailwind * {
+  all: revert; /* buat semua element didalam tag dengan class p-detail menjadi style default dan tidak terpengaruh style dari komponen yang lebih tinggi */
+}
 </style>
