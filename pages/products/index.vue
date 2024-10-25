@@ -69,9 +69,12 @@ watch(
               </NuxtLink>
             </div>
           </div>
-          <div class="flex flex-col items-center justify-center w-full py-8">
+          <div
+            class="flex flex-col items-center justify-center w-full py-8"
+            v-if="products?.data?.data?.length <= 0"
+          >
             <IconBiXCircle width="44" height="44" class="mb-5 text-red-500" />
-            <p>Daftar product Kosong</p>
+            <p>Daftar produk kosong</p>
           </div>
         </div>
         <div class="flex items-center gap-4 mx-auto" v-show="totalPages >= 2">

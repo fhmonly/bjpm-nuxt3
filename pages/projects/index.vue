@@ -29,6 +29,13 @@
           <p class="text-[10px]">{{ project.description.sub_title_2 }}</p>
         </div>
       </div>
+      <div
+        class="flex flex-col items-center justify-center w-full py-8"
+        v-if="projects?.data?.length <= 0"
+      >
+        <IconBiXCircle width="44" height="44" class="mb-5 text-red-500" />
+        <p>Belum ada proyek yang dikerjakan</p>
+      </div>
     </div>
   </section>
 </template>
