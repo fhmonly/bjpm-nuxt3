@@ -26,27 +26,31 @@ const {
       <div class="w-full md:w-9/12">
         <div class="flex flex-wrap justify-center gap-5 product-card-container">
           <div
-            class="product-card aspect-[1/1.15] relative overflow-hidden min-w-[250px] max-w-[300px] w-[30%] bg-main grow"
-            v-for="(product, index) in products.data.data"
-            :key="index"
+            class="article-card aspect-[0.87/1] w-full sm:max-w-[48%] lg:max-w-[31%] flex flex-col"
+            data-aos="zoom-in"
+            v-for="product in products.data.data"
+            :key="product.description.id"
           >
             <img
               :src="product.image"
               :alt="`Gambar produk ${product.description.name}`"
-              class="object-cover w-full h-full"
+              class="object-cover grow aspect-[1.29/1]"
             />
             <div
-              class="absolute left-0 right-0 top-[100%] flex flex-col items-center h-full product-card-overlay justify-center"
+              class="flex flex-col p-3 pt-5 text-sm bg-[#94949431] text-main"
             >
-              <p class="text-xl font-bold product-text text-main">
+              <!-- <p class="mb-1 text-greybf">
+                {{ $dayjs(article.dates).locale("id").fromNow() }}
+              </p> -->
+              <p class="mb-3 text-base font-bold truncate">
                 {{ product.description.name }}
               </p>
               <NuxtLink
+                class="flex items-center gap-2 p-2 py-1 text-white ms-auto bg-main"
                 :to="`/products/${product.description.product_id}`"
-                style="text-decoration: none"
-                class="absolute bottom-0 px-2 py-1 mb-2 text-sm text-white border-2 border-transparent product-btn bg-main hover:border-main hover:bg-transparent"
               >
-                Selengkapnya
+                Baca Lebih
+                <IconBiArrowRight />
               </NuxtLink>
             </div>
           </div>
