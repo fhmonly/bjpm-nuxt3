@@ -52,9 +52,10 @@ const {
             <button
               class="block cursor-pointer"
               :class="{
-                'text-main font-bold':
-                  productCategoryUrl ===
+                'text-main font-bold': [
+                  null,
                   `${config.public.apiPublic}/api/products`,
+                ].includes(productCategoryUrl),
               }"
               @click="
                 productCategoryUrl = `${config.public.apiPublic}/api/products`
