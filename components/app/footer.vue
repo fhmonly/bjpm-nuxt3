@@ -111,29 +111,25 @@
         />
       </div>
       <div class="md:w-[60%] w-full md:order-6 order-7">
-        <h3 class="mb-2 font-bold text-white">Partner</h3>
-        <NuxtLink
-          :to="'#'"
-          class="flex flex-wrap justify-center w-full gap-4 md:justify-start"
-        >
-          <img
-            :src="'/img/logo/c1.png'"
-            alt=""
-            class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
-          />
-        </NuxtLink>
-        <NuxtLink
-          :to="'#'"
-          class="flex flex-wrap justify-center w-full gap-4 md:justify-start"
-        >
-          <img
-            :src="'/img/logo/c2.png'"
-            alt=""
-            class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
-          />
-        </NuxtLink>
+        <h3 class="mb-4 font-bold text-white">Partner</h3>
+        <div class="flex flex-col gap-4 md:flex-row">
+          <NuxtLink :to="'#'" class="flex justify-center">
+            <img
+              :src="'/img/logo/c1.png'"
+              alt=""
+              class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
+            />
+          </NuxtLink>
+          <NuxtLink :to="'#'" class="flex justify-center">
+            <img
+              :src="'/img/logo/c2.png'"
+              alt=""
+              class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]"
+            />
+          </NuxtLink>
+        </div>
       </div>
-      <!-- <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-7 order-6">
+      <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-7 order-6">
         <h3 class="mb-2 font-bold text-white">Bengkel</h3>
         <div class="flex flex-col">
           <NuxtLink class="font-normal text-white" href="/">
@@ -143,7 +139,7 @@
             >Telp. (0321) 362986</NuxtLink
           >
         </div>
-      </div> -->
+      </div>
     </div>
   </footer>
 </template>
