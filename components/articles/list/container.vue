@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+  <div class="flex flex-wrap">
     <ArticlesListItem
       v-for="article in articles"
       :key="article.description.blog_id"
@@ -7,6 +7,7 @@
       :title="article.description.title"
       :articleId="article.description.blog_id"
       :createdAt="article.dates"
+      class="w-full sm:max-w-[48%] md:max-w-[31%] lg:max-w-[24%]"
     />
   </div>
 </template>

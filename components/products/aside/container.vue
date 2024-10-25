@@ -6,7 +6,6 @@ const config = useRuntimeConfig();
 const productCategoryUrl = useProductCategory();
 const {
   data: categories,
-  pending: pendingCategories,
   error: errorCategories,
   refresh: refreshCategories,
 } = await useFetch(`${config.public.apiPublic}/api/category`, {
