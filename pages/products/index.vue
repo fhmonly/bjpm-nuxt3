@@ -8,10 +8,12 @@ const {
   error,
   refresh,
 } = await useFetch(
-  () => productCategoryUrl.value || `${config.public.apiPublic}/api/products`,
+  () =>
+    productCategoryUrl.value ||
+    `${config.public.apiPublic}/api/products?page=${currentPage.value}`,
   {
     pick: ["data"],
-    key: "api-productCategory",
+    key: "api-products",
     watch: [currentPage],
   }
 );
