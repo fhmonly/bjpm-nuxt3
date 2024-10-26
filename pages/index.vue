@@ -7,14 +7,7 @@ useHead({
   ],
 });
 const config = useRuntimeConfig();
-const { status, data, error, refresh } = await useFetch(
-  `${config.public.apiPublic}/api/settings`,
-  {
-    pick: ["data"],
-    key: "res-static-data",
-    server: true,
-  }
-);
+const { staticData, error, refresh, status } = useStatic();
 </script>
 <template>
   <div class="min-h-screen">
@@ -28,9 +21,12 @@ const { status, data, error, refresh } = await useFetch(
         data-aos="fade-right"
       >
         <h1 class="mb-5 text-3xl font-bold title-about text-main">
-          {{ data.data.home_section1_title }}
+          {{ staticData.data.home_section1_title }}
         </h1>
-        <div v-html="data.data.home_section1_info" class="no-tailwind"></div>
+        <div
+          v-html="staticData.data.home_section1_info"
+          class="no-tailwind"
+        ></div>
         <NuxtLink
           to="/about"
           class="block p-2 mt-5 text-white border-2 border-transparent bg-main hover:text-main hover:bg-white w-fit"
@@ -39,7 +35,7 @@ const { status, data, error, refresh } = await useFetch(
         </NuxtLink>
       </div>
       <img
-        :src="`${config.public.apiPublic}/images/static/${data.data.home_section1_image}`"
+        :src="`${config.public.apiPublic}/images/static/${staticData.data.home_section1_image}`"
         alt=""
         class="max-w-[400px] w-[100%] md:p-4 md:pe-0 md:order-2 order-1 img-abt"
         data-aos="slide-up"
@@ -51,11 +47,11 @@ const { status, data, error, refresh } = await useFetch(
     <section
       id="video"
       class="flex p-5 sm:p-10"
-      v-show="data?.data?.home_video_profiles"
+      v-show="staticData?.data?.home_video_profiles"
     >
       <YoutubePlayer
         thumbnail="/img/Video Background.jpg"
-        :url="data.data.home_video_profiles"
+        :url="staticData.data.home_video_profiles"
       />
     </section>
   </div>

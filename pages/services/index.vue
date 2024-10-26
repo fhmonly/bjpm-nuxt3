@@ -11,17 +11,7 @@ const {
   pick: ["data"],
   key: "services-data",
 });
-
-const {
-  status,
-  data: staticData,
-  error,
-  refresh,
-} = await useFetch(`${config.public.apiPublic}/api/settings`, {
-  pick: ["data"],
-  key: "res-static-data",
-  server: true,
-});
+const { staticData, error, refresh, status } = useStatic();
 </script>
 <template>
   <section id="services">

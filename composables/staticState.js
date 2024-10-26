@@ -1,10 +1,13 @@
-// export const useStatic = () => {
-// const config = useRuntimeConfig()
-// const { data: staticData, error, refresh } = useFetch(`${config.public.apiPublic}/api/settings`, {
-//     pick: ["data"],
-//     key: "static-data",
-//     server: true,
-// });
-// return { staticData, error, refresh };
-// };
-export const useStatic = () => useState('static-data', () => null)
+export function useStatic() {
+    const config = useRuntimeConfig();
+
+    const { status, data, error, refresh } = useFetch(
+        () => `${config.public.apiPublic}/api/settings`,
+        {
+            pick: ["data"],
+            key: "res-static-data",
+        }
+    );
+
+    return { status, staticData: data, error, refresh };
+}

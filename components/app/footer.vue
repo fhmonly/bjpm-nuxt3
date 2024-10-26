@@ -8,17 +8,17 @@
         <h3 class="mb-2 font-bold text-white">Email</h3>
         <NuxtLink
           class="font-normal text-white"
-          :href="`mailto:${staticData?.email}`"
-          >{{ staticData?.email }}</NuxtLink
+          :href="`mailto:${staticData?.data?.email}`"
+          >{{ staticData?.data?.email }}</NuxtLink
         >
       </div>
       <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-2 order-3">
         <h3 class="mb-2 font-bold text-white">Whatsapp</h3>
         <NuxtLink
           class="font-normal text-white"
-          :href="`https://api.whatsapp.com/send?phone=${staticData?.contact_wa}`"
+          :href="`https://api.whatsapp.com/send?phone=${staticData?.data?.contact_wa}`"
           target="_blank"
-          >+{{ staticData?.contact_wa }}</NuxtLink
+          >+{{ staticData?.data?.contact_wa }}</NuxtLink
         >
       </div>
       <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-3 order-4">
@@ -26,37 +26,37 @@
         <div class="flex flex-col">
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.url_facebook"
+            :href="staticData?.data?.url_facebook"
             target="_blank"
             >Facebook</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.url_instagram"
+            :href="staticData?.data?.url_instagram"
             target="_blank"
             >Instagram</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.url_youtube"
+            :href="staticData?.data?.url_youtube"
             target="_blank"
             >Youtube</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.url_tiktok"
+            :href="staticData?.data?.url_tiktok"
             target="_blank"
             >Tiktok</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.url_shopee"
+            :href="staticData?.data?.url_shopee"
             target="_blank"
             >Shopee</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.url_tokopedia"
+            :href="staticData?.data?.url_tokopedia"
             target="_blank"
             >Tokopedia</NuxtLink
           >
@@ -91,13 +91,13 @@
         <div class="flex flex-col">
           <NuxtLink
             class="font-normal text-white"
-            :href="staticData?.contact_maps"
-            >{{ staticData?.contact_address }}</NuxtLink
+            :href="staticData?.data?.contact_maps"
+            >{{ staticData?.data?.contact_address }}</NuxtLink
           >
           <NuxtLink
             class="font-normal text-white"
-            :href="`tel:${staticData?.contact_phone}`"
-            >Telp. +{{ staticData?.contact_phone }}</NuxtLink
+            :href="`tel:${staticData?.data?.contact_phone}`"
+            >Telp. +{{ staticData?.data?.contact_phone }}</NuxtLink
           >
         </div>
       </div>
@@ -144,15 +144,6 @@
   </footer>
 </template>
 <script setup>
-// const staticData = useStatic();
 const config = useRuntimeConfig();
-const { status, data, error, refresh } = await useFetch(
-  `${config.public.apiPublic}/api/settings`,
-  {
-    pick: ["data"],
-    key: "res-static-data",
-    server: true,
-  }
-);
-const staticData = ref(data.value.data);
+const { staticData, error, refresh, status } = useStatic();
 </script>

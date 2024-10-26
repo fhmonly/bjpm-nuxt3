@@ -2,17 +2,8 @@
 useSeoMeta({
   title: "Contact",
 });
+const { staticData, error, refresh, status } = useStatic();
 const config = useRuntimeConfig();
-const {
-  status,
-  data: staticData,
-  error,
-  refresh,
-} = await useFetch(`${config.public.apiPublic}/api/settings`, {
-  pick: ["data"],
-  key: "res-static-data",
-  server: true,
-});
 useHead({
   script: [
     {

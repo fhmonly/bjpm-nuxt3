@@ -1,5 +1,29 @@
 <script setup>
+const config = useRuntimeConfig();
+
+const {
+  status,
+  data: staticData,
+  error,
+  refresh,
+} = useFetch(() => `${config.public.apiPublic}/api/settings`, {
+  pick: ["data"],
+  key: "res-static-data",
+  server: true,
+});
+
+useSeoMeta({
+  description: staticData.value?.data?.default_meta_description,
+  title: staticData.value?.data?.default_meta_title,
+});
+
 useHead({
+  meta: [
+    {
+      name: "keywords",
+      content: staticData.value?.data?.default_meta_keywords,
+    },
+  ],
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | BJPM` : "BJPM";
   },
