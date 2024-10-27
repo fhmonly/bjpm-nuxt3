@@ -23,13 +23,14 @@ const {
       Filter
     </label>
     <input type="checkbox" id="aside-kategori" hidden /> -->
-    <ul id="accordion" class="hidden text-left md:block">
+    <ul id="accordion" class="text-left">
       <li class="mb-4">
         <label
           for="categoryId"
-          class="block p-4 font-bold text-white cursor-pointer bg-main"
+          class="flex items-center justify-between p-4 font-bold text-white cursor-pointer bg-main"
         >
-          Kategori
+          <span>Kategori</span>
+          <IconBiCaretDownFill class="md:hidden" />
         </label>
         <input type="checkbox" id="categoryId" hidden />
         <ul class="pl-6 mt-2 font-normal text-greybf">
@@ -73,6 +74,11 @@ const {
 <style>
 input[type="checkbox"] + ul {
   display: none;
+}
+@media screen and (min-width: 768px) {
+  input[type="checkbox"] + ul {
+    display: block;
+  }
 }
 input[type="checkbox"]:checked + ul {
   display: block;
