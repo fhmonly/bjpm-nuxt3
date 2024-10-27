@@ -21,17 +21,7 @@ function offCanvasItemClick() {
     navOffcanvas.classList.remove("active");
   }
 }
-const config = useRuntimeConfig();
-const {
-  status,
-  data: staticData,
-  error,
-  refresh,
-} = await useFetch(`${config.public.apiPublic}/api/settings`, {
-  pick: ["data"],
-  key: "res-static-data",
-  server: true,
-});
+const { staticData, error, refresh, status } = useStatic();
 </script>
 <template>
   <header class="sticky top-0 z-50 px-2 tablet:px-8 bg-body">

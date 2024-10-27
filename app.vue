@@ -1,5 +1,29 @@
 <script setup>
+const config = useRuntimeConfig();
+
+const {
+  status,
+  data: staticData,
+  error,
+  refresh,
+} = useFetch(() => `${config.public.apiPublic}/api/settings`, {
+  pick: ["data"],
+  key: "res-static-data",
+  server: true,
+});
+
+useSeoMeta({
+  description: staticData.value?.data?.default_meta_description,
+  title: staticData.value?.data?.default_meta_title,
+});
+
 useHead({
+  meta: [
+    {
+      name: "keywords",
+      content: staticData.value?.data?.default_meta_keywords,
+    },
+  ],
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | BJPM` : "BJPM";
   },
@@ -35,5 +59,9 @@ body > div#__nuxt {
 }
 :root {
   --main-color: #438d3d;
+}
+
+.no-tailwind * {
+  all: revert; /* buat semua element didalam tag dengan class p-detail menjadi style default dan tidak terpengaruh style dari komponen yang lebih tinggi */
 }
 </style>

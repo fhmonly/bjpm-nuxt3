@@ -75,14 +75,5 @@ onMounted(() => {
   });
 });
 const config = useRuntimeConfig();
-const {
-  data: staticData,
-  pending,
-  error,
-  refresh,
-} = useFetch(`${config.public.apiPublic}/api/settings`, {
-  pick: ["data"],
-  key: "res-static-data",
-  server: true,
-});
+const { staticData, error, refresh, status } = useStatic();
 </script>

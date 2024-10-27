@@ -1,42 +1,64 @@
 <script setup>
 const { thumbnail } = defineProps({
-    thumbnail: {
-        required: true,
-        type: String,
-    }
+  thumbnail: {
+    required: true,
+    type: String,
+  },
+  url: {
+    required: true,
+    type: String,
+  },
 });
 function playVid(event) {
-  const thumbnail = event.target.closest('.thumbnail');
-  console.log(thumbnail.getAttribute('target'))
-  const video = document.querySelector(thumbnail.getAttribute('target'));
-  
+  const thumbnail = event.target.closest(".thumbnail");
+  console.log(thumbnail.getAttribute("target"));
+  const video = document.querySelector(thumbnail.getAttribute("target"));
+
   if (video) {
-    thumbnail.classList.add('hidden');
-    video.classList.remove('opacity-0');
+    thumbnail.classList.add("hidden");
+    video.classList.remove("opacity-0");
     video.contentWindow.postMessage(
       '{"event":"command","func":"playVideo","args":""}',
       "*"
     );
   }
 }
-const id = `ytp-${Date.now()}`
+const id = `ytp-${Date.now()}`;
 </script>
 <template>
-    <div class="aspect-[1.59/1] w-full max-h-[450px] relative m-auto" data-aos="zoom-in">
-        <iframe :id="id" class="w-full h-full opacity-0"
-            src="https://www.youtube.com/embed/co9VMK17oSs?enablejsapi=1&si=IkSLYARZ3IC_2RlJ"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <div class="absolute top-0 bottom-0 left-0 right-0 thumbnail" :target="`#${id}`" @click="playVid">
-            <img :src=thumbnail alt="Thumbnail video" class="object-cover w-full h-full">
-            <div class="absolute top-0 bottom-0 left-0 right-0 backdrop-brightness-75">
-                <a id="play-video" class="video-play-button" href="javascript:void(0)">
-                    <span></span>
-                </a>
-            </div>
-        </div>
+  <div
+    class="aspect-[1.59/1] w-full max-h-[450px] relative m-auto"
+    data-aos="zoom-in"
+  >
+    <iframe
+      :id="id"
+      class="w-full h-full opacity-0"
+      :src="`${url}?enablejsapi=1&si=IkSLYARZ3IC_2RlJ`"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+    <div
+      class="absolute top-0 bottom-0 left-0 right-0 thumbnail"
+      :target="`#${id}`"
+      @click="playVid"
+    >
+      <img
+        :src="thumbnail"
+        alt="Thumbnail video"
+        class="object-cover w-full h-full"
+      />
+      <div
+        class="absolute top-0 bottom-0 left-0 right-0 backdrop-brightness-75"
+      >
+        <a id="play-video" class="video-play-button" href="javascript:void(0)">
+          <span></span>
+        </a>
+      </div>
     </div>
+  </div>
 </template>
 <style scoped>
 .video-play-button {

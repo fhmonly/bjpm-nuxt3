@@ -1,44 +1,37 @@
 <script setup>
-// const staticData = useStatic();
 const config = useRuntimeConfig();
-const { status, data, error, refresh } = await useFetch(
-  `${config.public.apiPublic}/api/settings`,
-  {
-    pick: ["data"],
-    key: "res-static-data",
-    server: true,
-  }
-);
-const staticData = ref(data.value.data);
+const {
+  status,
+  data: offices,
+  error,
+  refresh,
+} = await useFetch(`${config.public.apiPublic}/api/offices`, {
+  pick: ["data"],
+  key: "res-offices",
+  server: true,
+});
 </script>
 <template>
   <div id="whatsapp-button">
-    <label
-      for="wa-check"
-      id="wa-button"
-      class="py-5 text-white rounded-full shadow-lg bg-main px-7 pulse-hover"
-    >
-      <IconBiWhatsapp width="25px" height="25px" />
-    </label>
     <input type="checkbox" id="wa-check" hidden />
     <div id="wa-menu">
       <a
-        :href="`https://wa.me/${staticData?.contact_wa}?text=Hello%20CS`"
+        :href="`https://wa.me/${office.phone}?text=''`"
         target="_blank"
-        class="text-xs font-semibold menu-button"
+        class="text-xs font-semibold capitalize menu-button"
+        v-for="office in offices.data"
+        :key="office.id"
       >
-        Hubungi Customer Service
-      </a>
-      <a
-        :href="`https://wa.me/${
-          staticData?.contact_wa_2 || staticData?.contact_wa
-        }?text=Hello%20Owner`"
-        target="_blank"
-        class="text-xs font-semibold menu-button"
-      >
-        Hubungi Marketing
+        {{ office.name }}&nbsp;{{ office.city }}
       </a>
     </div>
+    <label
+      for="wa-check"
+      id="wa-button"
+      class="py-5 mt-3 text-white rounded-full shadow-lg bg-main px-7 pulse-hover ms-auto"
+    >
+      <IconBiWhatsapp width="25px" height="25px" />
+    </label>
   </div>
 </template>
 <style scoped>

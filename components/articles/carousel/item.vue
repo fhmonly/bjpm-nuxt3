@@ -1,12 +1,12 @@
 <template>
-  <div class="relative w-full flex-shrink-0">
+  <div class="relative flex-shrink-0 w-full">
     <img
       :src="imageSrc"
       :alt="title"
-      class="w-full md:h-96 h-64 object-cover"
+      class="object-cover w-full h-64 md:h-96"
     />
     <div
-      class="absolute bottom-0 left-0 right-0 bg-main bg-opacity-50 text-white p-4"
+      class="absolute bottom-0 left-0 right-0 p-4 text-white bg-opacity-50 bg-main"
     >
       <h2 class="text-lg font-bold">{{ title }}</h2>
     </div>

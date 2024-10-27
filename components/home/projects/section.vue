@@ -9,7 +9,7 @@
       class="flex flex-wrap justify-center gap-3 p-5 mb-1 md:gap-5 xl:justify-between project-card-container sm:p-10"
     >
       <NuxtLink
-        class="project-card aspect-[1/1.15] max-w-[375px] min-w-[250px] relative overflow-hidden"
+        class="project-card aspect-[1/1.15] w-full lg:max-w-[23%] tablet:max-w-[48%] relative overflow-hidden"
         data-aos="zoom-in"
         href="javascript:void(0)"
         v-for="project in projects.data?.slice(0, 4)"

@@ -24,7 +24,7 @@
           />
         </div>
         <div class="opacity-100 topic-overlay sm:opacity-0">
-          <p class="text-[30px] mb-4 text-center leading-7 w-[80%]">
+          <p class="text-xl mb-4 text-center w-[80%]">
             {{ service.name }}
           </p>
           <NuxtLink

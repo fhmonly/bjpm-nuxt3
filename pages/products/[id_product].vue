@@ -7,7 +7,6 @@ const config = useRuntimeConfig();
 const route = useRoute();
 const {
   data: detailProduct,
-  pending,
   error,
   refresh,
 } = await useFetch(
@@ -26,31 +25,29 @@ const {
       Detail Produk
     </h2>
     <div class="flex flex-col md:flex-row">
-      <div
-        class="mb-4 md:w-1/2 md:mb-0"
-        data-aos="zoom-in"
-        data-aos-delay="100"
-      >
+      <div class="mb-4 md:w-1/2 md:mb-0" data-aos="zoom-in">
         <img
-          :src="`${config.public.apiPublic}/images/products/${detailProduct.data.data.image}`"
+          :src="`${config.public.apiPublic}/images/product/${detailProduct.data.data.image}`"
           :alt="`Gambar ${detailProduct.data.data.description.name}`"
           class="object-cover w-full h-64"
         />
       </div>
-      <div class="md:w-1/2 md:pl-4" data-aos="fade-left" data-aos-delay="200">
+      <div class="md:w-1/2 md:pl-4" data-aos="fade-left">
         <h3 class="text-xl font-semibold text-main">
           {{ detailProduct.data.data.description.name }}
         </h3>
-        <div
-          class="mt-2 text-gray-600"
+        <article
+          class="mt-2 text-gray-600 no-tailwind"
           v-html="detailProduct.data.data.description.desc"
-        ></div>
-        <h4 class="mt-4 text-lg font-semibold text-main">Spesifikasi:</h4>
-        <ul class="pl-5 mt-2 text-gray-600 list-disc">
-          <li>Dimensi: 10m x 20cm x 20cm</li>
-          <li>Bahan: Kayu berkualitas tinggi</li>
-          <li>Berat: {{ detailProduct.data.data.berat }} kg</li>
-        </ul>
+        ></article>
+        <div>
+          <h4 class="mt-4 text-lg font-semibold text-main">Spesifikasi:</h4>
+          <ul class="pl-5 mt-2 text-gray-600 list-disc">
+            <li v-show="detailProduct?.data?.data?.berat">
+              {{ `Berat: ${detailProduct?.data?.data?.berat} kg` }}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="mt-8">
