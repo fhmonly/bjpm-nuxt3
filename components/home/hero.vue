@@ -5,9 +5,9 @@
       autoplay-delay="4000"
       class="z-0 w-full h-full"
     >
-      <swiper-slide>
+      <swiper-slide v-for="slider in sliders.data" :key="slider.id">
         <img
-          :src="`${config.public.apiPublic}/images/static/${staticData.data.contact_hero_image}`"
+          :src="`${slider.image}`"
           alt=""
           class="object-cover w-full h-full"
         />
@@ -75,5 +75,13 @@ onMounted(() => {
   });
 });
 const config = useRuntimeConfig();
-const { staticData, error, refresh, status } = useStatic();
+const {
+  data: sliders,
+  status,
+  error,
+  refresh,
+} = await useFetch(`${config.public.apiPublic}/api/slider`, {
+  pick: ["data"],
+  key: "api-sliders",
+});
 </script>

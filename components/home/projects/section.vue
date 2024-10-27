@@ -18,7 +18,8 @@
           (event) => {
             event.preventDefault();
             showPopupGalery(
-              project.other_images.concat({ image: project.image })
+              project.other_images.concat({ image: project.image }),
+              project.description.content
             );
           }
         "
@@ -52,7 +53,7 @@ const {
   key: "api-projects",
 });
 
-function showPopupGalery(images = []) {
+function showPopupGalery(images = [], description = "") {
   Swal.fire({
     showConfirmButton: false,
     didRender: () => {
@@ -60,20 +61,47 @@ function showPopupGalery(images = []) {
       const imagesHtml = images.map((image, index) => {
         return `
         <swiper-slide>
-          <div class="max-h-[85vh] max-w-[90%] object-cover m-auto h-full w-full landscape:aspect-[4/3] portrait:aspect-[9/16] flex">
+          <div class="max-h-[85vh] max-w-[90%] object-cover m-auto h-full w-full landscape:aspect-[4/3] portrait:aspect-[9/16] flex items-center justify-center relative">
             <img src="${image.image}" alt="gambar ke-${index}" class="m-auto portrait:w-full landscape:h-full"/>
+            <div class="absolute bottom-0 flex m-auto text-white description portrait:w-full landscape:h-full">
+              <div class="w-full mt-auto bg-[#00000080] py-2">
+                ${description}
+              </div>  
+            </div>
           </div>
         </swiper-slide>
         `;
       });
       swalHtml.innerHTML = `
-      <swiper-container navigation="true" space-between="10">
-        ${imagesHtml.join("")}
-      </swiper-container>
+        <swiper-container navigation="true" space-between="10">
+          ${imagesHtml.join("")}
+        </swiper-container>
       `;
     },
+    didOpen: () => {
+      const swalHtmlContainer = Swal.getHtmlContainer();
+      const swiper = swalHtmlContainer.querySelector("swiper-container");
+      const swiperSlides = swalHtmlContainer.querySelectorAll(
+        "swiper-container swiper-slide"
+      );
+      const slide0 = swiperSlides[0];
+      const image0 = slide0.querySelector("img");
+      const imageWidth0 = image0.width;
+      const imageHeight0 = image0.height;
+      const description0 = slide0.querySelector(".description");
+      description0.style.aspectRatio = `${imageWidth0}/${imageHeight0}`;
+      swiper.swiper.on("slideChange", (e) => {
+        const activeIndex = e.activeIndex;
+        const currentSlide = swiperSlides[activeIndex];
+        const currentImage = currentSlide.querySelector("img");
+        const imageWidth = currentImage.width;
+        const imageHeight = currentImage.height;
+        const description = currentSlide.querySelector(".description");
+        description.style.aspectRatio = `${imageWidth}/${imageHeight}`;
+      });
+    },
     showCloseButton: true,
-    width: "auto",
+    width: "90vw",
     heightAuto: true,
   });
 }
