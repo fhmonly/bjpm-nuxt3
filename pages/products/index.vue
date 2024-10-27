@@ -1,55 +1,107 @@
 <script setup>
 const config = useRuntimeConfig();
 const productCategoryUrl = useProductCategory();
-productCategoryUrl.value = `${config.public.apiPublic}/api/products`;
+const route = useRoute();
+const currentPage = ref(+route.query.page || 1);
 const {
   data: products,
-  pending,
   error,
   refresh,
-} = await useFetch(() => productCategoryUrl.value, {
-  pick: ["data"],
-  key: "api-productCategory",
-});
+} = await useFetch(
+  () =>
+    productCategoryUrl.value ||
+    `${config.public.apiPublic}/api/products?page=${currentPage.value}`,
+  {
+    pick: ["data"],
+    key: "api-products",
+    watch: [currentPage],
+  }
+);
+const totalPages = ref(products?.value?.data?.infoPage?.total_page);
+
+watch(
+  () => route.query.page,
+  (newPage) => {
+    currentPage.value = +newPage || 1;
+  }
+);
 </script>
 <template>
-  <section id="product" class="flex flex-col px-10 py-2">
-    <h1 class="py-10 mb-2 text-3xl text-center text-white md:mb-5 md:py-20">
+  <section id="product" class="flex flex-col px-4 py-2 tablet:px-10">
+    <h1
+      class="py-4 mb-5 text-3xl font-bold text-center text-white md:text-4xl sm:py-6 md:py-20 section-header"
+    >
       Produk Kami
-      <br />
     </h1>
     <div class="block mb-10 md:flex justify">
       <div class="w-full mr-0 md:w-3/12 md:mr-10">
         <ProductsAsideContainer />
       </div>
 
-      <div class="w-full md:w-9/12">
-        <div class="flex flex-wrap justify-center gap-5 product-card-container">
+      <div class="flex flex-col w-full md:w-9/12">
+        <div
+          class="flex flex-wrap justify-center gap-5 mb-10 product-card-container"
+        >
           <div
-            class="product-card aspect-[1/1.15] relative overflow-hidden min-w-[250px] max-w-[300px] w-[30%] bg-main grow"
-            v-for="(product, index) in products.data.data"
-            :key="index"
+            class="article-card aspect-[0.87/1] w-full sm:max-w-[48%] lg:max-w-[31%] flex flex-col"
+            data-aos="zoom-in"
+            v-for="product in products.data.data"
+            :key="product.description.id"
           >
             <img
               :src="product.image"
               :alt="`Gambar produk ${product.description.name}`"
-              class="object-cover w-full h-full"
+              class="object-cover grow aspect-[1.29/1]"
             />
             <div
-              class="absolute left-0 right-0 top-[100%] flex flex-col items-center h-full product-card-overlay justify-center"
+              class="flex flex-col p-3 pt-5 text-sm bg-[#94949431] text-main"
             >
-              <p class="text-xl font-bold product-text text-main">
+              <!-- <p class="mb-1 text-greybf">
+                {{ $dayjs(article.dates).locale("id").fromNow() }}
+              </p> -->
+              <p class="mb-3 text-base font-bold truncate">
                 {{ product.description.name }}
               </p>
               <NuxtLink
+                class="flex items-center gap-2 p-2 py-1 text-white ms-auto bg-main"
                 :to="`/products/${product.description.product_id}`"
-                style="text-decoration: none"
-                class="absolute bottom-0 px-2 py-1 mb-2 text-sm text-white border-2 border-transparent product-btn bg-main hover:border-main hover:bg-transparent"
               >
-                Selengkapnya
+                Baca Lebih
+                <IconBiArrowRight />
               </NuxtLink>
             </div>
           </div>
+          <div
+            class="flex flex-col items-center justify-center w-full py-8"
+            v-if="products?.data?.data?.length <= 0"
+          >
+            <IconBiXCircle width="44" height="44" class="mb-5 text-red-500" />
+            <p>Daftar produk kosong</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 mx-auto" v-show="totalPages >= 2">
+          <NuxtLink
+            :to="`?page=${currentPage <= 1 ? 1 : currentPage - 1}`"
+            class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+            :aria-disabled="currentPage <= 1"
+          >
+            Prev
+          </NuxtLink>
+
+          <p>
+            {{ currentPage }} /
+            {{ totalPages }}
+          </p>
+
+          <NuxtLink
+            :to="`?page=${
+              currentPage >= totalPages ? totalPages : currentPage + 1
+            }`"
+            class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+            :aria-disabled="currentPage >= totalPages"
+          >
+            Next
+          </NuxtLink>
         </div>
       </div>
     </div>

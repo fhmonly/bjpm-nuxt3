@@ -5,9 +5,9 @@
     >
       Proyek Kami
     </h1>
-    <div class="flex flex-wrap mb-5">
+    <div class="flex flex-wrap justify-between gap-4 mb-5">
       <div
-        class="aspect-[1/1.15] max-w-[270px] w-[22%] grow min-w-[250px] relative flex items-center justify-center overflow-hidden project-card"
+        class="aspect-[1/1.15] tablet:w-[48%] md:w-[24%] grow min-w-[250px] relative flex items-center justify-center overflow-hidden project-card"
         v-for="project in projects.data"
         :key="project.description.galeri_id"
         @click="
@@ -28,6 +28,13 @@
           <p class="text-[10px]">{{ project.description.sub_title }}</p>
           <p class="text-[10px]">{{ project.description.sub_title_2 }}</p>
         </div>
+      </div>
+      <div
+        class="flex flex-col items-center justify-center w-full py-8"
+        v-if="projects?.data?.length <= 0"
+      >
+        <IconBiXCircle width="44" height="44" class="mb-5 text-red-500" />
+        <p>Belum ada proyek yang dikerjakan</p>
       </div>
     </div>
   </section>
