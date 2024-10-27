@@ -5,7 +5,6 @@
       class="object-cover w-full aspect-[1.3/1]"
       alt="gambar artikel"
     />
-    
     <div class="p-4 text-sm">
       <p class="mb-3 text-sm text-gray-500">
         {{ $dayjs(createdAt).locale("id").fromNow() }}
