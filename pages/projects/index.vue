@@ -63,7 +63,7 @@ function showPopupGalery(images = [], description = "") {
           <div class="max-h-[85vh] max-w-[90%] object-cover m-auto h-full w-full landscape:aspect-[4/3] portrait:aspect-[9/16] flex items-center justify-center relative">
             <img src="${image.image}" alt="gambar ke-${index}" class="m-auto portrait:w-full landscape:h-full"/>
             <div class="absolute bottom-0 flex m-auto text-white description portrait:w-full landscape:h-full">
-              <div class="w-full mt-auto bg-[#00000080] py-2">
+              <div class="w-full mt-auto bg-[#00000080] no-tailwind">
                 ${description}
               </div>  
             </div>
