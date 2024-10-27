@@ -11,7 +11,10 @@
         v-for="project in projects.data"
         :key="project.description.galeri_id"
         @click="
-          showPopupGalery(project.other_images.concat({ image: project.image }))
+          showPopupGalery(
+            project.other_images.concat({ image: project.image }),
+            project.description.content
+          )
         "
       >
         <img
@@ -48,7 +51,7 @@ useHead({
   ],
 });
 import Swal from "sweetalert2";
-function showPopupGalery(images = []) {
+function showPopupGalery(images = [], description = "") {
   Swal.fire({
     showConfirmButton: false,
     didRender: () => {
@@ -56,17 +59,38 @@ function showPopupGalery(images = []) {
       const imagesHtml = images.map((image, index) => {
         return `
         <swiper-slide>
-          <div class="max-h-[85vh] max-w-[90%] object-cover m-auto h-full w-full landscape:aspect-[4/3] portrait:aspect-[9/16] flex">
+          <div class="max-h-[85vh] max-w-[90%] object-cover m-auto h-full w-full landscape:aspect-[4/3] portrait:aspect-[9/16] flex justify-center">
             <img src="${image.image}" alt="gambar ke-${index}" class="m-auto portrait:w-full landscape:h-full"/>
+            <p class="absolute bottom-0 text-white bg-[#00000080] py-2 description">${description}</p>
           </div>
         </swiper-slide>
         `;
       });
       swalHtml.innerHTML = `
-      <swiper-container navigation="true" space-between="10">
-        ${imagesHtml.join("")}
-      </swiper-container>
+        <swiper-container navigation="true" space-between="10">
+          ${imagesHtml.join("")}
+        </swiper-container>
       `;
+    },
+    didOpen: () => {
+      const swalHtmlContainer = Swal.getHtmlContainer();
+      const swiper = swalHtmlContainer.querySelector("swiper-container");
+      const swiperSlides = swalHtmlContainer.querySelectorAll(
+        "swiper-container swiper-slide"
+      );
+      const slide0 = swiperSlides[0];
+      const imageWidth0 = slide0.querySelector("img").width;
+      const description0 = slide0.querySelector("p.description");
+      description0.style.width = imageWidth0 + "px";
+      description0.style.maxWidth = imageWidth0 + "px";
+      swiper.swiper.on("slideChange", (e) => {
+        const activeIndex = e.activeIndex;
+        const currentSlide = swiperSlides[activeIndex];
+        const imageWidth = currentSlide.querySelector("img").width;
+        const description = currentSlide.querySelector("p.description");
+        description.style.width = imageWidth + "px";
+        description.style.maxWidth = imageWidth + "px";
+      });
     },
     showCloseButton: true,
     width: "auto",
