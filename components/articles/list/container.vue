@@ -8,6 +8,7 @@
       :articleId="article.description.blog_id"
       :createdAt="article.dates"
       class="w-full sm:max-w-[48%] md:max-w-[31%] lg:max-w-[24%]"
+      
     />
     <div
       class="flex flex-col items-center justify-center w-full py-8"

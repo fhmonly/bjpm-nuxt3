@@ -54,7 +54,7 @@ onMounted(() => {
               </p>
             </div>
           </div>
-          <div class="flex flex-wrap justify-between mt-3">
+<div class="flex flex-wrap justify-between mt-3">
             <div class="w-full pr-4 text-gray-600 md:w-1/2">
               <p class="mb-3 text-lg font-semibold text-main">Alamat Kantor</p>
               <p class="mb-3 text-sm">
