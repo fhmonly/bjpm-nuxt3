@@ -25,7 +25,7 @@ useHead({
     },
   ],
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} | BJPM` : "BJPM";
+    return titleChunk ? `${titleChunk} | BJPM` : staticData.value?.data?.default_meta_title
   },
   link: [
     {
