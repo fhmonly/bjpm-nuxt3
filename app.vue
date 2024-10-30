@@ -1,33 +1,34 @@
 <script setup>
 const config = useRuntimeConfig();
+const { staticData } = useStatic()
+onServerPrefetch(async () => {
+  const {
+    status,
+    data,
+    error,
+    refresh,
+  } = await useFetch(() => `${config.public.apiPublic}/api/settings`, {
+    pick: ["data"],
+    key: "res-static-data",
+  });
+  staticData.value = data.value
+})
 
-const {
-  status,
-  data: staticData,
-  error,
-  refresh,
-} = useFetch(() => `${config.public.apiPublic}/api/settings`, {
-  pick: ["data"],
-  key: "res-static-data",
-  server: true,
-});
-
-useSeoMeta({
-  description: staticData.value?.data?.default_meta_description,
-  title: staticData.value?.data?.default_meta_title,
-});
-
-useHead({
-  meta: [
-    {
-      name: "keywords",
-      content: staticData.value?.data?.default_meta_keywords,
-    },
-  ],
+useServerSeoMeta({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | BJPM` : "BJPM";
   },
+  title: () => staticData.value?.data?.default_meta_title,
+  description: () => staticData.value?.data?.default_meta_description,
+  keywords: () => staticData.value?.data?.default_meta_keywords
+});
+
+useHead({
   link: [
+    {
+      rel: "stylesheet",
+      href: "/css/main.css",
+    },
     {
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap",
@@ -38,9 +39,11 @@ useHead({
 <template>
   <div id="root" class="min-h-screen">
     <NuxtLoadingIndicator color="#438d3d" :throttle="0" />
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <div class="flex flex-col min-h-screen">
+      <AppNavContainer />
+      <NuxtPage class="pb-14" />
+      <AppFooter />
+    </div>
     <AppWhatsappButton />
   </div>
 </template>
@@ -54,14 +57,17 @@ body {
   font-style: normal;
   scroll-behavior: smooth;
 }
-body > div#__nuxt {
+
+body>div#__nuxt {
   min-height: 100vh;
 }
+
 :root {
   --main-color: #438d3d;
 }
 
 .no-tailwind * {
-  all: revert; /* buat semua element didalam tag dengan class p-detail menjadi style default dan tidak terpengaruh style dari komponen yang lebih tinggi */
+  all: revert;
+  /* buat semua element didalam tag dengan class p-detail menjadi style default dan tidak terpengaruh style dari komponen yang lebih tinggi */
 }
 </style>

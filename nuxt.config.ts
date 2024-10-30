@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => ['swiper-container', 'swiper-slide'].includes(tag),
+    },
+  },
   compatibilityDate: '2024-04-03',
   app: {
     head: {

@@ -6,10 +6,7 @@
     <input type="checkbox" :id="categoryId" hidden />
     <ul class="pl-4 mt-2">
       <li v-for="(subcategory, index) in subcategories" :key="index">
-        <button
-          class="mb-3 font-normal capitalize filter-btn text-greybf"
-          @click="productCategory = subcategory"
-        >
+        <button class="mb-3 font-normal capitalize filter-btn text-greybf">
           {{ subcategory }}
         </button>
       </li>
@@ -32,5 +29,4 @@ const props = defineProps({
     default: () => [],
   },
 });
-const productCategory = useProductCategory();
 </script>

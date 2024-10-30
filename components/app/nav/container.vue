@@ -21,18 +21,14 @@ function offCanvasItemClick() {
     navOffcanvas.classList.remove("active");
   }
 }
-const { staticData, error, refresh, status } = useStatic();
+const { staticData } = useStatic();
 </script>
 <template>
   <header class="sticky top-0 z-50 px-2 tablet:px-8 bg-body">
     <nav class="flex items-center justify-between">
       <div class="flex items-center justify-center logo me-3">
         <NuxtLink href="/" class="shrink-0">
-          <img
-            src="/img/logo/logo-bjpm.png"
-            alt="Logo BJPM"
-            class="w-[64px] p-1 sm:w-[70px] aspect-square"
-          />
+          <img src="/img/logo/logo-bjpm.png" alt="Logo BJPM" class="w-[64px] p-1 sm:w-[70px] aspect-square" />
         </NuxtLink>
         <div class="block mx-2 me-4 max-w-[300px]">
           <p class="text-sm text-main">
@@ -44,8 +40,7 @@ const { staticData, error, refresh, status } = useStatic();
         </div>
       </div>
       <ul
-        class="hidden lg:flex items-center grow justify-between mx-3 text-black flex-wrap overflow-hidden max-w-[50%] gap-3 me-7"
-      >
+        class="hidden lg:flex items-center grow justify-between mx-3 text-black flex-wrap overflow-hidden max-w-[50%] gap-3 me-7">
         <AppNavItem href="/">Home</AppNavItem>
         <AppNavItem href="/about">Tentang</AppNavItem>
         <AppNavItem href="/services">Layanan</AppNavItem>
@@ -63,41 +58,21 @@ const { staticData, error, refresh, status } = useStatic();
         <button type="button" class="fixed top-0 right-0 mt-2 close-btn me-4">
           <IconBiX width="32px" height="32px" />
         </button>
-        <ul
-          class="flex flex-col items-center justify-center w-full h-full gap-2"
-        >
+        <ul class="flex flex-col items-center justify-center w-full h-full gap-2">
           <li class="flex flex-col items-center text-center text-main">
-            <img
-              src="/img/logo/logo-bjpm.png"
-              alt=""
-              class="w-[70px] aspect-square mb-3"
-            />
+            <img src="/img/logo/logo-bjpm.png" alt="" class="w-[70px] aspect-square mb-3" />
             <p class="mobile-tagline">PT. BINA JAYA MANDIRIINDONESIA</p>
           </li>
           <AppNavItem @click="offCanvasItemClick" href="/">Home</AppNavItem>
-          <AppNavItem @click="offCanvasItemClick" href="/about"
-            >Tentang</AppNavItem
-          >
-          <AppNavItem @click="offCanvasItemClick" href="/services"
-            >Layanan</AppNavItem
-          >
-          <AppNavItem @click="offCanvasItemClick" href="/products"
-            >Produk</AppNavItem
-          >
-          <AppNavItem @click="offCanvasItemClick" href="/projects"
-            >Proyek</AppNavItem
-          >
-          <AppNavItem @click="offCanvasItemClick" href="/articles"
-            >Artikel</AppNavItem
-          >
-          <AppNavItem @click="offCanvasItemClick" href="/contact"
-            >Kontak</AppNavItem
-          >
+          <AppNavItem @click="offCanvasItemClick" href="/about">Tentang</AppNavItem>
+          <AppNavItem @click="offCanvasItemClick" href="/services">Layanan</AppNavItem>
+          <AppNavItem @click="offCanvasItemClick" href="/products">Produk</AppNavItem>
+          <AppNavItem @click="offCanvasItemClick" href="/projects">Proyek</AppNavItem>
+          <AppNavItem @click="offCanvasItemClick" href="/articles">Artikel</AppNavItem>
+          <AppNavItem @click="offCanvasItemClick" href="/contact">Kontak</AppNavItem>
           <li class="text-main">
             <p class="text-center">Media Sosial</p>
-            <div
-              class="flex gap-x-3 mt-1 social-media-wrapper text-[24px] justify-center"
-            >
+            <div class="flex gap-x-3 mt-1 social-media-wrapper text-[24px] justify-center">
               <a :href="staticData?.data?.url_facebook" target="_blank">
                 <IconBiFacebook width="32px" height="32px" />
               </a>
@@ -120,7 +95,7 @@ nav ul {
   max-height: var(--item-height);
 }
 
-nav li > a {
+nav li>a {
   height: var(--item-height);
 }
 </style>
