@@ -18,11 +18,10 @@
         class="caption-wrapper flex bg-[#438D3DB2] text-white h-full items-center justify-between p-5 md:p-10"
       >
         <div class="caption-detail grow max-w-[728px]">
-          <h1 class="font-bold text-[30px]">BJPM Scaffolding</h1>
+          <h1 class="font-bold text-[30px]">{{ staticData.data.cover_homeslide_title }}</h1>
           <p class="text-[14px] my-3 mb-6 sm:me-10">
             <i>
-              Supplier, Industries, Scaffolding, Beton Lift, Concrete Bucket,
-              Belt Conveyor, Steel Construction, Asphal Sprayer, Stone Crusher
+              {{ removeHtmlTag(staticData.data.cover_homeslide_content) }}
             </i>
           </p>
           <a
@@ -38,16 +37,16 @@
         </div>
         <div class="flex-col hidden gap-4 sm:flex w-[150px] flex-shrink-0">
           <div class="p-5 text-black bg-white branch-amount">
-            <p class="text-[28px]">5</p>
-            <p>Cabang</p>
+            <p class="text-[28px]">{{ staticData.data.cover_home1_count_1 }}</p>
+            <p>{{ staticData.data.cover_home1_label_1 }}</p>
           </div>
           <div class="p-5 text-black bg-white customer-amount">
-            <p class="text-[28px]">12k</p>
-            <p>Pelanggan</p>
+            <p class="text-[28px]">{{ staticData.data.cover_home1_count_2 }}</p>
+            <p>{{ staticData.data.cover_home1_label_2 }}</p>
           </div>
           <div class="p-5 text-black bg-white product-amount">
-            <p class="text-[28px]">15k</p>
-            <p>Product</p>
+            <p class="text-[28px]">{{ staticData.data.cover_home1_count_3 }}</p>
+            <p>{{ staticData.data.cover_home1_label_3 }}</p>
           </div>
         </div>
       </div>
@@ -75,6 +74,9 @@ onMounted(() => {
   });
 });
 const config = useRuntimeConfig();
+
+const { staticData, error: error2, refresh: refreshStatic, status: statusStatic } = useStatic();
+
 const {
   data: sliders,
   status,
@@ -84,4 +86,11 @@ const {
   pick: ["data"],
   key: "api-sliders",
 });
+
+const removeHtmlTag = (str) => {
+  if (str === null || str === "") return false;
+  else str = str.toString();
+  return str.replace(/<[^>]*>/g, "");
+};
+
 </script>

@@ -16,7 +16,7 @@ onServerPrefetch(async () => {
 
 useServerSeoMeta({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} | BJPM` : "BJPM";
+    return titleChunk ? `${titleChunk} | BJPM` : staticData.value?.data?.default_meta_title
   },
   title: () => staticData.value?.data?.default_meta_title,
   description: () => staticData.value?.data?.default_meta_description,
