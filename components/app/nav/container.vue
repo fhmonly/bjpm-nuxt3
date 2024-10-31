@@ -25,10 +25,10 @@ const { staticData } = useStatic();
 </script>
 <template>
   <header class="sticky top-0 z-50 px-2 tablet:px-8 bg-body">
-    <nav class="flex items-center justify-between">
+    <nav class="flex items-center justify-between py-4">
       <div class="flex items-center justify-center logo me-3">
         <NuxtLink href="/" class="shrink-0">
-          <img src="/img/logo/logo-bjpm.png" alt="Logo BJPM" class="w-[64px] p-1 sm:w-[70px] aspect-square" />
+          <img src="/img/logo/logo-bjpm.png" alt="Logo BJPM" class="w-[110px] p-1 sm:w-[160px]" />
         </NuxtLink>
         <div class="block mx-2 me-4 max-w-[300px]">
           <p class="text-sm text-main">
