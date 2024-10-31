@@ -49,8 +49,7 @@
               v-html="staticData?.data?.contact_address"></span></NuxtLink>
           <NuxtLink class="font-normal text-white" :href="`tel:${staticData?.data?.contact_phone}`">Telp. +{{
             staticData?.data?.contact_phone }}</NuxtLink>
-            <br>
-            <NuxtLink class="font-normal text-white" :href="`https://wa.me/${staticData?.data?.contact_wa}`">Wa Kantor. +{{
+            <NuxtLink class="font-normal text-white" :href="`https://wa.me/${staticData?.data?.contact_wa}`">WA Kantor. +{{
             staticData?.data?.contact_wa }}</NuxtLink>
         </div>
       </div>
