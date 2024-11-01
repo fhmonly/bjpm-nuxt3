@@ -29,7 +29,7 @@ const { staticData } = useStatic();
       <div class="flex items-center justify-center logo me-3">
         <NuxtLink href="/" class="shrink-0">
           <NuxtImg src="/img/logo/logo-bjpm.png" alt="Logo BJPM" format="webp" class="w-[110px] p-1 sm:w-[160px]"
-            width="70" height="70" />
+            width="160" />
         </NuxtLink>
         <div class="block mx-2 me-4 max-w-[300px]">
           <p class="text-sm text-main">
