@@ -21,11 +21,27 @@ export default defineNuxtConfig({
       apiPublic: "https://api-web.binajayaperkasamandiri.com"
     }
   },
-  modules: ['@nuxtjs/tailwindcss', 'nuxt-aos', '@nuxt/icon', 'dayjs-nuxt'],
+  modules: ['@nuxtjs/tailwindcss', 'nuxt-aos', '@nuxt/icon', 'dayjs-nuxt', '@nuxt/image'],
   dayjs: {
     locales: ['en', 'id'],
     plugins: ['relativeTime', 'utc', 'timezone'],
     defaultLocale: 'id',
     defaultTimezone: 'Asia/Jakarta',
+  },
+  image: {
+    format: ["webp"],
+    domains: ['api-web.binajayaperkasamandiri.com'],
+    alias: {
+      binajaya: "https://api-web.binajayaperkasamandiri.com/images"
+    },
+    screens: {
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536
+    },
   }
 })

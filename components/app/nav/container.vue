@@ -28,7 +28,8 @@ const { staticData } = useStatic();
     <nav class="flex items-center justify-between">
       <div class="flex items-center justify-center logo me-3">
         <NuxtLink href="/" class="shrink-0">
-          <img src="/img/logo/logo-bjpm.png" alt="Logo BJPM" class="w-[64px] p-1 sm:w-[70px] aspect-square" />
+          <NuxtImg src="/img/logo/logo-bjpm.png" alt="Logo BJPM" format="webp"
+            class="w-[64px] p-1 sm:w-[70px] aspect-square" width="70" height="70" />
         </NuxtLink>
         <div class="block mx-2 me-4 max-w-[300px]">
           <p class="text-sm text-main">
@@ -60,7 +61,8 @@ const { staticData } = useStatic();
         </button>
         <ul class="flex flex-col items-center justify-center w-full h-full gap-2">
           <li class="flex flex-col items-center text-center text-main">
-            <img src="/img/logo/logo-bjpm.png" alt="" class="w-[70px] aspect-square mb-3" />
+            <LazyNuxtImg format="webp" src="/img/logo/logo-bjpm.png" alt="" class="w-[70px] aspect-square mb-3" width="70"
+              height="70" />
             <p class="mobile-tagline">PT. BINA JAYA MANDIRIINDONESIA</p>
           </li>
           <AppNavItem @click="offCanvasItemClick" href="/">Home</AppNavItem>

@@ -20,7 +20,7 @@ const { staticData } = useStatic();
         <div class="relative h-64 overflow-hidden md:h-96">
           <div class="flex transition-transform duration-300 ease-in-out" id="carouselItems">
             <div class="relative flex-shrink-0 w-full">
-              <img :src="`${config.public.apiPublic}/images/static/${staticData.data.article_hero_image}`"
+              <NuxtImg format="webp" :src="`/binajaya/static/${staticData.data.article_hero_image}`"
                 alt="gambar banner article" class="object-cover w-full h-64 md:h-96" />
               <div class="absolute bottom-0 left-0 right-0 p-4 text-white bg-opacity-50 bg-main">
                 <h2 class="text-lg font-bold text-center capitalize">

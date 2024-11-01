@@ -20,7 +20,7 @@ const { title, image, url, date } = defineProps({
 </script>
 <template>
     <div class="article-card aspect-[0.87/1] min-w-[250px] max-w-[300px] flex flex-col" data-aos="zoom-in">
-        <img :src=image :alt="`Thumbnail ${title}`" class="object-cover grow aspect-[1.29/1]">
+        <LazyNuxtImg format="webp" :src=image :alt="`Thumbnail ${title}`" class="object-cover grow aspect-[1.29/1]" />
         <div class="flex flex-col p-3 pt-5 text-sm bg-white text-main">
             <p class="mb-1 text-greybf">{{ date }}</p>
             <p class="mb-3 text-base font-bold truncate">

@@ -33,8 +33,8 @@ const { createUrlQuery } = useWindowUrl();
         <div class="flex flex-wrap justify-center gap-5 mb-10 product-card-container">
           <div class="article-card aspect-[0.87/1] w-full sm:max-w-[48%] lg:max-w-[31%] flex flex-col"
             data-aos="zoom-in" v-for="product in products.data.data" :key="product.description.id">
-            <img :src="product.image" :alt="`Gambar produk ${product.description.name}`"
-              class="object-cover grow aspect-[1.29/1]" />
+            <LazyNuxtImg :src="product.image" :alt="`Gambar produk ${product.description.name}`"
+              class="object-cover grow aspect-[1.29/1]" format="webp" />
             <div class="flex flex-col p-3 pt-5 text-sm bg-[#94949431] text-main">
               <!-- <p class="mb-1 text-greybf">
                 {{ $dayjs(article.dates).locale("id").fromNow() }}

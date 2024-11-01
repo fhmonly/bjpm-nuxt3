@@ -39,7 +39,7 @@ onMounted(() => {
         <div class="p-8 bg-white shadow-lg" data-aos="fade-up">
           <div class="flex items-center mb-4">
             <div>
-              <img src="/img/logo/logo-bjpm.png" class="pb-4 w-[100px]" />
+              <NuxtImg src="/img/logo/logo-bjpm.png" class="pb-4 w-[100px]" width="100" format="webp" />
               <p class="font-bold text-main">
                 {{ staticData.data.contact_company_name }}
               </p>

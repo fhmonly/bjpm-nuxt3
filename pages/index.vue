@@ -6,7 +6,6 @@ useHead({
     },
   ],
 });
-const config = useRuntimeConfig();
 const { staticData } = useStatic();
 </script>
 <template>
@@ -24,7 +23,7 @@ const { staticData } = useStatic();
           Selengkapnya
         </NuxtLink>
       </div>
-      <img :src="`${config.public.apiPublic}/images/static/${staticData.data.home_section1_image}`" alt=""
+      <NuxtImg width="400" format="webp" :src="`/binajaya/static/${staticData.data.home_section1_image}`" alt=""
         class="max-w-[400px] w-[100%] md:p-4 md:pe-0 md:order-2 order-1 img-abt" data-aos="slide-up" />
     </section>
     <HomeServicesSection />

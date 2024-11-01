@@ -25,28 +25,20 @@ const {
       </h1>
 
       <div class="flex items-center justify-between mb-6 text-sm text-gray-500">
-        <span class="italic"
-          >Published on:
+        <span class="italic">Published on:
           <strong>{{
             $dayjs(article.data.dates).locale("id").format("DD MMM YYYY")
-          }}</strong></span
-        >
+          }}</strong></span>
         <span class="italic">By: <strong>BJPM Admin</strong></span>
       </div>
 
       <div class="mb-8">
-        <img
-          :src="article.data.image"
-          alt="Gambar Utama Artikel"
-          class="w-full h-auto object-cover max-h-[400px]"
-        />
+        <NuxtImg :src="article.data.image" alt="Gambar Utama Artikel" class="w-full h-auto object-cover max-h-[400px]"
+          format="webp" />
       </div>
 
       <article class="text-sm font-normal prose text-justify max-w-none">
-        <article
-          class="p-detail no-tailwind"
-          v-html="article.data.description.content"
-        ></article>
+        <article class="p-detail no-tailwind" v-html="article.data.description.content"></article>
       </article>
 
       <div class="mt-8">
@@ -62,9 +54,11 @@ const {
   display: inline-flex;
   align-items: center;
 }
+
 .p-detail a:hover {
   color: blue;
 }
+
 .p-detail a::after {
   display: inline-block;
   content: "";

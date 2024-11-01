@@ -1,22 +1,12 @@
 <template>
   <section id="home" class="relative flex flex-col items-center h-[87vh]">
-    <swiper-container
-      speed="500"
-      autoplay-delay="4000"
-      class="z-0 w-full h-full"
-    >
+    <swiper-container speed="500" autoplay-delay="4000" class="z-0 w-full h-full">
       <swiper-slide v-for="slider in sliders.data" :key="slider.id">
-        <img
-          :src="`${slider.image}`"
-          alt=""
-          class="object-cover w-full h-full"
-        />
+        <NuxtImg :src="`${slider.image}`" alt="" class="object-cover w-full h-full" format="webp" />
       </swiper-slide>
     </swiper-container>
     <div class="absolute top-0 bottom-0 left-0 right-0 z-10 hero-caption">
-      <div
-        class="caption-wrapper flex bg-[#438D3DB2] text-white h-full items-center justify-between p-5 md:p-10"
-      >
+      <div class="caption-wrapper flex bg-[#438D3DB2] text-white h-full items-center justify-between p-5 md:p-10">
         <div class="caption-detail grow max-w-[728px]">
           <h1 class="font-bold text-[30px]">{{ staticData.data.cover_homeslide_title }}</h1>
           <p class="text-[14px] my-3 mb-6 sm:me-10">
@@ -24,11 +14,7 @@
               {{ removeHtmlTag(staticData.data.cover_homeslide_content) }}
             </i>
           </p>
-          <a
-            href="#contact"
-            class="flex items-center"
-            style="text-decoration: none"
-          >
+          <a href="#contact" class="flex items-center" style="text-decoration: none">
             <span class="p-3 py-1 text-black bg-white text-[10px]">Kontak</span>
             <span class="bg-black h-full aspect-square w-[24px] flex">
               <IconBiArrowRightShort class="m-auto" width="15" height="15" />
@@ -51,9 +37,7 @@
         </div>
       </div>
     </div>
-    <div
-      class="absolute bottom-0 progress-bar w-[20%] min-w-[100px] bg-greybf mx-auto h-[10px] mb-2 z-10 p-[2px]"
-    >
+    <div class="absolute bottom-0 progress-bar w-[20%] min-w-[100px] bg-greybf mx-auto h-[10px] mb-2 z-10 p-[2px]">
       <div class="h-full progress bg-main"></div>
     </div>
   </section>

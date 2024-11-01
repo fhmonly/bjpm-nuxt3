@@ -1,9 +1,11 @@
 <template>
   <div class="relative flex-shrink-0 w-full">
-    <img
+    <LazyNuxtImg
       :src="imageSrc"
       :alt="title"
       class="object-cover w-full h-64 md:h-96"
+      format="webp"
+      height="96"
     />
     <div
       class="absolute bottom-0 left-0 right-0 p-4 text-white bg-opacity-50 bg-main"

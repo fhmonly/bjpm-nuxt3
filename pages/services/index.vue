@@ -37,8 +37,8 @@ const { staticData } = useStatic();
       <div class="flex flex-row flex-wrap gap-6 p-10 px-4 tablet:px-10 md:flex-col">
         <div class="flex flex-col w-full overflow-hidden shadow-md md:flex-row services-card" data-aos="fade-down"
           v-for="(service, index) in services.data" :key="index">
-          <img class="md:w-1/2 grow object-cover w-full max-h-[300px] aspect-[1.5/1]" :src="service.image"
-            :alt="`Gambar ${service.name}`" />
+          <LazyNuxtImg class="md:w-1/2 grow object-cover w-full max-h-[300px] aspect-[1.5/1]" :src="service.image"
+            format="webp" height="300" :alt="`Gambar ${service.name}`" />
           <div class="flex items-center p-6 shadow-md bg-main md:w-1/2 grow">
             <div class="text-content">
               <h2 class="mb-4 text-xl font-bold text-white">

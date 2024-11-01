@@ -37,14 +37,13 @@ const { staticData } = useStatic();
         <div class="bg-main text-white p-6 h-auto md:order-2 order-2 w-[40%] grow min-w-[200px] custom-page no-tailwind"
           data-aos="fade-up" v-html="staticData?.data?.about_history_content"></div>
         <div class="max-h-[300px] md:order-1 order-1 w-[40%] grow min-w-[200px]">
-          <img alt="gambar sejarah bjpm"
-            :src="`${config.public.apiPublic}/images/static/${staticData?.data?.about_history_image}`"
-            data-aos="fade-up" class="object-cover w-full h-full" />
+          <NuxtImg alt="gambar sejarah bjpm" format="webp" height="300"
+            :src="`/binajaya/static/${staticData?.data?.about_history_image}`" data-aos="fade-up"
+            class="object-cover w-full h-full" />
         </div>
         <div class="md:order-4 order-4 w-[40%] grow min-w-[200px]">
-          <img alt="gambar jangkauan bjpm" class="object-cover w-full h-full" height="400"
-            :src="`${config.public.apiPublic}/images/static/${staticData?.data?.about_range_image}`" width="600"
-            data-aos="fade-up" />
+          <NuxtImg alt="gambar jangkauan bjpm" class="object-cover w-full h-full" height="400" format="webp"
+            :src="`/binajaya/static/${staticData?.data?.about_range_image}`" width="600" data-aos="fade-up" />
         </div>
         <div class="bg-main text-white mt-0 p-6 md:order-3 order-4 w-[40%] grow min-w-[200px] custom-page no-tailwind"
           data-aos="fade-up" v-html="staticData?.data?.about_range_content"></div>

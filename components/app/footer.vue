@@ -52,16 +52,19 @@
         </div>
       </div>
       <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-5 order-1 flex items-center">
-        <img src="/img/logo/logo-white.png" alt="logo BJPM" class="aspect-square w-[100px] mx-auto md:mx-0" />
+        <NuxtImg src="/img/logo/logo-white.png" alt="logo BJPM" class="aspect-square w-[100px] mx-auto md:mx-0"
+          width="100" format="webp" />
       </div>
       <div class="md:w-[60%] w-full md:order-6 order-7">
         <h3 class="mb-4 font-bold text-white">Partner</h3>
         <div class="flex flex-col gap-4 md:flex-row">
           <NuxtLink :to="'#'" class="flex justify-center">
-            <img :src="'/img/logo/c1.png'" alt="" class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]" />
+            <NuxtImg :src="'/img/logo/c1.png'" alt="" class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]" height="50"
+              format="webp" />
           </NuxtLink>
           <NuxtLink :to="'#'" class="flex justify-center">
-            <img :src="'/img/logo/c2.png'" alt="" class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]" />
+            <NuxtImg :src="'/img/logo/c2.png'" alt="" class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]" height="50"
+              format="webp" />
           </NuxtLink>
         </div>
       </div>

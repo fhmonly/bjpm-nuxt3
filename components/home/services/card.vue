@@ -17,7 +17,8 @@ const { title, image, url } = defineProps({
 <template>
     <div class="aspect-[0.66/1] service-card" data-aos="zoom-in">
         <div class="h-full">
-            <img :src=image :alt="`Gambar pelayanan ${title}`" class="object-cover w-full h-full">
+            <LazyNuxtImg format="webp" :src=image :alt="`Gambar pelayanan ${title}`"
+                class="object-cover w-full h-full" />
         </div>
         <div class="opacity-100 topic-overlay sm:opacity-0">
             <p class="text-[30px] mb-4 text-center leading-7 w-[80%]">{{ title }}</p>

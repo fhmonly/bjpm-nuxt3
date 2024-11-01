@@ -1,24 +1,14 @@
 <template>
-  <div
-    class="product-card aspect-[1/1.15] relative overflow-hidden min-w-[250px] max-w-[300px]"
-    :data-category="category"
-  >
-    <img
-      :src="image"
-      :alt="`Gambar produk ${title}`"
-      class="object-cover w-full h-full"
-    />
+  <div class="product-card aspect-[1/1.15] relative overflow-hidden min-w-[250px] max-w-[300px]"
+    :data-category="category">
+    <LazyNuxtImg format="webp" :src="image" :alt="`Gambar produk ${title}`" class="object-cover w-full h-full" />
     <div
-      class="absolute left-0 right-0 top-[100%] flex flex-col items-center h-full product-card-overlay justify-center"
-    >
+      class="absolute left-0 right-0 top-[100%] flex flex-col items-center h-full product-card-overlay justify-center">
       <p class="text-xl font-bold product-text text-main">
         {{ title }}
       </p>
-      <NuxtLink
-        :to="url"
-        style="text-decoration: none"
-        class="absolute bottom-0 px-2 py-1 mb-2 text-sm text-white border-2 border-transparent product-btn bg-main hover:border-main hover:bg-transparent"
-      >
+      <NuxtLink :to="url" style="text-decoration: none"
+        class="absolute bottom-0 px-2 py-1 mb-2 text-sm text-white border-2 border-transparent product-btn bg-main hover:border-main hover:bg-transparent">
         Selengkapnya
       </NuxtLink>
     </div>
@@ -58,16 +48,16 @@ const props = defineProps({
     opacity: 1;
   }
 }
+
 .product-card {
   animation: zoomIn 0.5s ease-in-out;
 }
+
 .product-card-overlay {
-  background: linear-gradient(
-    to top,
-    rgba(104, 178, 99, 0.8),
-    rgba(208, 227, 207, 0.7),
-    rgba(255, 255, 255, 0)
-  );
+  background: linear-gradient(to top,
+      rgba(104, 178, 99, 0.8),
+      rgba(208, 227, 207, 0.7),
+      rgba(255, 255, 255, 0));
   transition: all 250ms ease-out;
 }
 
