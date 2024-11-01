@@ -49,10 +49,13 @@
               v-html="staticData?.data?.contact_address"></span></NuxtLink>
           <NuxtLink class="font-normal text-white" :href="`tel:${staticData?.data?.contact_phone}`">Telp. +{{
             staticData?.data?.contact_phone }}</NuxtLink>
+          <NuxtLink class="font-normal text-white" :href="`https://wa.me/${staticData?.data?.contact_wa}`">WA Kantor.
+            +{{
+              staticData?.data?.contact_wa }}</NuxtLink>
         </div>
       </div>
       <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-5 order-1 flex items-center">
-        <NuxtImg src="/img/logo/logo-white.png" alt="logo BJPM" class="aspect-square w-[100px] mx-auto md:mx-0"
+        <NuxtImg src="/img/logo/logo-bjpm-white.jpg" alt="logo BJPM" class="aspect-auto w-[135px] mx-auto md:mx-0"
           width="100" format="webp" />
       </div>
       <div class="md:w-[60%] w-full md:order-6 order-7">
