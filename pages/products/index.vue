@@ -2,6 +2,9 @@
 const config = useRuntimeConfig();
 const route = useRoute();
 const currentPage = ref(+route.query.page || 1);
+useSeoMeta({
+  title: "Products"
+})
 const {
   data: products,
   error,

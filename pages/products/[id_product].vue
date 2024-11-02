@@ -1,8 +1,4 @@
 <script setup>
-useSeoMeta({
-  titleTemplate: "",
-  title: "Products",
-});
 const config = useRuntimeConfig();
 const route = useRoute();
 const {
@@ -15,6 +11,9 @@ const {
     pick: ["data"],
   }
 );
+useSeoMeta({
+  title: () => detailProduct.value?.data?.data?.description?.name,
+});
 </script>
 <template>
   <section id="detail-section" class="px-10 my-8">

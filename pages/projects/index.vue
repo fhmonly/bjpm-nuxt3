@@ -31,6 +31,9 @@
   </section>
 </template>
 <script setup>
+useSeoMeta({
+  title: "Projects"
+})
 useHead({
   script: [
     {

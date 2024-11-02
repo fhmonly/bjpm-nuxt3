@@ -1,8 +1,4 @@
 <script setup>
-useSeoMeta({
-  titleTemplate: "",
-  title: "Articles",
-});
 const route = useRoute();
 const config = useRuntimeConfig();
 const {
@@ -16,6 +12,9 @@ const {
     pick: ["data"],
   }
 );
+useSeoMeta({
+  title: () => article.value?.data?.description?.title,
+});
 </script>
 <template>
   <section id="detail-article" class="py-6">
