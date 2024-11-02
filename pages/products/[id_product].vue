@@ -24,8 +24,8 @@ const {
     <div class="flex flex-col md:flex-row">
       <div class="mb-4 md:w-1/2 md:mb-0" data-aos="zoom-in">
         <NuxtImg :src="`/binajaya/product/${detailProduct.data.data.image}`"
-          :alt="`Gambar ${detailProduct.data.data.description.name}`" class="object-contain w-full h-64" format="webp"
-          quality="100" />
+          :alt="`Gambar ${detailProduct.data.data.description.name}`" class="object-contain w-full h-64"
+          format="webp" />
       </div>
       <div class="md:w-1/2 md:pl-4" data-aos="fade-left">
         <h3 class="text-xl font-semibold text-main">

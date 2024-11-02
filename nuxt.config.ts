@@ -34,6 +34,7 @@ export default defineNuxtConfig({
     alias: {
       binajaya: "https://api-web.binajayaperkasamandiri.com/images"
     },
+    quality: 75,
     screens: {
       'xs': 320,
       'sm': 640,
