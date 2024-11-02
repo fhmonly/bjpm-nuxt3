@@ -3,6 +3,7 @@ useSeoMeta({
   title: "Contact",
 });
 const { staticData } = useStatic();
+const { isDesktop } = useDevice()
 const config = useRuntimeConfig();
 useHead({
   script: [
@@ -14,20 +15,33 @@ useHead({
   ],
 });
 onMounted(() => {
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form#contact-us");
-    const gRecaptcha = document.getElementById("g-recaptcha");
-    form.addEventListener("submit", (ev) => {
-      ev.preventDefault();
-      grecaptcha.reset(gRecaptcha);
-    });
+  const form = document.querySelector("form#contact-us");
+  const gRecaptcha = document.getElementById("g-recaptcha");
+  form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    if (!isCaptchaValid()) return
+    const formData = new FormData(form)
+    const fullname = encodeURIComponent(`> Nama : ${formData.get("firstName").trim()} ${formData.get("lastName").trim()}`) + '%0A'
+    const email = encodeURIComponent(`> Email : ${formData.get("email").trim()}`) + '%0A'
+    const phone = encodeURIComponent(`> No.HP : ${formData.get("phone").trim()}`) + '%0A%0A'
+    const msg = encodeURIComponent(`*Pesan* : ${formData.get("msg").trim()}`)
+    grecaptcha.reset(gRecaptcha);
+    window.open(
+      `https://${isDesktop ? 'web.whatsapp.com' : 'api.whatsapp.com'}/send/?phone=${staticData.value?.data?.contact_wa}&text=` +
+      fullname + email + phone + msg,
+      "_blank"
+    )
   });
+  function isCaptchaValid() {
+    const response = grecaptcha.getResponse();
+    return (response.length === 0) ? false : true
+  }
 });
 </script>
 <template>
   <section id="contact" class="backdrop-brightness-75"
     style="background-image: linear-gradient(#428D3D79, #428D3D79), url('/img/Video Background.jpg'); ">
-    <main class=" py-8">
+    <main class="py-8 ">
       <div class="flex items-center justify-center bg-center bg-cover">
         <div class="text-center text-white">
           <h1 class="pb-2 my-4 text-4xl font-bold capitalize border-b-4 border-white w-fit" data-aos="fade-up">
@@ -102,23 +116,28 @@ onMounted(() => {
                 <br class="mb-3" />
               </p>
             </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1978.709403682471!2d112.7227658736047!3d-7.306756627140857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMTgnMjMuNyJTIDExMsKwNDMnMjMuNiJF!5e0!3m2!1sen!2sid!4v1730530147453!5m2!1sen!2sid"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="w-full grow"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
 
         <div class="p-8 bg-white shadow-lg" data-aos="fade-down">
           <h2 class="mb-4 text-xl font-bold text-main">Hubungi Kami</h2>
           <p class="mb-4 text-gray-600"></p>
-          <form action="/your-submit-endpoint" method="POST" class="text-sm">
+          <form class="text-sm" id="contact-us" @submit.prevent="">
             <div class="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2">
-              <input class="p-2 border" placeholder="Nama Awal" type="text" required />
-              <input class="p-2 border" placeholder="Nama Akhir" type="text" required />
+              <input class="p-2 border" placeholder="Nama Awal" type="text" required name="firstName" />
+              <input class="p-2 border" placeholder="Nama Akhir" type="text" required name="lastName" />
             </div>
             <div class="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2">
-              <input class="p-2 border" placeholder="Email" type="email" required />
-              <input class="p-2 border" placeholder="No Telepon" type="tel" required />
+              <input class="p-2 border" placeholder="Email" type="email" required name="email" />
+              <input class="p-2 border" placeholder="No Telepon" type="tel" required name="phone" />
             </div>
             <div class="mb-4">
-              <textarea class="border p-2 w-full h-[300px] resize-none" placeholder="Kirim Pesan" required></textarea>
+              <textarea class="border p-2 w-full h-[300px] resize-none" placeholder="Kirim Pesan" required
+                name="msg"></textarea>
             </div>
 
             <div class="">
