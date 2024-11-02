@@ -1,9 +1,10 @@
 <template>
   <div class="shadow-lg" data-aos="fade-up">
-    <LazyNuxtImg :src="imageSrc" class="object-cover w-full aspect-[1.3/1]" alt="gambar artikel" format="webp" />
+    <LazyNuxtImg :src="imageSrc" class="object-cover w-full aspect-[1.3/1]" alt="gambar artikel" format="webp"
+      sizes="100vw sm:48vw md:31vw lg:24vw" />
     <div class="p-4 text-sm">
       <p class="mb-3 text-sm text-gray-500">
-        {{ $dayjs(createdAt).locale("id").fromNow() }}
+        {{ $dayjs(createdAt).locale("id").format("DD MMM YYYY") }}
       </p>
       <h3 class="mb-4 text-base font-bold truncate">{{ title }}</h3>
       <NuxtLink :href="`/articles/${articleId}`"

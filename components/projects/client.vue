@@ -1,51 +1,49 @@
 <style scoped>
-.logo-container {
-    position: relative;
-    overflow: hidden;
-    /* Hide overflow to create scrolling effect */
-    height: 50px;
-    /* Adjust height based on logo size (30px + padding) */
-}
-
-.logo-wrapper {
-    display: flex;
-    animation: scroll 5s linear infinite;
-    /* Adjust timing for slower scroll speed */
-}
-
-.logo {
-    min-width: 50px;
-    /* Minimum width for logos */
-    margin: 0 5px;
-    /* Spacing between logos */
-    transition: transform 0.3s ease;
-    /* Animation for hover */
-}
-
-.client-logo {
-    height: 30px;
-    /* Set logo height */
-    filter: grayscale(100%);
-    /* Black and white filter */
-    transition: filter 0.3s ease;
-    /* Smooth transition for hover */
-}
-
-.logo:hover .client-logo {
-    filter: grayscale(0%);
-    /* Original color on hover */
-}
-
-/* Animation keyframes */
 @keyframes scroll {
     0% {
         transform: translateX(0);
     }
 
     100% {
-        transform: translateX(-50%);
-        /* Scrolls through all logos */
+        transform: translateX(calc(var(--width) - var(--width) * 2));
     }
+}
+
+.showcase {
+    --logo-height: 8vw;
+    --width: 100%;
+    width: var(--width)
+}
+
+.showcase>.wrapper {
+    display: flex;
+    animation: scroll 5s linear infinite;
+}
+
+.showcase:hover>.wrapper {
+    animation-play-state: paused;
+}
+
+.showcase>.wrapper>.logos {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+    width: var(--width);
+}
+
+.client-logo {
+    height: var(--logo-height);
+    width: 100%;
+    aspect-ratio: 2/1;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 500ms ease;
+}
+
+.client-logo:hover {
+    filter: grayscale(0%)
 }
 </style>
 <template>
@@ -53,34 +51,22 @@
         <div class="w-full flex-row pt-4 h-24 text-center font-bold text-[30px] justify-center text-[#438d3d]">
             Klien Kami
         </div>
-        <div class="flex justify-center logo-container">
-            <div class="w-[300px] max-w-[97vw] overflow-hidden flex">
-                <div class="flex logo-wrapper animate-scroll">
-                    <div class="logo">
-                        <LazyNuxtImg height="30" format="webp" src="/img/client/pp.png" alt="Logo 1"
-                            class="client-logo" />
-                    </div>
-                    <div class="logo">
-                        <LazyNuxtImg height="30" format="webp" src="/img/client/waskita.png" alt="Logo 2"
-                            class="client-logo" />
-                    </div>
-                    <div class="logo">
-                        <LazyNuxtImg height="30" format="webp" src="/img/client/logo-jakon.webp" alt="Logo 3"
-                            class="client-logo" />
-                    </div>
-                    <div class="logo">
-                        <LazyNuxtImg height="30" format="webp" src="/img/client/Adhi_Karya.svg.png" alt="Logo 4"
-                            class="client-logo" />
-                    </div>
-                    <div class="logo">
-                        <LazyNuxtImg height="30" format="webp" src="/img/client/65_takenaka-800x356.jpg" alt="Logo 5"
-                            class="client-logo" />
-                    </div>
-                    <!-- Add more logos as needed -->
+        <div class="my-10 overflow-hidden showcase">
+            <div class="wrapper">
+                <div class="logos">
+                    <LazyNuxtImg format="webp" src="/img/client/pp.png" alt="Logo 1" class="client-logo" height="100" />
+                    <LazyNuxtImg format="webp" src="/img/client/waskita.png" alt="Logo 2" class="client-logo"
+                        height="100" />
+                    <LazyNuxtImg format="webp" src="/img/client/logo-jakon.webp" alt="Logo 3" class="client-logo"
+                        height="100" />
+                    <LazyNuxtImg format="webp" src="/img/client/Adhi_Karya.svg.png" alt="Logo 4" class="client-logo"
+                        height="100" />
+                    <LazyNuxtImg format="webp" src="/img/client/65_takenaka-800x356.jpg" alt="Logo 5"
+                        class="client-logo" height="100" />
                 </div>
             </div>
         </div>
-        <div class="block w-full gap-4 px-10 pb-10 md:flex">
+        <div class="block w-full gap-4 px-10 md:flex">
             <!-- Column 1 -->
             <div class="md:w-1/4 w-full text-[10px] p-5 bg-main text-white">
                 <ul class="company-list-column-1">
@@ -308,7 +294,7 @@
 </template>
 <script setup>
 onMounted(() => {
-    const logoWrapper = document.querySelector(".logo-wrapper");
+    const logoWrapper = document.querySelector(".showcase>.wrapper");
     const logos = logoWrapper.innerHTML; // Get the HTML of the logos
 
     logoWrapper.innerHTML += logos; // Duplicate the logos for infinite scroll

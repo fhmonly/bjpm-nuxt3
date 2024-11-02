@@ -15,7 +15,7 @@ const { staticData } = useStatic();
 </script>
 <template>
   <section id="services">
-    <div class="py-6 mx-auto">
+    <div class="mx-auto">
       <div class="title"
         :style="`background-image: url(${config.public.apiPublic}/images/static/${staticData.data.service_hero_image});`">
         <div class="bg-[#ffffffb3] p-10 px-4 tablet:px-10">

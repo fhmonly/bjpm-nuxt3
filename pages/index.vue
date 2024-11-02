@@ -9,7 +9,7 @@ useHead({
 const { staticData } = useStatic();
 </script>
 <template>
-  <div class="min-h-screen">
+  <section class="min-h-screen">
     <HomeHero />
     <section id="about"
       class="flex flex-col items-center justify-between p-5 my-5 sm:px-10 sm:my-10 md:flex-row gap-y-8">
@@ -32,5 +32,5 @@ const { staticData } = useStatic();
     <section id="video" class="flex p-5 sm:p-10" v-show="staticData?.data?.home_video_profiles">
       <YoutubePlayer thumbnail="/img/Video Background.jpg" :url="staticData.data.home_video_profiles" />
     </section>
-  </div>
+  </section>
 </template>
