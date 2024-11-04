@@ -14,15 +14,23 @@ const {
 useSeoMeta({
   title: () => detailProduct.value?.data?.data?.description?.name,
 });
+const router = useRouter();
+function handleBack() {
+  if (window.history.length > 1) {
+    router.back();
+  } else {
+    router.push('/products');
+  }
+}
 </script>
 <template>
-  <section id="detail-section" class="px-10 my-8">
+  <main id="detail-section" class="px-10 my-8">
     <h2 class="pb-2 mb-10 text-2xl font-bold text-center border-b-4 text-main w-fit border-main" data-aos="fade-up">
       Detail Produk
     </h2>
     <div class="flex flex-col md:flex-row">
       <div class="mb-4 md:w-1/2 md:mb-0" data-aos="zoom-in">
-        <NuxtImg :src="`/binajaya/product/${detailProduct.data.data.image}`"
+        <NuxtImg :placeholder="[50, 25, 75, 5]" :src="`/binajaya/product/${detailProduct.data.data.image}`"
           :alt="`Gambar ${detailProduct.data.data.description.name}`" class="object-contain w-full h-64"
           format="webp" />
       </div>
@@ -42,9 +50,9 @@ useSeoMeta({
       </div>
     </div>
     <div class="mt-8">
-      <NuxtLink to="/products" class="px-4 py-2 text-white bg-main">
+      <button @click="handleBack" class="px-4 py-2 text-white bg-main">
         Kembali
-      </NuxtLink>
+      </button>
     </div>
-  </section>
+  </main>
 </template>

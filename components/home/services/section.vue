@@ -3,18 +3,18 @@
     <h1 class="text-[32px] text-center text-main font-bold pt-4 px-4 pb-4" data-aos="fade-up">
       Layanan
     </h1>
-    <div class="flex flex-wrap justify-center gap-5 py-5 mb-4">
-      <div class="aspect-[0.66/1] service-card grow w-[20%] min-w-[250px] max-w-[250px]" data-aos="zoom-in"
-        v-for="service in services.data?.slice(0, 4)" :key="service.id">
+    <div class="grid grid-cols-1 tablet:grid-cols-2 md:grid-cols-4 gap-5 py-5 mb-4">
+      <div class="aspect-[0.66/1] service-card" data-aos="zoom-in" v-for="service in services.data?.slice(0, 4)"
+        :key="service.id">
         <div class="h-full">
-          <LazyNuxtImg format="webp" :src="service.image" :alt="`Gambar pelayanan ${service.name}`"
-            class="object-cover w-full h-full" />
+          <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" :src="service.image"
+            :alt="`Gambar pelayanan ${service.name}`" class="object-cover w-full h-full" />
         </div>
         <div class="opacity-100 topic-overlay sm:opacity-0">
           <p class="text-xl mb-4 text-center w-[80%]">
             {{ service.name }}
           </p>
-          <NuxtLink class="bg-main text-[13px] p-2 border-2 border-white" :to="`javascript:void(0)`">Selengkapnya
+          <NuxtLink class="bg-main text-[13px] p-2 border-2 border-white" to="/services">Selengkapnya
           </NuxtLink>
         </div>
       </div>

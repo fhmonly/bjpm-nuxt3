@@ -4,19 +4,18 @@
       Proyek
     </h1>
     <div
-      class="flex flex-wrap justify-center gap-3 p-5 mb-1 md:gap-5 xl:justify-between project-card-container sm:p-10">
-      <NuxtLink class="project-card aspect-[1/1.15] w-full lg:max-w-[23%] tablet:max-w-[48%] relative overflow-hidden"
-        data-aos="zoom-in" href="javascript:void(0)" v-for="project in projects.data?.slice(0, 4)" :key="project.id"
-        @click="(event) => {
-            event.preventDefault();
-            showPopupGalery(
-              project.other_images.concat({ image: project.image }),
-              project.description.content
-            );
-          }
+      class="gap-3 p-5 mb-1 md:gap-5 project-card-container sm:p-10 grid grid-cols-1 tablet:grid-cols-2 md:grid-cols-4">
+      <NuxtLink class="project-card aspect-[1/1.15] relative overflow-hidden" data-aos="zoom-in"
+        href="javascript:void(0)" v-for="project in projects.data?.slice(0, 4)" :key="project.id" @click="(event) => {
+          event.preventDefault();
+          showPopupGalery(
+            project.other_images.concat({ image: project.image }),
+            project.description.content
+          );
+        }
           ">
-        <LazyNuxtImg format="webp" :src="project.image" :alt="`Gambar pengerjaan proyek ${project.description.title}`"
-          class="object-cover w-full h-full" />
+        <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" :src="project.image"
+          :alt="`Gambar pengerjaan proyek ${project.description.title}`" class="object-cover w-full h-full" />
       </NuxtLink>
     </div>
     <NuxtLink to="/projects"

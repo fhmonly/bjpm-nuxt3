@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'icon', type: 'image/png', href: '/img/logo/logo-bjpm.png' },
+        { rel: 'icon', type: 'image/x-icon', href: '/img/logo/logo-bjpm.png' },
       ],
     }
   },
@@ -18,7 +18,8 @@ export default defineNuxtConfig({
     googleCaptchaKeyPrivate: '6LfHAmYqAAAAAOeVH7pCYT0RCo6Zxjq4AvHLngZ7',
     public: {
       googleCaptchaKeyPublic: "6LfHAmYqAAAAAGpguF7iJyAFyNJIXrZExjxh5atf",
-      apiPublic: "https://api-web.binajayaperkasamandiri.com"
+      apiPublic: "https://api-web.binajayaperkasamandiri.com",
+      domain: "https://binajayaperkasamandiri.com"
     }
   },
   modules: [
@@ -27,7 +28,8 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     'dayjs-nuxt',
     '@nuxt/image',
-    '@nuxtjs/device'
+    '@nuxtjs/device',
+    '@nuxtjs/sitemap',
   ],
   dayjs: {
     locales: ['en', 'id'],
@@ -51,5 +53,19 @@ export default defineNuxtConfig({
       'xxl': 1536,
       '2xl': 1536
     },
+  },
+  site: {
+    url: 'https://binajayaperkasamandiri.com',
+    name: 'BJPM Scaffolding',
+  },
+  sitemap: {
+    include: [
+      "/*"
+    ],
+    // urls: async () => {
+    //   const response = await fetch('https://example.com/api/urls')
+    //   const urls = await response.json()
+    //   return urls
+    // }
   }
 })

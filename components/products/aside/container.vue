@@ -1,7 +1,4 @@
 <script setup>
-useSeoMeta({
-  title: "Products",
-});
 const config = useRuntimeConfig();
 const {
   data: categories,
@@ -11,9 +8,18 @@ const {
   pick: ["data"],
 });
 const route = useRoute();
+onMounted(() => {
+  setAsideTopPoss()
+  function setAsideTopPoss() {
+    const aside = document.querySelector("aside.category-filter")
+    const headerNav = document.querySelector("header")
+    aside.style.top = headerNav.clientHeight + "px"
+  }
+  window.addEventListener("resize", setAsideTopPoss)
+});
 </script>
 <template>
-  <aside class="sticky top-[80px] flex-col justify-center block w-full mb-4 bg-white h-fit">
+  <aside class="sticky flex-col justify-center block w-full mb-4 bg-white h-fit category-filter">
     <!-- <label
       for="aside-kategori"
       class="block p-4 text-xl font-bold text-white cursor-pointer bg-main"

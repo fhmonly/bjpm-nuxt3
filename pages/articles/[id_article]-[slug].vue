@@ -15,10 +15,18 @@ const {
 useSeoMeta({
   title: () => article.value?.data?.description?.title,
 });
+const router = useRouter()
+function handleBack() {
+  if (window.history.length > 1) {
+    router.back();
+  } else {
+    router.push('/products');
+  }
+}
 </script>
 <template>
-  <section id="detail-article" class="py-6">
-    <div class="container px-10 mx-auto">
+  <main id="detail-article" class="py-6">
+    <div class="container px-4 tablet:px-10 mx-auto">
       <h1 class="mb-4 text-4xl font-bold text-main">
         {{ article.data.description.title }}
       </h1>
@@ -32,8 +40,8 @@ useSeoMeta({
       </div>
 
       <div class="mb-8">
-        <NuxtImg :src="article.data.image" alt="Gambar Utama Artikel" class="w-full h-auto object-cover max-h-[400px]"
-          format="webp" />
+        <NuxtImg :placeholder="[50, 25, 75, 5]" :src="article.data.image" alt="Gambar Utama Artikel"
+          class="w-full h-auto object-cover max-h-[400px]" format="webp" />
       </div>
 
       <article class="text-sm font-normal prose text-justify max-w-none">
@@ -41,12 +49,12 @@ useSeoMeta({
       </article>
 
       <div class="mt-8">
-        <NuxtLink to="/articles" class="px-4 py-2 text-white bg-main">
+        <button @click="handleBack" class="px-4 py-2 text-white bg-main">
           Kembali
-        </NuxtLink>
+        </button>
       </div>
     </div>
-  </section>
+  </main>
 </template>
 <style>
 .p-detail a {

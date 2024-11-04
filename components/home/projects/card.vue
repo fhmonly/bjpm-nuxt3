@@ -17,8 +17,8 @@ const { title, image, url } = defineProps({
 <template>
     <NuxtLink class="project-card aspect-[1/1.15] max-w-[375px] min-w-[250px] relative overflow-hidden"
         data-aos="zoom-in" :href=url>
-        <LazyNuxtImg :src=image :alt="`Gambar pengerjaan proyek ${title}`" class="object-cover w-full h-full"
-            format="webp" />
+        <LazyNuxtImg :placeholder="[50, 25, 75, 5]" :src=image :alt="`Gambar pengerjaan proyek ${title}`"
+            class="object-cover w-full h-full" format="webp" />
     </NuxtLink>
 </template>
 

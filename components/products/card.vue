@@ -1,14 +1,15 @@
 <template>
   <div class="product-card aspect-[1/1.15] relative overflow-hidden min-w-[250px] max-w-[300px]"
     :data-category="category">
-    <LazyNuxtImg format="webp" :src="image" :alt="`Gambar produk ${title}`" class="object-cover w-full h-full" />
+    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" :src="image" :alt="`Gambar produk ${title}`"
+      class="object-cover w-full h-full" />
     <div
       class="absolute left-0 right-0 top-[100%] flex flex-col items-center h-full product-card-overlay justify-center">
       <p class="text-xl font-bold product-text text-main">
         {{ title }}
       </p>
-      <NuxtLink :to="url" style="text-decoration: none"
-        class="absolute bottom-0 px-2 py-1 mb-2 text-sm text-white border-2 border-transparent product-btn bg-main hover:border-main hover:bg-transparent">
+      <NuxtLink :to="url"
+        class="absolute bottom-0 no-underline px-2 py-1 mb-2 text-sm text-white border-2 border-transparent product-btn bg-main hover:border-main hover:bg-transparent">
         Selengkapnya
       </NuxtLink>
     </div>

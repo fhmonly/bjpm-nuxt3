@@ -15,15 +15,29 @@ onServerPrefetch(async () => {
 })
 
 useServerSeoMeta({
+  title: () => staticData.value?.data?.default_meta_title,
+  keywords: () => staticData.value?.data?.default_meta_keywords,
+});
+
+useSeoMeta({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | BJPM Scaffolding` : staticData.value?.data?.default_meta_title
   },
-  title: () => staticData.value?.data?.default_meta_title,
   description: () => staticData.value?.data?.default_meta_description,
-  keywords: () => staticData.value?.data?.default_meta_keywords
-});
+  ogTitle: () => staticData.value?.data?.default_meta_title,
+  ogDescription: () => staticData.value?.data?.default_meta_description,
+  ogImage: "/img/logo/logo-bjpm-white.jpg",
+  ogUrl: () => config.public.domain,
+  twitterTitle: () => staticData.value?.data?.default_meta_title,
+  twitterDescription: () => staticData.value?.data?.default_meta_description,
+  twitterImage: "/img/logo/logo-bjpm-white.jpg",
+  twitterCard: 'summary'
+})
 
 useHead({
+  htmlAttrs: {
+    lang: 'en'
+  },
   link: [
     {
       rel: "stylesheet",
@@ -33,6 +47,11 @@ useHead({
       rel: "stylesheet",
       href: "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap",
     },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      href: '/img/logo/logo-bjpm.png'
+    }
   ],
 });
 </script>

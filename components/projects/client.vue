@@ -48,27 +48,28 @@
 </style>
 <template>
     <section id="section2" class="w-full">
-        <div class="w-full flex-row pt-4 h-24 text-center font-bold text-[30px] justify-center text-[#438d3d]">
+        <div class="w-full flex-row pt-4 text-center font-bold text-[30px] justify-center text-[#438d3d]">
             Klien Kami
         </div>
         <div class="my-10 overflow-hidden showcase">
             <div class="wrapper">
                 <div class="logos">
-                    <LazyNuxtImg format="webp" src="/img/client/pp.png" alt="Logo 1" class="client-logo" height="100" />
-                    <LazyNuxtImg format="webp" src="/img/client/waskita.png" alt="Logo 2" class="client-logo"
-                        height="100" />
-                    <LazyNuxtImg format="webp" src="/img/client/logo-jakon.webp" alt="Logo 3" class="client-logo"
-                        height="100" />
-                    <LazyNuxtImg format="webp" src="/img/client/Adhi_Karya.svg.png" alt="Logo 4" class="client-logo"
-                        height="100" />
-                    <LazyNuxtImg format="webp" src="/img/client/65_takenaka-800x356.jpg" alt="Logo 5"
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/pp.png" alt="Logo 1"
                         class="client-logo" height="100" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/waskita.png" alt="Logo 2"
+                        class="client-logo" height="100" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/logo-jakon.webp"
+                        alt="Logo 3" class="client-logo" height="100" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/Adhi_Karya.svg.png"
+                        alt="Logo 4" class="client-logo" height="100" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/65_takenaka-800x356.jpg"
+                        alt="Logo 5" class="client-logo" height="100" />
                 </div>
             </div>
         </div>
-        <div class="block w-full gap-4 px-10 md:flex">
+        <div class="w-full gap-4 grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-4">
             <!-- Column 1 -->
-            <div class="md:w-1/4 w-full text-[10px] p-5 bg-main text-white">
+            <div class=" w-full text-[10px] p-5 bg-main text-white">
                 <ul class="company-list-column-1">
                     <li>CV. HIKMAH KLATEN</li>
                     <li>PT. INDRAKON KARYA</li>
@@ -125,7 +126,7 @@
             </div>
 
             <!-- Column 2 -->
-            <div class="md:w-1/4 w-full text-[10px] p-5 bg-main text-white">
+            <div class=" w-full text-[10px] p-5 bg-main text-white">
                 <ul class="company-list-column-2">
                     <li>PT. TUNAS MURNI</li>
                     <li>PT. KARYA JASA</li>
@@ -181,7 +182,7 @@
             </div>
 
             <!-- Column 3 -->
-            <div class="md:w-1/4 w-full text-[10px] p-5 bg-main text-white">
+            <div class=" w-full text-[10px] p-5 bg-main text-white">
                 <ul class="company-list-column-3">
                     <li>PT. IRWANA PRIMA UTAMA</li>
                     <li>PT. PANDERANG CAKA MUTI</li>
@@ -236,7 +237,7 @@
             </div>
 
             <!-- Column 4 -->
-            <div class="md:w-1/4 w-full text-[10px] p-5 bg-main text-white">
+            <div class=" w-full text-[10px] p-5 bg-main text-white">
                 <ul class="company-list-column-4">
                     <li>PT. GALANG BUMI</li>
                     <li>PT. SATYA PERSADA</li>

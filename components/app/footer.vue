@@ -55,19 +55,19 @@
         </div>
       </div>
       <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-5 order-1 flex items-center">
-        <NuxtImg src="/img/logo/logo-bjpm-white.jpg" alt="logo BJPM" class="aspect-auto w-[135px] mx-auto md:mx-0"
-          width="100" format="webp" />
+        <NuxtImg :placeholder="[50, 25, 75, 5]" src="/img/logo/logo-bjpm-white.jpg" alt="logo BJPM"
+          class="aspect-auto w-[135px] mx-auto md:mx-0" width="100" format="webp" />
       </div>
       <div class="md:w-[60%] w-full md:order-6 order-7">
         <h3 class="mb-4 font-bold text-white">Partner</h3>
         <div class="flex flex-col gap-4 md:flex-row">
           <NuxtLink :to="'#'" class="flex justify-center">
-            <NuxtImg :src="'/img/logo/c1.png'" alt="" class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]" height="50"
-              format="webp" />
+            <NuxtImg :placeholder="[50, 25, 75, 5]" :src="'/img/logo/c1.png'" alt="gambar c1"
+              class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]" height="50" format="webp" />
           </NuxtLink>
           <NuxtLink :to="'#'" class="flex justify-center">
-            <NuxtImg :src="'/img/logo/c2.png'" alt="" class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]" height="50"
-              format="webp" />
+            <NuxtImg :placeholder="[50, 25, 75, 5]" :src="'/img/logo/c2.png'" alt="gambar c2"
+              class="min-h-[32px] flex-shrink-1 h-full max-h-[50px]" height="50" format="webp" />
           </NuxtLink>
         </div>
       </div>

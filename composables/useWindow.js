@@ -6,6 +6,14 @@ export function useWindowUrl() {
         newUrl.searchParams.set(name, value);
         return newUrl.search;
     }
+    function createSlug(text) {
+        return text
+            .toLowerCase()
+            .trim()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-');
+    }
 
-    return { createUrlQuery };
+    return { createUrlQuery, createSlug };
 }

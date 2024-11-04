@@ -20,24 +20,26 @@ watch(
     currentPage.value = +newPage || 1;
   }
 );
-const { createUrlQuery } = useWindowUrl();
+const { createUrlQuery, createSlug } = useWindowUrl();
 </script>
 <template>
-  <section id="product" class="flex flex-col px-4 tablet:px-10">
+  <main id="product" class="flex flex-col px-4 tablet:px-10">
     <h1 class="py-4 mb-5 text-3xl font-bold text-center text-white md:text-4xl sm:py-6 md:py-20 section-header">
       Produk Kami
     </h1>
     <div class="block mb-10 md:flex justify">
-      <div class="w-full mr-0 md:w-3/12 md:mr-10">
+      <div class="w-full md:w-[40%] md:max-w-[360px]">
         <ProductsAsideContainer />
       </div>
 
-      <div class="flex flex-col w-full md:w-9/12">
-        <div class="flex flex-wrap justify-center gap-5 mb-10 product-card-container">
-          <div class="article-card aspect-[0.87/1] w-full sm:max-w-[48%] lg:max-w-[31%] flex flex-col"
-            data-aos="zoom-in" v-for="product in products.data.data" :key="product.description.id">
-            <LazyNuxtImg :src="product.image" :alt="`Gambar produk ${product.description.name}`"
-              class="object-cover grow aspect-[1.29/1]" format="webp" />
+      <div class="flex flex-col w-full md:w-9/12 md:ml-5">
+        <div
+          class="grid grid-cols-1 tablet:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 mb-10 product-card-container">
+          <div class="article-card aspect-[0.87/1] flex flex-col" data-aos="zoom-in"
+            v-for="product in products.data.data" :key="product.description.id">
+            <LazyNuxtImg :placeholder="[50, 25, 75, 5]" :src="product.image"
+              :alt="`Gambar produk ${product.description.name}`" class="object-cover grow aspect-[1.29/1]"
+              format="webp" />
             <div class="flex flex-col p-3 pt-5 text-sm bg-[#94949431] text-main">
               <!-- <p class="mb-1 text-greybf">
                 {{ $dayjs(article.dates).locale("id").fromNow() }}
@@ -46,7 +48,7 @@ const { createUrlQuery } = useWindowUrl();
                 {{ product.description.name }}
               </p>
               <NuxtLink class="flex items-center gap-2 p-2 py-1 text-white ms-auto bg-main"
-                :to="`/products/${product.description.product_id}`">
+                :to="`/products/${product.description.product_id}-${createSlug(product.description.name)}`">
                 Baca Lebih
                 <IconBiArrowRight />
               </NuxtLink>
@@ -80,7 +82,7 @@ const { createUrlQuery } = useWindowUrl();
         </div>
       </div>
     </div>
-  </section>
+  </main>
 </template>
 <style scoped>
 #product h1 {

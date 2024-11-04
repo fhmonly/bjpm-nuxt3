@@ -32,7 +32,8 @@ const id = `ytp-${Date.now()}`;
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     <div class="absolute top-0 bottom-0 left-0 right-0 thumbnail" :target="`#${id}`" @click="playVid">
-      <NuxtImg :src="thumbnail" format="webp" alt="Thumbnail video" class="object-cover w-full h-full" />
+      <NuxtImg :placeholder="[50, 25, 75, 5]" :src="thumbnail" format="webp" alt="Thumbnail video"
+        class="object-cover w-full h-full" />
       <div class="absolute top-0 bottom-0 left-0 right-0 backdrop-brightness-75">
         <a id="play-video" class="video-play-button" href="javascript:void(0)">
           <span></span>

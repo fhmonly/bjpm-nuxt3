@@ -1,19 +1,18 @@
 <template>
-  <section id="project" class="px-4">
+  <main id="project" class="px-4 tablet:px-10">
     <h1 class="py-4 mb-5 text-3xl font-bold text-center text-white md:text-4xl sm:py-6 md:py-20 section-header">
       Proyek Kami
     </h1>
-    <div class="flex flex-wrap justify-between gap-4 mb-5">
-      <div
-        class="aspect-[1/1.15] tablet:w-[48%] md:w-[24%] grow min-w-[250px] relative flex items-center justify-center overflow-hidden project-card"
+    <div class="grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-5">
+      <div class="aspect-[1/1.15] relative flex items-center justify-center overflow-hidden project-card"
         v-for="project in projects.data" :key="project.description.galeri_id" @click="
           showPopupGalery(
             project.other_images.concat({ image: project.image }),
             project.description.content
           )
           ">
-        <LazyNuxtImg format="webp" :src="project.image" :alt="`Thumbnail ${project.description.title}`"
-          class="object-cover w-full h-full" />
+        <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" :src="project.image"
+          :alt="`Thumbnail ${project.description.title}`" class="object-cover w-full h-full" />
         <div class="absolute top-0 flex flex-col items-center justify-center w-full h-full text-white overlay">
           <p class="text-[15px] font-semibold">
             {{ project.description.title }}
@@ -26,9 +25,9 @@
         <IconBiXCircle width="44" height="44" class="mb-5 text-red-500" />
         <p>Belum ada proyek yang dikerjakan</p>
       </div>
-      <ProjectsClient />
     </div>
-  </section>
+    <ProjectsClient />
+  </main>
 </template>
 <script setup>
 useSeoMeta({
