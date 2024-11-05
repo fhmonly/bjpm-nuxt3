@@ -26,12 +26,12 @@ useSeoMeta({
   description: () => staticData.value?.data?.default_meta_description,
   ogTitle: () => staticData.value?.data?.default_meta_title,
   ogDescription: () => staticData.value?.data?.default_meta_description,
-  ogImage: "/img/logo/logo-bjpm-white.jpg",
+  ogImage: "/img/hero/2.jpg",
   ogUrl: () => config.public.domain,
   twitterTitle: () => staticData.value?.data?.default_meta_title,
   twitterDescription: () => staticData.value?.data?.default_meta_description,
-  twitterImage: "/img/logo/logo-bjpm-white.jpg",
-  twitterCard: 'summary'
+  twitterImage: "/img/hero/2.jpg",
+  twitterCard: 'summary',
 })
 
 useHead({
@@ -51,7 +51,7 @@ useHead({
       rel: 'icon',
       type: 'image/png',
       href: '/img/logo/logo-bjpm.png'
-    }
+    },
   ],
 });
 </script>
