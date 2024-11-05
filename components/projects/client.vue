@@ -55,15 +55,27 @@
             <div class="wrapper">
                 <div class="logos">
                     <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/pp.png" alt="Logo 1"
-                        class="client-logo" height="100" />
+                        class="client-logo" sizes="20vw" />
                     <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/waskita.png" alt="Logo 2"
-                        class="client-logo" height="100" />
+                        class="client-logo" sizes="20vw" />
                     <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/logo-jakon.webp"
-                        alt="Logo 3" class="client-logo" height="100" />
+                        alt="Logo 3" class="client-logo" sizes="20vw" />
                     <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/Adhi_Karya.svg.png"
-                        alt="Logo 4" class="client-logo" height="100" />
+                        alt="Logo 4" class="client-logo" sizes="20vw" />
                     <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/65_takenaka-800x356.jpg"
-                        alt="Logo 5" class="client-logo" height="100" />
+                        alt="Logo 5" class="client-logo" sizes="20vw" />
+                </div>
+                <div class="logos">
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/pp.png" alt="Logo 1"
+                        class="client-logo" sizes="20vw" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/waskita.png" alt="Logo 2"
+                        class="client-logo" sizes="20vw" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/logo-jakon.webp"
+                        alt="Logo 3" class="client-logo" sizes="20vw" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/Adhi_Karya.svg.png"
+                        alt="Logo 4" class="client-logo" sizes="20vw" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/65_takenaka-800x356.jpg"
+                        alt="Logo 5" class="client-logo" sizes="20vw" />
                 </div>
             </div>
         </div>
@@ -293,11 +305,3 @@
         </div>
     </section>
 </template>
-<script setup>
-onMounted(() => {
-    const logoWrapper = document.querySelector(".showcase>.wrapper");
-    const logos = logoWrapper.innerHTML; // Get the HTML of the logos
-
-    logoWrapper.innerHTML += logos; // Duplicate the logos for infinite scroll
-});
-</script>
