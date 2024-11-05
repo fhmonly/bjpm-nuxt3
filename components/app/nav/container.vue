@@ -63,7 +63,7 @@ const { staticData } = useStatic();
           <li class="flex flex-col items-center text-center text-main">
             <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/logo/logo-bjpm.png" alt="logo bjpm"
               class="h-[70px] aspect-auto object-contain mb-3" height="70" />
-            <p class="mobile-tagline">PT. BINA JAYA MANDIRI INDONESIA</p>
+            <p class="mobile-tagline">PT. BINAJAYA PERKASA MANDIRI</p>
           </li>
           <AppNavItem @click="offCanvasItemClick" href="/">Home</AppNavItem>
           <AppNavItem @click="offCanvasItemClick" href="/about">Tentang</AppNavItem>
