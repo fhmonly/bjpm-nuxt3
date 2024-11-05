@@ -54,28 +54,28 @@
         <div class="my-10 overflow-hidden showcase">
             <div class="wrapper">
                 <div class="logos">
-                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/pp.png" alt="Logo 1"
-                        class="client-logo" sizes="20vw" />
-                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/waskita.png" alt="Logo 2"
-                        class="client-logo" sizes="20vw" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/pp.png"
+                        alt="Client logo 1" class="client-logo" sizes="20vw" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/waskita.png"
+                        alt="Client logo 2" class="client-logo" sizes="20vw" />
                     <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/logo-jakon.webp"
-                        alt="Logo 3" class="client-logo" sizes="20vw" />
+                        alt="Client logo 3" class="client-logo" sizes="20vw" />
                     <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/Adhi_Karya.svg.png"
-                        alt="Logo 4" class="client-logo" sizes="20vw" />
+                        alt="Client logo 4" class="client-logo" sizes="20vw" />
                     <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/65_takenaka-800x356.jpg"
-                        alt="Logo 5" class="client-logo" sizes="20vw" />
+                        alt="Client logo 5" class="client-logo" sizes="20vw" />
                 </div>
                 <div class="logos">
-                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/pp.png" alt="Logo 1"
-                        class="client-logo" sizes="20vw" />
-                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/waskita.png" alt="Logo 2"
-                        class="client-logo" sizes="20vw" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/pp.png"
+                        alt="Client logo 1" class="client-logo" sizes="20vw" />
+                    <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/waskita.png"
+                        alt="Client logo 2" class="client-logo" sizes="20vw" />
                     <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/logo-jakon.webp"
-                        alt="Logo 3" class="client-logo" sizes="20vw" />
+                        alt="Client logo 3" class="client-logo" sizes="20vw" />
                     <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/Adhi_Karya.svg.png"
-                        alt="Logo 4" class="client-logo" sizes="20vw" />
+                        alt="Client logo 4" class="client-logo" sizes="20vw" />
                     <LazyNuxtImg :placeholder="[50, 25, 75, 5]" format="webp" src="/img/client/65_takenaka-800x356.jpg"
-                        alt="Logo 5" class="client-logo" sizes="20vw" />
+                        alt="Client logo 5" class="client-logo" sizes="20vw" />
                 </div>
             </div>
         </div>
