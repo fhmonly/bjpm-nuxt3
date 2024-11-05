@@ -15,11 +15,11 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   runtimeConfig: {
-    googleCaptchaKeyPrivate: '6LfHAmYqAAAAAOeVH7pCYT0RCo6Zxjq4AvHLngZ7',
+    googleCaptchaKeyPrivate: process.env.GOOGLE_CAPTCHA_PRIVATE_KEY,
     public: {
-      googleCaptchaKeyPublic: "6LfHAmYqAAAAAGpguF7iJyAFyNJIXrZExjxh5atf",
-      apiPublic: "https://api-web.binajayaperkasamandiri.com",
-      domain: "https://binajayaperkasamandiri.com"
+      googleCaptchaKeyPublic: process.env.GOOGLE_CAPTCHA_PUBLIC_KEY,
+      apiPublic: process.env.API_ENDPOINT,
+      domain: process.env.HOST
     }
   },
   modules: [
@@ -41,7 +41,7 @@ export default defineNuxtConfig({
     format: ["webp"],
     domains: ['api-web.binajayaperkasamandiri.com'],
     alias: {
-      binajaya: "https://api-web.binajayaperkasamandiri.com/images"
+      binajaya: `${process.env.API_ENDPOINT}/images`
     },
     quality: 75,
     screens: {
@@ -55,8 +55,8 @@ export default defineNuxtConfig({
     },
   },
   site: {
-    url: 'https://binajayaperkasamandiri.com',
-    name: 'BJPM Scaffolding',
+    url: process.env.HOST,
+    name: process.env.APP_NAME,
   },
   sitemap: {
     async urls(): Promise<any[]> {
@@ -86,7 +86,7 @@ export default defineNuxtConfig({
           }
         },
       }
-      const articlesResponse = await fetch('https://api-web.binajayaperkasamandiri.com/api/articles');
+      const articlesResponse = await fetch(`${process.env.API_ENDPOINT}/api/articles`);
       const articles: { data: Article[] } = await articlesResponse.json();
       const finalArticles: any[] = articles?.data.map((article) => {
         return {
@@ -109,7 +109,7 @@ export default defineNuxtConfig({
         }
       });
 
-      const productsResponse = await fetch('https://api-web.binajayaperkasamandiri.com/api/products');
+      const productsResponse = await fetch(`${process.env.API_ENDPOINT}/api/products`);
       const products: apiProducts = await productsResponse.json();
       const PRODUCTS_TOTAL_PAGE = products.data.infoPage.total_page
       const finalProducts: any[] = products?.data.data.map((product) => {
@@ -134,7 +134,7 @@ export default defineNuxtConfig({
       });
       if (PRODUCTS_TOTAL_PAGE >= 2) {
         for (let index = 2; index <= PRODUCTS_TOTAL_PAGE; index++) {
-          const nthProductsResponse = await fetch(`https://api-web.binajayaperkasamandiri.com/api/products?page=${index}`);
+          const nthProductsResponse = await fetch(`${process.env.API_ENDPOINT}/api/products?page=${index}`);
           const nthProducts: apiProducts = await nthProductsResponse.json();
           const nthFinalProducts: any[] = nthProducts?.data.data.map((product) => {
             return {
