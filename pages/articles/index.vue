@@ -14,7 +14,7 @@ const {
 const { staticData } = useStatic();
 </script>
 <template>
-  <main id="article" class="px-4 tablet:px-10">
+  <main id="article" class="px-2 tablet:px-8">
     <div id="carouselExample" class="relative w-full mb-8" data-aos="fade-up">
       <div class="relative h-64 overflow-hidden md:h-96">
         <div class="flex transition-transform duration-300 ease-in-out" id="carouselItems">

@@ -17,7 +17,7 @@ const { staticData } = useStatic();
   <main id="services">
     <div class="mx-auto">
       <div class="title relative isolate">
-        <div class="bg-[#ffffffb3] p-10 px-4 tablet:px-10">
+        <div class="bg-[#ffffffb3] p-4 tablet:p-10">
           <h1
             class="pb-2 my-4 text-4xl font-bold capitalize border-b-4 text-main w-fit border-main aos-init aos-animate"
             data-aos="fade-up">
@@ -36,7 +36,7 @@ const { staticData } = useStatic();
           class="object-cover w-full top-0 left-0 bottom-0 right-0 absolute z-[-1] object-center h-full" />
       </div>
 
-      <div class="flex flex-row flex-wrap gap-6 p-10 px-4 tablet:px-10 md:flex-col">
+      <div class="flex flex-row flex-wrap gap-6 p-10 px-2 tablet:px-8 md:flex-col">
         <div class="flex flex-col w-full overflow-hidden shadow-md md:flex-row services-card" data-aos="fade-down"
           v-for="(service, index) in services.data" :key="index">
           <LazyNuxtImg :placeholder="[50, 25, 75, 5]"

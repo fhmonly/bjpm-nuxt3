@@ -13,6 +13,7 @@
     "@nuxt/image": "^1.8.1",
     "@nuxtjs/device": "^3.2.4",
     "@nuxtjs/sitemap": "^6.1.4",
+    "lightgallery": "^2.7.2",
     "nuxt": "^3.13.0",
     "photoswipe": "^5.4.4",
     "sweetalert2": "^11.14.4",

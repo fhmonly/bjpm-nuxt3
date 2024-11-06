@@ -27,7 +27,7 @@ onMounted(() => {
     const msg = encodeURIComponent(`*Pesan* : ${formData.get("msg").trim()}`)
     grecaptcha.reset(gRecaptcha);
     window.open(
-      `https://${isDesktop ? 'web.whatsapp.com' : 'api.whatsapp.com'}/send/?phone=${staticData.value?.data?.contact_wa}&text=` +
+      `https://wa.me/send/?phone=${staticData.value?.data?.contact_wa}&text=` +
       fullname + email + phone + msg,
       "_blank"
     )
@@ -44,7 +44,7 @@ main#contact {
 }
 </style>
 <template>
-  <main id="contact" class="backdrop-brightness-75 px-4 tablet:px-10">
+  <main id="contact" class="backdrop-brightness-75 px-2 tablet:px-8">
     <div class="flex items-center justify-center bg-center bg-cover">
       <div class="text-center text-white">
         <h1 class="pb-2 my-4 text-4xl font-bold capitalize border-b-4 border-white w-fit" data-aos="fade-up">

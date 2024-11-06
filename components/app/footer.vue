@@ -20,14 +20,14 @@
           </NuxtLink>
           <NuxtLink class="font-normal text-white" :href="staticData?.data?.url_instagram" target="_blank">Instagram
           </NuxtLink>
-          <NuxtLink class="font-normal text-white" :href="staticData?.data?.url_youtube" target="_blank">Youtube
+          <!-- <NuxtLink class="font-normal text-white" :href="staticData?.data?.url_youtube" target="_blank">Youtube
           </NuxtLink>
           <NuxtLink class="font-normal text-white" :href="staticData?.data?.url_tiktok" target="_blank">Tiktok
           </NuxtLink>
           <NuxtLink class="font-normal text-white" :href="staticData?.data?.url_shopee" target="_blank">Shopee
-          </NuxtLink>
-          <NuxtLink class="font-normal text-white" :href="staticData?.data?.url_tokopedia" target="_blank">Tokopedia
-          </NuxtLink>
+          </NuxtLink> -->
+          <!-- <NuxtLink class="font-normal text-white" :href="staticData?.data?.url_tokopedia" target="_blank">Tokopedia
+          </NuxtLink> -->
         </div>
       </div>
       <div class="md:w-[18%] w-full md:mb-0 mb-5 md:order-3 order-4">

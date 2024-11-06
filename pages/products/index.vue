@@ -23,7 +23,7 @@ watch(
 const { createUrlQuery, createSlug } = useWindowUrl();
 </script>
 <template>
-  <main id="product" class="flex flex-col px-4 tablet:px-10">
+  <main id="product" class="flex flex-col px-2 tablet:px-8">
     <h1 class="py-4 mb-5 text-3xl font-bold text-center text-white md:text-4xl sm:py-6 md:py-20 section-header">
       Produk Kami
     </h1>

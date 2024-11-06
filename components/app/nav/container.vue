@@ -29,10 +29,10 @@ const { staticData } = useStatic();
       <div class="flex items-center justify-center logo me-3">
         <NuxtLink href="/" class="shrink-0">
           <NuxtImg :placeholder="[50, 25, 75, 5]" src="/img/logo/logo-bjpm.png" alt="Logo BJPM" format="webp"
-            class="w-[110px] p-1 sm:w-[160px]" width="160" />
+            class="w-[110px] sm:w-[160px]" width="160" />
         </NuxtLink>
         <div class="block mx-2 me-4 max-w-[300px]">
-          <p class="text-sm text-main line-clamp-1">
+          <p class="text-sm text-main line-clamp-2">
             {{ staticData?.data?.contact_company_name }}
           </p>
           <p class="hidden text-xs text-nav-capt sm:block line-clamp-2">

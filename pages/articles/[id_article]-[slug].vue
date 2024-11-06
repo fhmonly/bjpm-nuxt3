@@ -26,12 +26,12 @@ function handleBack() {
 </script>
 <template>
   <main id="detail-article" class="py-6">
-    <div class="container px-4 tablet:px-10 mx-auto">
-      <h1 class="mb-4 text-4xl font-bold text-main">
+    <div class="container px-2 tablet:px-8 mx-auto md:w-[70%]">
+      <h1 class="mb-4 text-2xl md:text-4xl font-bold text-main">
         {{ article.data.description.title }}
       </h1>
 
-      <div class="flex items-center justify-between mb-6 text-sm text-gray-500">
+      <div class="flex items-center justify-between text-sm text-gray-500">
         <span class="italic">Published on:
           <strong>{{
             $dayjs(article.data.dates).locale("id").format("DD MMM YYYY")
@@ -39,14 +39,11 @@ function handleBack() {
         <span class="italic">By: <strong>BJPM Admin</strong></span>
       </div>
 
-      <div class="mb-8">
-        <NuxtImg :placeholder="[50, 25, 75, 5]" :src="article.data.image" alt="Gambar Utama Artikel"
-          class="w-full h-auto object-cover max-h-[400px]" format="webp" />
-      </div>
+      <NuxtImg :placeholder="[50, 25, 75, 5]" :src="article.data.image" alt="Gambar Utama Artikel"
+        class="w-full h-auto object-cover max-h-[400px] my-6" format="webp" />
 
-      <article class="text-sm font-normal prose text-justify max-w-none">
-        <article class="p-detail no-tailwind" v-html="article.data.description.content"></article>
-      </article>
+      <article class="p-detail no-tailwind text-sm font-normal text-justify max-w-none"
+        v-html="article.data.description.content"></article>
 
       <div class="mt-8">
         <button @click="handleBack" class="px-4 py-2 text-white bg-main">

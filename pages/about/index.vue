@@ -17,7 +17,7 @@ const { staticData } = useStatic();
         :src="`/binajaya/static/${staticData?.data?.about_hero_image}`"
         class="object-cover w-full top-0 left-0 bottom-0 right-0 absolute z-[-1] object-center h-full" />
     </div>
-    <div class="px-4 tablet:px-10 pb-6 mx-auto text-sm leading-5">
+    <div class="px-2 tablet:px-8 pb-6 mx-auto text-sm leading-5">
       <div class="block my-6">
         <h2 class="mb-6 text-2xl font-bold text-center text-main" data-aos="fade-up">
           Visi & Misi
