@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   vue: {
     compilerOptions: {
@@ -96,7 +97,7 @@ export default defineNuxtConfig({
           news: [
             {
               title: article.description.title,
-              publication_date: article.dates,
+              publication_date: formatDate(article.dates),
             }
           ],
           images: [
@@ -120,7 +121,7 @@ export default defineNuxtConfig({
           news: [
             {
               title: product.description.name,
-              publication_date: product.date_update,
+              publication_date: formatDate(product.date_update),
             }
           ],
           images: [
@@ -144,7 +145,7 @@ export default defineNuxtConfig({
               news: [
                 {
                   title: product.description.name,
-                  publication_date: product.date_update,
+                  publication_date: formatDate(product.date_update),
                 }
               ],
               images: [
@@ -174,4 +175,13 @@ function createSlug(text: string) {
     .replace(/[^\w\s-]/g, '')
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-');
+}
+function formatDate(dateStr: any) {
+  const date = new Date(dateStr);
+  const formattedDate = new Intl.DateTimeFormat('en-CA', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(date);
+  return formattedDate;
 }
