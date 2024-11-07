@@ -8,7 +8,7 @@
         v-for="project in projects.data" :key="project.description.galeri_id" @click="
           showImageGalery({
             activeImageIndex: 0,
-            galeries: project.other_images.concat({ image: project.image }).map(g => {
+            galeries: [{ image: project.image }].concat(project.other_images).map(g => {
               return {
                 image: g.image,
                 description: project?.description?.content || project?.description?.title
@@ -21,8 +21,8 @@
           <p class="text-[15px] font-semibold">
             {{ project.description.title }}
           </p>
+          <div class="text-[15px]" v-html="project?.description?.content"></div>
           <p class="text-[10px]">{{ project.description.sub_title }}</p>
-          <p class="text-[10px]">{{ project.description.sub_title_2 }}</p>
         </div>
       </div>
       <div class="flex flex-col items-center justify-center w-full py-8" v-if="projects?.data?.length <= 0">
