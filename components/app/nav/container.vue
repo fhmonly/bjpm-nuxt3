@@ -25,8 +25,8 @@ const { staticData } = useStatic();
 </script>
 <template>
   <header class="sticky top-0 z-50 px-2 tablet:px-8 bg-body">
-    <nav class="flex items-center justify-between py-4">
-      <div class="flex items-center justify-center logo me-3">
+    <nav class="flex items-center py-4">
+      <div class="flex items-center justify-start logo me-3 grow">
         <NuxtLink href="/" class="shrink-0">
           <NuxtImg :placeholder="[50, 25, 75, 5]" src="/img/logo/logo-bjpm.png" alt="Logo BJPM" format="webp"
             class="w-[110px] sm:w-[160px]" width="160" />
@@ -41,7 +41,7 @@ const { staticData } = useStatic();
         </div>
       </div>
       <ul
-        class="hidden lg:flex items-center grow justify-between mx-3 text-black flex-wrap overflow-hidden max-w-[50%] gap-3 me-7">
+        class="hidden lg:flex items-center grow ms-auto justify-between mx-3 text-black flex-wrap overflow-hidden max-w-[650px] gap-3 me-7">
         <AppNavItem href="/">Home</AppNavItem>
         <AppNavItem href="/about">Tentang</AppNavItem>
         <AppNavItem href="/services">Layanan</AppNavItem>

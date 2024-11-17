@@ -1,4 +1,6 @@
 <script setup>
+import Swal from 'sweetalert2';
+
 const config = useRuntimeConfig();
 const { staticData } = useStatic()
 onServerPrefetch(async () => {
@@ -53,6 +55,37 @@ useHead({
       href: '/img/logo/logo-bjpm.png'
     },
   ],
+});
+
+onMounted(() => {
+  Swal.fire({
+    confirmButtonColor: '#dc2626',
+    confirmButtonText: 'Saya Mengerti',
+    html: `
+      <div class="w-full p-6">
+        <div class="mb-6 text-center">
+          <h2 class="mb-2 text-2xl font-bold text-red-600">
+            PERINGATAN: ALAMAT GOOGLE PALSU
+          </h2>
+        </div>
+        <div>
+          <img src='/img/fake-web-warning.png' class="object-contain w-auto h-auto aspect-[406/541] mb-5"/>  
+        </div>
+        <div class="space-y-4 text-gray-700">
+          <p class="font-medium">
+              Mohon diperhatikan bahwa telah ditemukan ALAMAT PALSU di Google Maps yang mengatasnamakan perusahaan kami (Binajaya Scaffolding).
+          </p>
+          <p>
+              Hal ini dilakukan oleh pihak yang tidak bertanggung jawab yang sengaja membuat bisnis Google palsu menggunakan nama perusahaan kami dan mencantumkan informasi bahwa Binajaya Scaffolding telah tutup permanen, informasi serta gambar diatas tentu tidaklah benar atau hoax.
+          </p>
+          <p class="font-medium">
+              Harap berhati-hati dan pastikan Anda menghubungi kami melalui kontak resmi yang tercantum di website ini.
+          </p>
+        </div>
+      </div>
+    `,
+    allowOutsideClick: false,
+  })
 });
 </script>
 <template>
