@@ -58,25 +58,28 @@ useHead({
 });
 
 onMounted(() => {
-  Swal.fire({
-    confirmButtonColor: '#dc2626',
-    confirmButtonText: 'Saya Mengerti',
-    html: `
+  if ((JSON.parse(localStorage.getItem('isWarningAlreadyOpen')) || false) !== true)
+    Swal.fire({
+      confirmButtonColor: '#dc2626',
+      confirmButtonText: 'Saya Mengerti',
+      html: `
       <div class="w-full p-6">
         <div class="mb-6 text-center">
           <h2 class="mb-2 text-2xl font-bold text-red-600">
-            PERINGATAN: ALAMAT GOOGLE PALSU
+            PERINGATAN: INFO GOOGLE PALSU
           </h2>
         </div>
-        <div>
-          <img src='/img/fake-web-warning.png' class="object-contain w-auto h-auto aspect-[406/541] mb-5"/>  
+        <div class="w-auto h-auto aspect-[203/149] mb-5">
+          <img src='/img/fake-web-warning.png' class="object-contain w-full h-full"/>
         </div>
         <div class="space-y-4 text-gray-700">
           <p class="font-medium">
-              Mohon diperhatikan bahwa telah ditemukan ALAMAT PALSU di Google Maps yang mengatasnamakan perusahaan kami (Binajaya Scaffolding).
+              Mohon diperhatikan bahwa telah ditemukan INFORMASI PALSU di Google Maps yang mengatasnamakan perusahaan kami (Binajaya Scaffolding).
           </p>
           <p>
-              Hal ini dilakukan oleh pihak yang tidak bertanggung jawab yang sengaja membuat bisnis Google palsu menggunakan nama perusahaan kami dan mencantumkan informasi bahwa Binajaya Scaffolding telah tutup permanen, informasi serta gambar diatas tentu tidaklah benar atau hoax.
+              <strong>
+                Binajaya Perkasa Mandiri Scaffolding selalu buka setiap 
+              </strong>
           </p>
           <p class="font-medium">
               Harap berhati-hati dan pastikan Anda menghubungi kami melalui kontak resmi yang tercantum di website ini.
@@ -84,8 +87,12 @@ onMounted(() => {
         </div>
       </div>
     `,
-    allowOutsideClick: false,
-  })
+      allowOutsideClick: false,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.setItem('isWarningAlreadyOpen', true);
+      }
+    });
 });
 </script>
 <template>
