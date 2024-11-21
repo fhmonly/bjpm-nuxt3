@@ -78,7 +78,7 @@ onMounted(() => {
           </p>
           <p>
               <strong>
-                Binajaya Perkasa Mandiri Scaffolding selalu buka setiap 
+                Binajaya Perkasa Mandiri Scaffolding selalu buka Setiap Hari.
               </strong>
           </p>
           <p class="font-medium">
