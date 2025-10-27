@@ -40,7 +40,10 @@ export default defineNuxtConfig({
   },
   image: {
     format: ["webp"],
-    domains: ['api-web.binajayaperkasamandiri.com'],
+    domains: [
+      'api-web.binajayaperkasamandiri.com',
+      'admin-panel.binajayaperkasamandiri.com',
+    ],
     alias: {
       binajaya: `${process.env.API_ENDPOINT}/images`
     },
